@@ -1,0 +1,23 @@
+@use '../../../styles/variables' as *;
+
+.header {
+  @include borderbottomlight;
+  // box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: $white;
+}
+
+.navcontainer {
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0rem;
+  @include desktop-container;
+}
+
+.logo{
+  white-space: pre;
+  font-weight: bold;
+  @include serif;
+}

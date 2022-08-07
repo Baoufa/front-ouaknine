@@ -1,0 +1,91 @@
+@use '../../../styles/variables' as *;
+
+.nav {
+  display: block;
+  height: 0;
+  width: 100%;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+@media (min-width: 993px) {
+  .nav {
+    display: none;
+  }
+}
+
+.visible {
+  height: calc(100vh - 80px);
+}
+
+.navlist {
+  display: none;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem 1rem;
+  width: 100%;
+  background-color: $white;
+  overflow: hidden;
+}
+
+.listvisible {
+  display: flex;
+}
+
+.separator {
+  margin: 0 auto;
+  height: 1px;
+  background-color: $gray200;
+  width: 80%;
+}
+
+.link {
+  display: block;
+  padding: 3rem 0;
+  @include serif;
+  @include scaleclick;
+}
+
+.langblock {
+  margin-top: 3rem;
+}
+
+.lang {
+  padding: 3rem 1rem;
+  display: inline-block;
+}
+
+.navitem {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+$prevDelay: 0s;
+$newDelay: 0s;
+$gapDelay: .12s;
+
+@for $i from 1 through 10 {
+  $newDelay: $prevDelay + $gapDelay;
+  $prevDelay: $newDelay;
+  .animation#{($i - 1)} {
+    animation: itemanimation 0.3s;
+    animation-delay: $newDelay;
+    animation-fill-mode: backwards;
+  }
+  .animationsep#{($i - 1)} {
+      animation: itemanimation 0.3s;
+      animation-delay: $newDelay + ($gapDelay / 2);
+      animation-fill-mode: backwards;
+    }
+}
+
+@keyframes itemanimation {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}

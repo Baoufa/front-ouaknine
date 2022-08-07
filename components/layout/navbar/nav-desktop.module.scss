@@ -1,0 +1,63 @@
+@use '../../../styles/variables' as *;
+
+
+.nav {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3rem;
+}
+
+.navlist {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+.navitem{
+  display: block;
+  color:inherit;
+  font-size: 1.2rem;
+  @include serif;
+  @include scaleclick;
+
+
+  &::after{
+    content: '';
+    display: block;
+    background-color: $gray800;
+    height: 1px;
+    width: 0%;
+    transform: translateY(5px);
+    transition: all .2s;
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+
+  
+}
+
+.active{
+  &::after{
+    content: '';
+    transform: translateY(5px);
+    display: block;
+    background-color: $gray800;
+    height: 1px;
+    width: 100%;
+  }
+}
+
+.locales {
+  padding-left: 5rem;
+}
+
+@media (max-width: $breakpoint-md) {
+  .nav {
+    display: none;
+  }
+}

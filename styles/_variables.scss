@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;700&family=Source+Serif+Pro:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+$breakpoint-lg: 1200px;
+$breakpoint-md: 992px;
+$breakpoint-sm: 768px;
+
+$white: #fefefe;
+
+$gray50: #fafafa;
+$gray100: #f4f4f5;
+$gray200: #e4e4e7;
+$gray300: #d4d4d8;
+$gray400: #a1a1aa;
+$gray500: #71717a;
+$gray600: #52525b;
+$gray700: #3f3f46;
+$gray800: #27272a;
+$gray900: #18181b;
+
+@mixin borderlight {
+  border: solid 1px $gray200;
+}
+@mixin borderbottomlight {
+  border-bottom: solid 1px $gray200;
+}
+
+@mixin serif{
+  font-family: 'Cormorant', serif;
+}
+
+@mixin desktop-container {
+  max-width: $breakpoint-lg;
+  width: 90%;
+  margin: 0 auto;
+}
+
+@mixin scaleclick{
+  transition: transform .2s;
+  &:active{
+    transform: scale(.95);
+  }
+}
+
+@mixin tablet-container {
+  max-width: $breakpoint-md;
+}
+
+@mixin mobile-container {
+  max-width: $breakpoint-sm;
+}
+
+@mixin text-shorten($numLines: 1) {
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @supports (-webkit-line-clamp: $numLines) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: $numLines;
+    -webkit-box-orient: vertical;
+  }
+}

@@ -1,0 +1,49 @@
+@use '../../../styles/variables' as *;
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:.5rem;
+
+}
+
+.switch {
+  position: relative;
+  display: flex;
+  width: 220px;
+  font-size: 1rem;
+
+  border: solid 1px $gray200;
+  user-select: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.label{
+  padding: 0.5rem;
+  flex-grow: 1;
+  z-index: 10;
+  width: 50%;
+  height: 100%;
+  @include serif;
+}
+
+.labelactive{
+  color:$gray400;
+}
+
+.toggle{
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: calc(100% - 4px);
+  width: calc(50% - 2px);
+  background-color: $gray100;
+  z-index: 5;
+  transition: all .15s;
+}
+
+.toggleactive{
+  transform: translateX(100%);
+}

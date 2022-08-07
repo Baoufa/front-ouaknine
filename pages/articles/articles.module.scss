@@ -1,0 +1,15 @@
+@use '../../styles/variables' as *;
+
+.list {
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:3rem;
+
+}
+
+.title {
+  display: block;
+  text-align: left;
+}
