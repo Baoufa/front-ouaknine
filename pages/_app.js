@@ -1,9 +1,9 @@
 import App from 'next/app';
 import NavContext from '../context/nav-context';
 import Layout from '../components/layout/layout';
-import { fetchAPI } from '../libs/api';
-import CONTENT_BACKUP from '../content/headerContent.json';
+import clientApi from '../libs/clientApi';
 import '../styles/globals.scss';
+import '../styles/logo.scss';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -21,15 +21,14 @@ MyApp.getInitialProps = async appContext => {
   const locale = appContext.ctx.locale;
 
   try {
-    const seoRes = await fetchAPI('/seo', { locale });
-    const seo = seoRes.data.data.attributes;
-    const navRes = await fetchAPI('/nav-links', { locale });
-    const navLinks = navRes.data.data;
-
-    return { ...appProps, pageProps: { seo, navLinks } };
+    const navLinksArray = await clientApi.fetch(`*[_type == "navlink"]{link[]->{link, en, fr}}`);
+    const seoArray = await clientApi.fetch(`*[_type == "seo" && language == "${locale}"]`);
+    const navLinks = navLinksArray[0].link;
+    const seo = seoArray[0];
+    return { ...appProps, pageProps: { navLinks, seo } };
   } catch (err) {
-    const seo = CONTENT_BACKUP[locale];
-    return { ...appProps, pageProps: { seo } };
+    console.log(err.message);
+    return { ...appProps, pageProps: null };
   }
 };
 

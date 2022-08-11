@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import useLocale from '../../../hooks/useLocale';
 import { NavContextSchema } from '../../../context/nav-context';
 import LanguagePickerMobile from './language-picker-mobile';
 
@@ -8,6 +9,7 @@ import classes from './nav-mobile.module.scss';
 
 function NavMobile({ navlinks }) {
   const { pathname } = useRouter();
+  const locale = useLocale();
   const { isOn, toggleNav } = useContext(NavContextSchema);
   let i = 0;
 
@@ -21,12 +23,12 @@ function NavMobile({ navlinks }) {
             ++i;
             return (
               <li key={index} className={`${classes.navitem}`}>
-                <Link href={link.attributes.url}>
+                <Link href={link.link}>
                   <a
                     className={`${classes.link} ${classes[animationCSS]}`}
                     onClick={toggleNav}
                   >
-                    {link.attributes.label}
+                    {link[locale]}
                   </a>
                 </Link>
                 <div

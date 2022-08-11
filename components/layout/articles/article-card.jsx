@@ -34,6 +34,7 @@ function ArticleCard() {
                 width={250}
                 height={250}
                 objectFit={'cover'}
+                placeholder={'blur'}
               />
             </div>
 

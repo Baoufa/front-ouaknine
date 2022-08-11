@@ -1,7 +1,6 @@
 import classes from './language-picker-mobile.module.scss';
 import useLocale from '../../../hooks/useLocale';
 import { useRouter } from 'next/router';
-import { GlobeIcon } from '@heroicons/react/outline';
 import { useEffect, useState } from 'react';
 
 function LanguagePickerMobile() {

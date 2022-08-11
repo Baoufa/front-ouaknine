@@ -1,0 +1,59 @@
+@use '../../../styles/variables' as *;
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:1.5rem;
+  padding: .6rem 1.5rem;
+  color: $gray700;
+ // background: $gray200;
+  transition: all .1s;
+  transition-timing-function: ease-in;
+  background-color: $gray50;
+ cursor: pointer;
+ border: 1px solid $gray300;
+ @include serif;
+ font-weight: 500;
+ //box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: .04);
+
+
+  &:hover{
+    background-color: $gray100;
+    transform: translate(.5px,-.8px);
+    box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: .04);
+  }
+
+  &:active{
+    transform: scale(.98);
+  }
+}
+
+.btn2{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:1.5rem;
+  padding: .6rem 1.5rem;
+  color: $gray500;
+ // background: $gray200;
+  transition: all .1s;
+  transition-timing-function: ease-in;
+  background-color: $gray200;
+ box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: .1);
+ cursor: pointer;
+ 
+
+  &:hover{
+  //  background-color: $gray300;
+    background-color: $gray300;
+  }
+
+  &:enabled:active{
+    transform: scale(.98);
+  }
+
+  &:disabled{
+    background-color: $gray100;
+  }
+}

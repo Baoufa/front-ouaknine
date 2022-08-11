@@ -20,9 +20,9 @@
   display: block;
   color:inherit;
   font-size: 1.2rem;
+  padding: .5rem 0;
   @include serif;
   @include scaleclick;
-
 
   &::after{
     content: '';
@@ -37,8 +37,6 @@
   &:hover:after {
     width: 100%;
   }
-
-  
 }
 
 .active{

@@ -1,27 +1,30 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import useLocale from '../../../hooks/useLocale';
 import LanguagePicker from './language-picker';
 
 import classes from './nav-desktop.module.scss';
 
+
+
 function NavDesktop({ navlinks }) {
   const { pathname } = useRouter();
+  const locale = useLocale();
 
   return (
     <nav className={classes.nav}>
       <ul className={classes.navlist}>
         {navlinks &&
           navlinks.map((link, index) => {
-              console.log(link.attributes.url)
             return (
             <li key={index}>
-              <Link href={link.attributes.url}>
+              <Link href={link.link}>
                 <a
                   className={`${classes.navitem} ${
-                    pathname === link.attributes.url ? classes.active : ''
+                    pathname === link.link ? classes.active : ''
                   }`}
                 >
-                  {link.attributes.label}
+                  {link[locale]}
                 </a>
               </Link>
             </li>)}

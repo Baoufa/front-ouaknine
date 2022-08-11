@@ -1,4 +1,61 @@
+@use '../../../styles/variables' as *;
+
+
 .footer {
-  height: 200px;
-  background-color: blue;
+  @include bordertoplight;
+}
+
+.innercontainer{
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:1.5rem;
+  @include desktop-container;
+}
+
+.logo{
+  fill: $gray400;
+}
+
+.links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .9rem;
+  gap:1rem;
+  color: $gray500;
+}
+
+.address{
+  text-align: center;
+  font-size: .9rem;
+  color: $gray500;
+
+  white-space: pre;
+  line-height: 1.2rem;
+}
+
+.social{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .5rem;
+  gap:1rem;
+  
+}
+
+.socialicon{
+  width: 35px;
+  height: 35px;
+  color: $gray600;
+  transition: all .3s;
+
+  &:hover{
+    color: $gray800;
+  }
+  &:active{
+    transform: scale(.95);
+  }
 }

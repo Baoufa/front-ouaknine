@@ -1,11 +1,19 @@
 {
   "fr": {
-    "title": "Alice Ouaknine Lawyer",
-    "description": "Website description"
+    "nav": [
+      { "label": "Accueil", "url": "/" },
+      { "label": "Expertise", "url": "/expertise" },
+      { "label": "Articles", "url": "/articles" },
+      { "label": "Contact", "url": "/contact" }
+    ]
   },
 
   "en": {
-    "title": "Alice Ouaknine Lawyer",
-    "description": "Website description"
+    "nav": [
+      { "label": "Home", "url": "/" },
+      { "label": "Expertise", "url": "/expertise" },
+      { "label": "Blog", "url": "/articles" },
+      { "label": "Contact", "url": "/contact" }
+    ]
   }
 }

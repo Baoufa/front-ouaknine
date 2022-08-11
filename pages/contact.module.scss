@@ -1,0 +1,67 @@
+@use '../styles/variables' as *;
+
+.container {
+}
+
+@keyframes slidefromleft {
+  from {
+    transform: translateX(-200%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+}
+
+@media (max-width: $breakpoint-md) {
+  .grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.leftblock {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1.5rem;
+  // animation: appear 1s;
+  // animation-fill-mode: forwards;
+}
+
+.address {
+  margin-left: 0rem;
+}
+
+.subtitleblock {
+  margin-bottom: 0rem;
+}
+
+.subtitle {
+  @include serif;
+}
+
+.googlemap {
+  margin-top: 0.5rem;
+}
+
+// @keyframes appear {
+//   from {
+//     opacity: 0;
+//     transform: translateX(-30%);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+// }
+.rightblock {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  
+}
