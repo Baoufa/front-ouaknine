@@ -3,6 +3,7 @@
 
 .footer {
   @include bordertoplight;
+  background-color: $white;
 }
 
 .innercontainer{

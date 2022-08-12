@@ -4,6 +4,7 @@ import Layout from '../components/layout/layout';
 import clientApi from '../libs/clientApi';
 import '../styles/globals.scss';
 import '../styles/logo.scss';
+import '../styles/font.css';
 
 function MyApp({ Component, pageProps }) {
   return (

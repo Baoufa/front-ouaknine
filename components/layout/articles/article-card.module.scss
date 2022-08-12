@@ -2,14 +2,18 @@
 
 
 .item{
-  transform: translateY(100px);
+  transform: translateY(20%);
   opacity: 0;
-  transition: .7s all ease;
+  transition: 1.2s all ease;
 }
 
 .itemactive{
   transform: translateY(0);
   opacity: 1;
+}
+
+.title{
+  @include serif
 }
 
 .article {

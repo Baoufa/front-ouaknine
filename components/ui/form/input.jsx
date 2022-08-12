@@ -1,25 +1,11 @@
 import { useState, useRef } from 'react';
 import classes from './input.module.scss';
 import useAutosizeTextArea from '../../../hooks/useAutoSizeTextarea';
-import { useInView } from 'react-intersection-observer';
-import {useEffect} from 'react';
 
 function Input({ type, id, content, val, onChange }) {
   const [isFocus, setIsFocus] = useState(false);
   const textareaRef = useRef();
 
-
-  const [viewed, setViewed] = useState(false);
-  const { ref, inView, entry } = useInView({
-    /* Optional options */
-    threshold: 0,
-  });
-
-  useEffect(() => {
-    if(inView && !viewed){
-      setViewed(true);
-    }
-  }, [inView, viewed])
 
   useAutosizeTextArea(textareaRef.current, val);
 
@@ -33,7 +19,7 @@ function Input({ type, id, content, val, onChange }) {
 
 
   return (
-    <div className={`${classes.inputgroup} ${viewed && classes.show}`} ref={ref}>
+    <div className={`${classes.inputgroup}`}>
       <label
         htmlFor={id}
         className={`${classes.label} ${

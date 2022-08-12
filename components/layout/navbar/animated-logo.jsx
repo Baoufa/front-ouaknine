@@ -5,8 +5,8 @@ export default function AnimatedLogo () {
       data-name='Calque 1'
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 968.72 191.12'
-      width='190'
-      height='35.6'
+      width={190 *1.1}
+      height={35.6 *1.1}
       className='svglogoanimated'
     >
       <g>

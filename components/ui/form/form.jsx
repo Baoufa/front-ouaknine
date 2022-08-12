@@ -6,6 +6,7 @@ import Input from './input';
 import { useState, useEffect } from 'react';
 import { ChevronRightIcon, MailIcon } from '@heroicons/react/outline';
 import axios from 'axios';
+import { useInView } from 'react-intersection-observer';
 
 function Form() {
   const locale = useLocale();
@@ -17,6 +18,18 @@ function Form() {
     message: '',
   });
 
+
+  const [viewed, setViewed] = useState(false);
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+
+  useEffect(() => {
+    if(inView && !viewed){
+      setViewed(true);
+    }
+  }, [inView, viewed])
   
 
   const [isLoading, setIsLoading] = useState(false);
@@ -55,12 +68,13 @@ function Form() {
 
   return (
     <form
-      className={`${classes.form}`}
+      className={`${classes.form} ${viewed && classes.show}`}
       autoComplete={'off'}
       onSubmit={onSubmitHandler}
+      ref={ref}
     >
       <div className={classes.titleblock}>
-        <h2 className={classes.title}>Envoyer un message</h2>
+        <h2 className={`${classes.title}`}>Envoyer un message</h2>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
           voluptas sapiente cum, quo deserunt ab obcaecati laborum numquam,

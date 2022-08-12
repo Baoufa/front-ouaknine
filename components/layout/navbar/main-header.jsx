@@ -5,6 +5,7 @@ import NavMobile from './nav-mobile';
 import NavDesktop from './nav-desktop';
 import NavMobileButton from './nav-mobile-button';
 import classes from './main-header.module.scss';
+import Image from 'next/image';
 
 import AnimatedLogo from './animated-logo';
 
@@ -13,6 +14,7 @@ function MainHeader({ navlinks }) {
 
 
   return (
+    <>
     <header className={classes.header}>
       <div className={classes.navcontainer}>
         <Link href='/'>
@@ -23,6 +25,8 @@ function MainHeader({ navlinks }) {
       </div>
       <NavMobile navlinks={navlinks} onclick={toggleNav} />
     </header>
+    {/* < Image src='/images/bg2.jpeg' alt='band' height={70} width={1600} objectFit='cover'/> */}
+    </>
   );
 }
 

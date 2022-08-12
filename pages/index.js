@@ -5,13 +5,15 @@ import classes from './Home.module.scss';
 
 
 
+
 export default function Home(props) {
   
   return (
     <div>
       <h1
         className={classes.title}
-      >{`Droit Pénal &\nDroit Pénal des Affaires`}</h1>
+      >{`Avocate aux barreaux \nde Paris de Californie`}</h1>
+      <h2>{`Droit Pénal - Droit Pénal des Affaires - Cybercriminalité`}</h2>
     </div>
   );
 }
