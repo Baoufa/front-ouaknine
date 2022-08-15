@@ -22,11 +22,9 @@ MyApp.getInitialProps = async appContext => {
   const locale = appContext.ctx.locale;
 
   try {
-    const navLinksArray = await clientApi.fetch(`*[_type == "navlink"]{link[]->{link, en, fr}}`);
     const seoArray = await clientApi.fetch(`*[_type == "seo" && language == "${locale}"]`);
-    const navLinks = navLinksArray[0].link;
     const seo = seoArray[0];
-    return { ...appProps, pageProps: { navLinks, seo } };
+    return { ...appProps, pageProps: { seo } };
   } catch (err) {
     console.log(err.message);
     return { ...appProps, pageProps: null };

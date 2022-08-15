@@ -8,11 +8,17 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color: $gray800;
   background-color: $white;
-  font-size: 1rem;
+   
 
-  // background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),url("/images/bg2.jpeg");
+  
+
+  // background-image: linear-gradient(to right, rgba($white, 0.9), rgba($white, 0.9)),url("/images/texture.avif");
   // background-size: cover;
   // background-repeat: no-repeat;
+}
+
+section{
+  padding: 4rem 0;
 }
 
 a {
@@ -32,8 +38,11 @@ ul, li {
 
 h1 {
   font-size: 3rem;
-  @include serif;
+  @include seriflight;
 }
+// h2 {
+//   @include serif;
+// }
 
 p {
   line-height: 1.5rem;

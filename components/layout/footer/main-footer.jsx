@@ -15,11 +15,7 @@ function MainFooter() {
       <div className={classes.links}>
         <p>Cabinet Ouaknine</p>
         <span>|</span>
-        <p>Legal notice</p>
-        <span>|</span>
-        <p>Data privacy policy</p>
-        <span>|</span>
-        <p>Cookies</p>
+        <p>Mentions légales</p>
         <span>|</span>
         <p>Admin</p>
       </div>

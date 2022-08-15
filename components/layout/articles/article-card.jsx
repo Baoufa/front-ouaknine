@@ -13,7 +13,7 @@ function ArticleCard() {
   const [viewed, setViewed] = useState(false);
   const { ref, inView, entry } = useInView({
     /* Optional options */
-    threshold: 0,
+    threshold: 0.2,
   });
 
   useEffect(() => {

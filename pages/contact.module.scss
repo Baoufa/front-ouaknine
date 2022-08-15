@@ -75,6 +75,10 @@
 //   animation-fill-mode: forwards;
 // }
 
+.portable{
+  white-space: pre-line;
+}
+
 .address {
   margin-left: 0rem;
 }
@@ -88,6 +92,12 @@
   @include serif;
 }
 
+.btngroup{
+  display: flex;
+//  align-items: center;
+  gap: 1rem;
+}
+
 .phone{
   height: 20px;
   width: 20px;
@@ -95,7 +105,7 @@
 }
 
 .googlemap {
-  margin-top: 0.5rem;
+//  margin-top: 0.5rem;
 }
 
 @keyframes appear {

@@ -10,7 +10,7 @@ class MyDocument extends Document {
             rel='stylesheet'
           />
           <link
-            href='https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;700&family=Source+Serif+Pro:wght@300;400;700;900&display=swap'
+            href='https://fonts.googleapis.com/css2?family=Cormorant:wght@100;200;300;400;500;700&family=Source+Serif+Pro:wght@300;400;700;900&display=swap'
             rel='stylesheet'
           />
           <link
@@ -24,8 +24,8 @@ class MyDocument extends Document {
 
         </Head>
         <body>
+          <div id='modal-root'></div>
           <Main />
-          <div id='modal' />
           <NextScript />
         </body>
       </Html>

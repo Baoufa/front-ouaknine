@@ -16,6 +16,9 @@ $gray700: #3f3f46;
 $gray800: #27272a;
 $gray900: #18181b;
 
+$green600: #16a34a;
+$amber600: #d97706;
+
 @mixin borderlight {
   border: solid 1px $gray200;
 }
@@ -29,9 +32,13 @@ $gray900: #18181b;
   border-right: solid 1px $gray200;
 }
 
+@mixin seriflight{
+  font-family: 'Cormorant';
+  font-weight: 200;
+}
 @mixin serif{
   font-family: 'Cormorant';
-  font-weight: 100;
+  font-weight: 400;
 }
 
 @mixin desktop-container {

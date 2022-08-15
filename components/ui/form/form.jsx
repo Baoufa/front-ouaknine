@@ -1,15 +1,21 @@
 import classes from './form.module.scss';
 import emailForm from '../../../content/emailForm.json';
 import useLocale from '../../../hooks/useLocale';
-import Button from './button';
+import Button from '../button';
 import Input from './input';
 import { useState, useEffect } from 'react';
 import { ChevronRightIcon, MailIcon } from '@heroicons/react/outline';
 import axios from 'axios';
 import { useInView } from 'react-intersection-observer';
+import RichText from '../rich-text';
+import Modal from '../modal';
+import EmailRes from './email-res';
 
-function Form() {
+function Form({ titleform, subform }) {
   const locale = useLocale();
+  const [modal, setModal] = useState(false);
+  const [emailStatus, setEmailStatus] = useState(false)
+
   const [value, setValue] = useState({
     firstName: '',
     lastName: '',
@@ -18,6 +24,10 @@ function Form() {
     message: '',
   });
 
+  const toggleModal = (e) => {
+    document.body.classList.toggle('body-full');
+    setModal(bol => !bol);
+  };
 
   const [viewed, setViewed] = useState(false);
   const { ref, inView, entry } = useInView({
@@ -26,11 +36,10 @@ function Form() {
   });
 
   useEffect(() => {
-    if(inView && !viewed){
+    if (inView && !viewed) {
       setViewed(true);
     }
-  }, [inView, viewed])
-  
+  }, [inView, viewed]);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -58,29 +67,34 @@ function Form() {
           //   phone: '',
           //   message: '',
           // });
+          setEmailStatus(true);
+          toggleModal();
           console.log('here', response.data);
         })
         .catch(function (error) {
+          setEmailStatus(false);
+          toggleModal();
           setIsLoading(false);
           console.log('errorhere', error.response.data);
         });
   }
 
   return (
+    <>
     <form
       className={`${classes.form} ${viewed && classes.show}`}
       autoComplete={'off'}
       onSubmit={onSubmitHandler}
       ref={ref}
     >
+  
+      {modal && (
+        <Modal type={'normal'} comp={EmailRes} closeModal={toggleModal} modal={modal} ok={emailStatus} />
+      )}
+
       <div className={classes.titleblock}>
-        <h2 className={`${classes.title}`}>Envoyer un message</h2>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
-          voluptas sapiente cum, quo deserunt ab obcaecati laborum numquam,
-          ipsam maxime laboriosam. Quae neque magni ipsa. Excepturi quo debitis
-          nisi maiores!
-        </p>
+        <h2 className={`${classes.title}`}>{titleform ? titleform : ''}</h2>
+        {subform && <RichText value={subform} />}
       </div>
 
       <Input
@@ -125,6 +139,7 @@ function Form() {
         </Button>
       </div>
     </form>
+    </>
   );
 }
 

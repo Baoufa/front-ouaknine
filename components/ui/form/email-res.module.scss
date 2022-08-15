@@ -1,0 +1,34 @@
+@use '../../../styles/variables' as *;
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 202;
+}
+
+.checkok{
+  width: 50px;
+  height: 50px;
+  stroke-width: 1px;
+  color: $green600;
+}
+.checknot{
+  width: 50px;
+  height: 50px;
+  stroke-width: 1px;
+  color: $amber600;
+}
+
+.title{
+  text-align: center;
+  font-size: 2rem;
+  @include serif
+}
+
+.subtitle{
+  font-size: 1.2rem;
+  @include serif
+}
