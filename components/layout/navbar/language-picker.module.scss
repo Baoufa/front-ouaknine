@@ -46,7 +46,7 @@ $localewidth: 100px;
 .tag {
   font-size: 1rem;
   user-select: none;
-  @include serif;
+  @include seriflight;
 }
 
 .check {
@@ -70,7 +70,7 @@ $localewidth: 100px;
   user-select: none;
   transition: all 0.15s;
 
-  @include serif;
+  @include seriflight;
 
   &:hover {
     background-color: $gray100;
@@ -97,6 +97,7 @@ $localewidth: 100px;
   transition: all 0.15s;
   visibility: hidden;
   @include serif;
+
 }
 
 .selectoractive {

@@ -2,8 +2,10 @@
 
 
 .footer {
+  position: relative;
   @include bordertoplight;
   background-color: $white;
+  font-weight: 300;
 }
 
 .innercontainer{
@@ -18,6 +20,8 @@
 
 .logo{
   fill: $gray400;
+  width:70px !important;
+  height: 38.73px !important;
 }
 
 .links{
@@ -59,4 +63,14 @@
   &:active{
     transform: scale(.95);
   }
+}
+
+.design{
+  position: absolute;
+  bottom: 1.5rem;
+  right: 2rem;
+  color: $gray400;
+  font-size: .8rem;
+  font-weight: 100;
+
 }

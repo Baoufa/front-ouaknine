@@ -1,0 +1,35 @@
+@use '../../styles/variables' as *;
+
+
+.container{
+  position: fixed;
+  top:0;
+  left:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: $white;
+  transition: all .5s;
+  opacity: 1;
+}
+
+.off{
+  opacity: 0;
+  visibility: hidden;
+  animation: displaynone;
+  animation-delay: 1s;
+}
+
+
+@keyframes displaynone{
+  from{
+    display: block;
+
+  }
+  to{
+    display: none;
+  }
+}

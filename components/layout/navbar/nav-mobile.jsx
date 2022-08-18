@@ -37,17 +37,6 @@ function NavMobile({ navlinks }) {
           className={`${classes.navitem} ${classes.langblock} ${classes[`animation${i}`]}`}
         >
           <LanguagePickerMobile />
-          {/* <Link locale='fr' href={pathname} disabled={true}>
-            <a className={classes.lang} onClick={toggleNav}>
-              Fr
-            </a>
-          </Link>
-          <span> / </span>
-          <Link locale='en' href={pathname}>
-            <a className={classes.lang} onClick={toggleNav}>
-              En
-            </a>
-          </Link> */}
         </li>
       </ul>
     </nav>

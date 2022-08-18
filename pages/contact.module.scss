@@ -1,10 +1,15 @@
 @use '../styles/variables' as *;
 
 .container {
- // padding: 1rem 4rem;
+  // padding: 1rem 4rem;
   //background-color: rbga(255,255,255, .9);
- // background-color: rgba(255, 255, 255)
-
+  // background-color: rgba(255, 255, 255)
+  @include desktop-container;
+  //  background-image: linear-gradient(135deg,
+  //   rgba($white, 0.6),
+  //   rgba($gray200, .6)
+  // ),
+  // url('/images/abstract2.jpeg');
 }
 
 @keyframes slidefromleft {
@@ -19,31 +24,23 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 3rem;
-  margin-bottom: 6rem;
   gap: 1rem;
 }
 
-@media (max-width: $breakpoint-md) {
-  .grid {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-}
-
-.title{
+.title {
   padding-left: 0rem;
 }
 
-.leftblock{
+.leftblock {
   padding: 1px;
   clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
- overflow: hidden;
+  overflow: hidden;
   background-color: $gray200;
   animation: appear 1s;
   animation-fill-mode: forwards;
 }
 
-.leftblockinner{ 
+.leftblockinner {
   clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
 
   overflow: hidden;
@@ -75,7 +72,7 @@
 //   animation-fill-mode: forwards;
 // }
 
-.portable{
+.portable {
   white-space: pre-line;
 }
 
@@ -92,20 +89,20 @@
   @include serif;
 }
 
-.btngroup{
+.btngroup {
   display: flex;
-//  align-items: center;
+  //  align-items: center;
   gap: 1rem;
 }
 
-.phone{
+.phone {
   height: 20px;
   width: 20px;
   stroke-width: 1px;
 }
 
 .googlemap {
-//  margin-top: 0.5rem;
+  //  margin-top: 0.5rem;
 }
 
 @keyframes appear {
@@ -119,19 +116,51 @@
   }
 }
 
-.separator{
-  margin: 6rem auto;
+.separator {
+  margin: 0rem auto;
   height: 1px;
   width: 30%;
   background-color: $gray200;
 }
 
 .rightblock {
+ // opacity: 0.8;
   display: flex;
   align-items: center;
   margin: 0 auto;
   width: 95%;
   //animation: appear .5s;
   // padding-left: 3rem;
-  
+}
+
+@media (max-width: $breakpoint-md) {
+  .grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 3rem;
+  }
+
+  .leftblock {
+    clip-path: none;
+    order: 2;
+  }
+
+  .leftblockinner {
+    clip-path: none;
+
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    background-color: $white;
+  }
+
+  .btngroup {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .rightblock {
+    width: 50%;
+    order: 1;
+    //animation: appear .5s;
+    // padding-left: 3rem;
+  }
 }

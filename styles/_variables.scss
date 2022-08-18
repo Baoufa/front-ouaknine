@@ -33,17 +33,21 @@ $amber600: #d97706;
 }
 
 @mixin seriflight{
-  font-family: 'Cormorant';
-  font-weight: 200;
+ font-family: 'Cormorant';
+ //font-family: 'Lora', serif;
+
+  font-weight: 300;
 }
 @mixin serif{
-  font-family: 'Cormorant';
+ font-family: 'Cormorant';
+ //font-family: 'Lora', serif;
+
   font-weight: 400;
 }
 
 @mixin desktop-container {
-  max-width: $breakpoint-lg;
-  width: 90%;
+  width: $breakpoint-lg;
+  max-width: 90%;
   margin: 0 auto;
 }
 

@@ -1,68 +1,126 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useInView } from 'react-intersection-observer';
 import clientApi from '../libs/clientApi';
-import classes from './Home.module.scss';
 import RichText from '../components/ui/rich-text.jsx';
-import {ChevronDoubleDownIcon} from '@heroicons/react/outline';
+import { ChevronDoubleDownIcon } from '@heroicons/react/outline';
+import scrollTo from '../libs/scrollTo';
+
+import img from '../public/images/abstract4.jpeg';
+
+import classes from './Home.module.scss';
 
 export default function Home({ data }) {
-  
   const {
-    titleseo,
-    descriptionseo,
-    title,
+    title1,
+    title2,
+    tag1,
+    tag2,
+    tag3,
+    imageTitleUrl,
+    imageTitleAlt,
+    imgRatioTitle,
+    lqipTitle,
+    sectionTitle,
     body,
     imageUrl,
-    imageTitle,
+    imageAlt,
     lqip,
     imgRatio,
   } = data;
 
-  // A scroller function that takes element id and smooth scrolls to it.
-const scroll2El = elID => {
-  globalThis.scrollTo({
-    top: document.getElementById(elID).offsetTop,
-    behavior: 'smooth',
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+    triggerOnce: true,
   });
-};
 
   return (
     <div className={classes.container}>
       <div className={classes.upper}>
-        <div className={classes.titlegroup}>
-        <h1
-          className={classes.title}
-        >{`Avocate aux barreaux \nde Paris & de Californie`}</h1>
-        <p
-          className={classes.subtitle}
-        >{`Droit Pénal - Droit Pénal des Affaires - Cybercriminalité`}</p>
+        <Image
+          className={classes.img}
+          src={imageTitleUrl ? `${imageTitleUrl}?w=1600` : img}
+          alt={imageTitleAlt ? imageTitleAlt : 'Image background'}
+          objectFit={'cover'}
+          layout={'fill'}
+          objectPosition={'top right'}
+          blurDataURL={lqipTitle ? lqipTitle : null}
+          placeholder={'empty'}
+          sizes='100vw'
+          priority
+          quality={30}
+        />
+
+        <div className={classes.overlay}></div>
+
+        <div className={classes.upperinner}>
+          <div className={classes.titlegroup}>
+            {title1 && title2 && (
+              <h1>
+                <p className={classes.title}>{title1?.trim()}</p>
+                <p className={classes.subtitle}>{title2?.trim()}</p>
+              </h1>
+            )}
+            <div className={classes.spegroup}>
+              {tag1 && (
+                <Link href='/expertise'>
+                  <a className={classes.spe}>{tag1?.trim()}</a>
+                </Link>
+              )}
+              {tag2 && (
+                <Link href='/expertise'>
+                  <a className={classes.spe}>{tag2?.trim()}</a>
+                </Link>
+              )}
+              {tag3 && (
+                <Link href='/expertise'>
+                  <a className={classes.spe}>{tag3?.trim()}</a>
+                </Link>
+              )}
+            </div>
+          </div>
+          {/* <Link href="/#homedesc" scroll={false}> */}
+
+          <ChevronDoubleDownIcon
+            className={classes.arrow}
+            onClick={() => scrollTo('homedesc')}
+          />
+
+          {/* </Link> */}
         </div>
-        {/* <Link href="/#homedesc" scroll={false}> */}
-        <ChevronDoubleDownIcon className={classes.arrow} onClick={() => scroll2El('homedesc')} />
-        {/* </Link> */}
-       
       </div>
 
       <section className={classes.bottom} id='homedesc'>
-        <div className={classes.image}>
-          <Image
-            src={imageUrl}
-            alt={imageTitle}
-            width={1000 * imgRatio}
-            height={1000}
-            objectFit={'cover'}
-            blurDataURL={lqip}
-            placeholder={'blur'}
-          />
+        <div className={`${classes.image} ${inView && classes.show}`} ref={ref}>
+          {imageUrl && (
+            <Image
+              src={`${imageUrl}?w=700`}
+              alt={imageAlt}
+              width={700}
+              height={700 / imgRatio}
+              objectFit={'cover'}
+              blurDataURL={lqip}
+              placeholder={'blur'}
+              sizes='(min-width: 75em) 33vw,
+              (min-width: 48em) 50vw,
+              100vw'
+              quality={50}
+            />
+          )}
         </div>
-        <div className={classes.desc}>
+        <div className={`${classes.desc}`}>
           <div className={classes.descinner}>
-          <RichText value={body} />
+            {sectionTitle && (
+              <h2 className={classes.bottomtitle}>{sectionTitle?.trim()}</h2>
+            )}
+            {body && <RichText value={body} />}
           </div>
-         
         </div>
       </section>
+
+      {/* <Image src={'/images/scale.svg'} width={1400} height={129.09} alt={'test'} /> */}
     </div>
   );
 }
@@ -75,10 +133,19 @@ export async function getStaticProps(ctx) {
       `*[_type == "home" && language == "${locale}"]{
         titleseo, 
         descriptionseo, 
-        title, 
+        title1,
+        title2,
+        tag1,
+        tag2,
+        tag3, 
+        "imageTitleUrl": imageTitle.asset->url,
+        "imageTitleAlt" : imageTitle.alt,
+        "imgRatioTitle" : imageTitle.asset->metadata.dimensions.aspectRatio,
+        "lqipTitle": imageTitle.asset->metadata.lqip,
+        sectionTitle,
         body,   
         "imageUrl": mainImage.asset->url,
-        "imageTitle" : mainImage.title,
+        "imageAlt" : mainImage.title,
         "imgRatio" : mainImage.asset->metadata.dimensions.aspectRatio,
         "lqip": mainImage.asset->metadata.lqip}`
     );

@@ -5,6 +5,7 @@ const nextConfig = {
     defaultLocale: 'fr',
   },
   images: {
+    minimumCacheTTL: 2629800,
     loader: 'default',
     domains: ['cdn.sanity.io'],
     // dangerouslyAllowSVG: true,

@@ -30,6 +30,27 @@
   }
 }
 
+.outline {
+  background-color: rgba($white, 0.1);
+  color: rgba($white, 0.8);
+  font-size: 1.2rem;
+  //font-size: 1.5vw;
+  font-weight: 100;
+  border: 1px solid rgba($white, 0.8);
+  transition: all 0.2s;
+
+  &:hover {
+    transform: translate(1px, -1px);
+    background-color: rgba($white, 0.2);
+    box-shadow: 4px 4px 4px rgba($white, 0.1);
+  }
+
+  &:active {
+    background-color: rgba($white, 0.2);
+    transform: scale(0.98);
+  }
+}
+
 .btn2{
   display: flex;
   align-items: center;

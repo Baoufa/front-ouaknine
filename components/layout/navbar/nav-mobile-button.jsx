@@ -6,7 +6,7 @@ function NavMobileButton() {
  
   const { isOn, toggleNav } = useContext(NavContextSchema);
   return (
-      <button className={classes.hamburger} onClick={toggleNav}>
+      <button className={classes.hamburger} onClick={toggleNav} aria-label="Open the navigation menu">
         <span
           className={`${classes.line} ${classes['line--top']} ${
             isOn && classes.rotatetop

@@ -4,6 +4,34 @@
  * W. https://svgartista.net
  **************************************************/
 
+@use './variables' as *;
+
+
+.svglogoanimatedloader{
+  width: 19vw * 1;
+  height: 3.56vw * 1;
+}
+
+@media (max-width: $breakpoint-md) {
+  .svglogoanimatedloader{
+       width: 19vw * 2.5;
+       height: 3.56vw * 2.5;
+   }
+ }
+
+ .svglogoanimated{
+  width: 190px * 1.2;
+  height: 35.6px * 1.2;
+}
+
+ @media (max-width: $breakpoint-md) {
+ .svglogoanimated{
+      width: 19vh * 1.2;
+      height: 3.56vh * 1.2;
+  }
+}
+
+
 @-webkit-keyframes animate-svg-stroke-1 {
   0% {
     stroke-dashoffset: 348.4333190917969px;

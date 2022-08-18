@@ -8,8 +8,6 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color: $gray800;
   background-color: $white;
-   
-
   
 
   // background-image: linear-gradient(to right, rgba($white, 0.9), rgba($white, 0.9)),url("/images/texture.avif");
@@ -18,7 +16,13 @@ body {
 }
 
 section{
-  padding: 4rem 0;
+  padding: 6rem 0;
+}
+
+@media (max-width:$breakpoint-sm){
+  section {
+    padding: 3rem 0;
+  }
 }
 
 a {
@@ -37,6 +41,8 @@ ul, li {
 }
 
 h1 {
+  margin-top: 0;
+  margin-bottom: 3rem;
   font-size: 3rem;
   @include seriflight;
 }

@@ -10,7 +10,7 @@ export const NavContextSchema = createContext({
 
 function NavContext(props) {
   const [state, setState] = useState({
-    isOn: false,
+    isOn: null,
     toggleNav: () => {
       setState(prevState => ({...prevState, isOn : !prevState.isOn}));
     },
@@ -22,7 +22,9 @@ function NavContext(props) {
   useEffect(() => {
     if (state.isOn) {
       document.body.classList.add('body-full');
-    } else {
+    } 
+    
+    if(state.isOn === false){
       document.body.classList.remove('body-full');
     }
   }, [state.isOn]);

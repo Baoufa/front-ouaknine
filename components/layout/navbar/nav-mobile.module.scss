@@ -24,7 +24,7 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 1rem 1rem;
+  padding: 0rem 1rem;
   width: 100%;
   background-color: $white;
   overflow: hidden;
@@ -43,13 +43,13 @@
 
 .link {
   display: block;
-  padding: 3rem 0;
+  padding: 5.5vh 0;
   @include serif;
   @include scaleclick;
 }
 
 .langblock {
-  margin-top: 3rem;
+  margin-top: 7vh;
 }
 
 .lang {

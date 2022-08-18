@@ -33,8 +33,10 @@ function ArticleCard() {
                 alt='title'
                 width={250}
                 height={250}
-                objectFit={'cover'}
                 placeholder={'blur'}
+                objectFit={'cover'}
+                layout={'responsive'} 
+                objectPosition={'center'}
               />
             </div>
 

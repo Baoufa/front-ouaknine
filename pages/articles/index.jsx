@@ -3,7 +3,7 @@ import ArticleCard from '../../components/layout/articles/article-card';
 
 function Articles() {
   return (
-    <div>
+    <section className={classes.container}>
       <div className={classes.titleblock}>
         <h1 className={classes.title}>Articles</h1>
         <p>
@@ -22,7 +22,7 @@ function Articles() {
         <ArticleCard />
         <ArticleCard />
       </ul>
-    </div>
+    </section>
   );
 }
 

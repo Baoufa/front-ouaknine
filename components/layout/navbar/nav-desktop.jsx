@@ -11,7 +11,6 @@ function NavDesktop({ navlinks }) {
       <ul className={classes.navlist}>
         {navlinks &&
           navlinks.map((link, index) => {
-            console.log(link)
             return (
             <li key={index}>
               <Link href={link.url}>

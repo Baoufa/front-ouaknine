@@ -1,11 +1,11 @@
-export default function AnimatedLogo () {
+export default function AnimatedLogo ({width, height}) {
   return (
     <svg
       id='a'
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 968.72 191.12'
-      width={190 * 1.2}
-      height={35.6 * 1.2}
+      width={width}
+      height={height}
       className='svglogoanimated'
     >
       <g>
