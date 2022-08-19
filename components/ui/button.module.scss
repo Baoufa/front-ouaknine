@@ -35,7 +35,7 @@
   color: rgba($white, 0.8);
   font-size: 1.2rem;
   //font-size: 1.5vw;
-  font-weight: 400;
+  font-weight: 500;
   border: 1px solid rgba($white, 0.8);
   transition: all 0.2s;
 
@@ -48,6 +48,12 @@
   &:active {
     background-color: rgba($white, 0.2);
     transform: scale(0.98);
+  }
+}
+
+@media (maw-width: $breakpoint-sm){
+  .outline{
+    font-weight: 700;
   }
 }
 
