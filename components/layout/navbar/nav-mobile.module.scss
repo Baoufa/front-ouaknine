@@ -73,11 +73,43 @@ $gapDelay: .12s;
     animation: itemanimation 0.3s;
     animation-delay: $newDelay;
     animation-fill-mode: backwards;
+
+    -webkit-animation: itemanimation 0.3s;
+    -webkit-animation-delay: $newDelay;
+    -webkit-animation-fill-mode: backwards;
+
+    -moz-animation: itemanimation 0.3s;
+    -moz-animation-delay: $newDelay;
+    -moz-animation-fill-mode: backwards;
+
+    -ms-animation: itemanimation 0.3s;
+    -ms-animation-delay: $newDelay;
+    -ms-animation-fill-mode: backwards;
+
+    -o-animation: itemanimation 0.3s;
+    -o-animation-delay: $newDelay;
+    -o-animation-fill-mode: backwards;
   }
   .animationsep#{($i - 1)} {
       animation: itemanimation 0.3s;
       animation-delay: $newDelay + ($gapDelay / 2);
       animation-fill-mode: backwards;
+
+      -webkit-animation: itemanimation 0.3s;
+      -webkit-animation-delay: $newDelay + ($gapDelay / 2);
+      -webkit-animation-fill-mode: backwards;
+
+      -moz-animation: itemanimation 0.3s;
+      -moz-animation-delay: $newDelay + ($gapDelay / 2);
+      -moz-animation-fill-mode: backwards;
+
+      -ms-animation: itemanimation 0.3s;
+      -ms-animation-delay: $newDelay + ($gapDelay / 2);
+      -ms-animation-fill-mode: backwards;
+
+      -o-animation: itemanimation 0.3s;
+      -o-animation-delay: $newDelay + ($gapDelay / 2);
+      -o-animation-fill-mode: backwards;
     }
 }
 
@@ -89,3 +121,22 @@ $gapDelay: .12s;
     transform: translateX(0%);
   }
 }
+
+@-webkit-keyframes itemanimation {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@-moz-keyframes itemanimation {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
