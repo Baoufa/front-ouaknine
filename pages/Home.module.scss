@@ -7,26 +7,22 @@
   position: relative;
 }
 
-.img{
+.img {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   z-index: 0;
- }
+}
 
- .overlay{
+.overlay {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-   background: linear-gradient(
-     135deg,
-     rgba($white, 0.3),
-     rgba($gray400, 0.6)
-   );
-   background-size: cover;
-   z-index: 0;
+  background: linear-gradient(135deg, rgba($white, 0.3), rgba($gray400, 0.6));
+  background-size: cover;
+  z-index: 0;
 }
 
 .upperinner {
@@ -36,7 +32,6 @@
   justify-content: center;
   align-items: flex-start;
   min-height: calc(100vh - 72px);
-  // height:100vh;
   padding: 4rem 0;
   @include desktop-container;
 }
@@ -48,70 +43,46 @@
   margin-bottom: 0;
   flex-direction: column;
   gap: 2.5rem;
-
   user-select: none;
   color: rgba($white, 1);
-  padding:0rem 2rem;
-  // background-color: rgba($white, .2);
-animation: opa 1.5s;
+  padding: 0rem 2rem;
+  animation: opa 1.5s;
 }
 
 @keyframes opa {
-  from{
+  from {
     opacity: 0;
-  } 
-  to{
+  }
+  to {
     opacity: 1;
   }
 }
 
-
-.titlegroup h1{
-  margin:0;
+.titlegroup h1 {
+  margin: 0;
   padding: 0;
-
 }
 
-
-
 .title {
- // text-align: end;
   font-family: le-monde-livre-classic-byol, serif;
   font-display: optional;
   position: relative;
-  letter-spacing: .5vw;
+  letter-spacing: 0.5vw;
   font-size: 6vw;
   line-height: 6vw;
-  // font-size: 6rem;
-  // letter-spacing: 0.65rem;
   font-weight: 500;
   margin-bottom: 1rem;
-  // line-height: 6rem;
-
   color: $white;
-  
-
-  // &:after{
-  //   content: '';
-  //   display: block;
-  //   position: absolute;
-  //   bottom:-145px;
-  //   right: 70px;
-  //   height: 200px;
-  //   width:900px;
-  //   border-right: 1px solid rgba($white, .8);
-  //   border-bottom: 1px solid rgba($white, .8);
-  // }
 }
 
 .subtitle {
- // text-align: end;
+  // text-align: end;
   //font-family: le-monde-livre-classic-byol, serif;
   // font-size: 3.6rem;
   // letter-spacing: 1.6vh;
   font-size: 4vw;
   line-height: 4vw;
-  letter-spacing: .9vw;
+  letter-spacing: 0.9vw;
 
   margin: 0;
   padding: 0;
@@ -168,67 +139,40 @@ $gapDel: 0.6s;
   }
 }
 
-
-// @media (max-width: $breakpoint-md) {
-//   .titlegroup {
-//     padding:0rem 0rem;
-//     // background-color: rgba($white, .2);
-//   }
-
-//   .title {
-//     font-size: 6rem;
-//     letter-spacing: 0.9rem;
-//     line-height: 6rem;
-//     margin-bottom: 3rem;
-//   }
-//   .subtitle{
-//     font-size: 4.5rem;
-//     letter-spacing: 0.7rem;
-//     line-height: 5rem;
-//     margin-bottom: 10rem;
-//   }
-//   .spe{
-//     font-size: 1.2rem !important;
-//   }
-// }
-
 @media (max-width: $breakpoint-sm) {
-  .upperinner{
+  .upperinner {
     padding: 2rem 0;
-    
   }
 
   .titlegroup {
     margin: auto 0;
-    padding:0rem 0rem;
-    // background-color: rgba($white, .2);
+    padding: 0rem 0rem;
   }
-
 
   .title {
     // text-align: end;
     font-size: 13vw;
-  line-height: 14vw;
-  letter-spacing: 1.4vw;
-   
+    line-height: 14vw;
+    letter-spacing: 1.4vw;
   }
-  .subtitle{
+  .subtitle {
     // text-align: end;
-   font-size: 6.1vw;
-  line-height: 6.1vw;
-  letter-spacing: 1.2vw;
-  margin-bottom: 4vh;
+    font-size: 6.1vw;
+    line-height: 6.1vw;
+    letter-spacing: 1.2vw;
+    margin-bottom: 4vh;
   }
 
-  .spegroup{
+  .spegroup {
     // align-items: flex-end;
-    gap:1.2rem;
+    gap: 1.2rem;
     margin-bottom: 1rem;
   }
 
-  .spe{
+  .spe {
     padding: 0.5rem 5.4rem 0.5rem 1.2rem;
-    font-size: 4vw;
+    font-size: 1.2rem;
+    font-weight: 700;
   }
 }
 
@@ -242,11 +186,6 @@ $gapDel: 0.6s;
     transform: translateX(0);
   }
 }
-
-
-
-
-
 
 @keyframes moving {
   from {
@@ -344,21 +283,19 @@ $gapDel: 0.6s;
   font-size: 1rem;
 }
 
-.bottomtitle{
+.bottomtitle {
   @include serif;
- 
   margin-top: 0;
   margin-bottom: 1.5rem;
   font-size: 2rem;
 }
 
-@media (max-width:$breakpoint-md) {
-  .bottom{
+@media (max-width: $breakpoint-md) {
+  .bottom {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap:3rem;
-
+    gap: 3rem;
   }
 
   .image {
@@ -372,21 +309,19 @@ $gapDel: 0.6s;
   .desc {
     clip-path: none;
   }
-  
+
   .descinner {
     padding: 3rem 1.5rem;
     clip-path: none;
   }
 }
 
-
-@media (max-width:$breakpoint-sm) {
-  .bottom{
+@media (max-width: $breakpoint-sm) {
+  .bottom {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap:3rem;
-
+    gap: 3rem;
   }
 
   .image {
@@ -400,7 +335,7 @@ $gapDel: 0.6s;
   .desc {
     clip-path: none;
   }
-  
+
   .descinner {
     padding: 3rem 1.5rem;
     clip-path: none;
