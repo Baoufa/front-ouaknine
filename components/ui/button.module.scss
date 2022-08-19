@@ -52,6 +52,10 @@
 }
 
 @media (maw-width: $breakpoint-sm){
+  .btn{
+    font-weight: 700;
+  }
+
   .outline{
     font-weight: 700;
   }
