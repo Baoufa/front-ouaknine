@@ -114,6 +114,7 @@
   color: rgba($white, 0.8);
   font-size: 1.2rem;
   //font-size: 1.5vw;
+  backdrop-filter: blur(2px);
   border: 1px solid rgba($white, 0.8);
   @include serif;
   font-weight: 500;
@@ -132,19 +133,17 @@
   }
 
   &_black{
-    background-color: rgba($gray800, 0.1);
-    color: $gray800;
-    border: 1px solid $gray800;
-
+    border: 1px solid $gray700;
+    color: $gray700;
+     background-color: rgba($gray400, 0.1);
+   
     &:hover {
-      transform: translate(1px, -1px);
-      background-color: rgba($gray800, 0.2);
-      box-shadow: 4px 4px 4px rgba($gray800, 0.1);
+      background-color: rgba($gray400, 0.2);
+      box-shadow: 4px 4px 4px rgba($gray700, 0.1);
     }
   
     &:active {
-      background-color: rgba($gray800, 0.2);
-      transform: scale(0.98);
+      background-color: rgba($gray400, 0.2);
     }
   }
 }

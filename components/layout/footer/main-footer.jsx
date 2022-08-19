@@ -9,10 +9,17 @@ function MainFooter() {
   return (
     <footer className={classes.footer}>
       <div className={classes.innercontainer}>
-          <Image className={classes.logo} src={LogoSquare} alt={'logo'} width={70} height={38.73} layout={'fixed'}/>
-     
+        <Image
+          className={classes.logo}
+          src={LogoSquare}
+          alt={'logo'}
+          width={70}
+          height={38.73}
+          layout={'fixed'}
+        />
+
         <div className={classes.links}>
-          <p>Cabinet Ouaknine</p>
+          <Link href='/'>Cabinet Ouaknine</Link>
           <span>|</span>
           <Link href='/legal'>Mentions légales</Link>
           <span>|</span>
@@ -31,7 +38,7 @@ function MainFooter() {
             target='_blank'
             rel='noreferrer'
             alt='LinkedIn Alice Ouaknine'
-            aria-label="Open LinkedIn Alice Ouaknine"
+            aria-label='Open LinkedIn Alice Ouaknine'
           >
             <FaLinkedin
               className={classes.socialicon}
@@ -43,7 +50,7 @@ function MainFooter() {
             target='_blank'
             rel='noreferrer'
             alt='Google Alice Ouaknine'
-            aria-label="Open Google Alice Ouaknine"
+            aria-label='Open Google Alice Ouaknine'
           >
             <FaGooglePlusSquare
               className={classes.socialicon}

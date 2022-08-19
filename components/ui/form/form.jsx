@@ -4,7 +4,7 @@ import useLocale from '../../../hooks/useLocale';
 import Button from '../button';
 import Input from './input';
 import { useState, useEffect } from 'react';
-import { ChevronRightIcon, MailIcon } from '@heroicons/react/outline';
+import { ChevronRightIcon, MailIcon, RefreshIcon } from '@heroicons/react/outline';
 import axios from 'axios';
 import { useInView } from 'react-intersection-observer';
 import RichText from '../rich-text';
@@ -135,7 +135,8 @@ function Form({ titleform, subform }) {
       <div>
         <Button disabled={isLoading && true}>
           <span>{emailForm[locale].send}</span>
-          <ChevronRightIcon className={classes.svgsend} />
+          {!isLoading && <ChevronRightIcon className={classes.svgsend} />}
+          {isLoading && <RefreshIcon className={`${classes.svgsend} ${classes.sending}`} />}
         </Button>
       </div>
     </form>
