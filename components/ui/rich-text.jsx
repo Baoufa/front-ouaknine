@@ -1,6 +1,9 @@
 import { PortableText } from '@portabletext/react';
 
+import classes from './rich-text.module.scss'
+
 export default function RichText({value}) {
+
   return (
     <PortableText
       value={value}
@@ -14,8 +17,12 @@ export default function RichText({value}) {
             } else {
               return <p>{children}</p>;
             }
-          },
+          }
         },
+        listItem: {
+          bullet : ({children}) => <li className={classes.bullet}>{children}</li>
+        },
+
       }}
     />
   );

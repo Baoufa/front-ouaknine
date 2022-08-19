@@ -173,8 +173,30 @@
   stroke-width: 1px;
 }
 
+
 .phasegroup {
   @include desktop-container;
+  @include borderlight;
+  padding: 1.5rem;
+  background-color: $gray100;
+}
+
+.phasegroupinner{
+background-color: $white;;
+padding: 4rem;
+font-size: 1.1rem;
+}
+
+@media (max-width: $breakpoint-sm){
+  .phasegroup {
+    padding: 1rem;
+  }
+  
+  .phasegroupinner{
+  padding: 1rem;
+  font-size: 1rem;
+  }
+
 }
 
 .separator {

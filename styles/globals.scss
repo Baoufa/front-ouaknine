@@ -46,9 +46,18 @@ h1 {
   font-size: 3rem;
   @include seriflight;
 }
-// h2 {
-//   @include serif;
-// }
+h2 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  @include serif;
+}
+h3,h4,h5,h6 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  @include serif;
+}
 
 p {
   line-height: 1.5rem;

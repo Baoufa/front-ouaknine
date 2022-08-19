@@ -114,10 +114,15 @@ function Expertise({ data }) {
         </ul>
       </section>
       <div className={classes.separator}></div>
-      <section id='section2' className={classes.phasegroup}>
-        {titleSection2 && (
-          <h2 className={classes.sectiontitle}>{titleSection2}</h2>
-        )}
+      <section id='section2' className={classes.section2}>
+        <div className={classes.phasegroup}>
+          <div className={classes.phasegroupinner}>
+            {titleSection2 && (
+              <h2 className={classes.sectiontitle}>{titleSection2}</h2>
+            )}
+            {descSection2 && <RichText value={descSection2} />}
+          </div>
+        </div>
       </section>
     </div>
   );
