@@ -1,198 +1,180 @@
 @use '../styles/variables' as *;
 
-.container{
-  
+.container {
 }
 
-.section1{
+.section1 {
   @include desktop-container;
   margin: 0 auto;
 }
 
-
-.spegroup{
-  
+.spegroup {
   // display: flex;
   // flex-direction: column;
   // gap:3rem;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap:2rem;
+  gap: 2rem;
   width: 100%;
 }
 
 @media (max-width: $breakpoint-md) {
-  .spegroup{
-   width: 100%;
+  .spegroup {
+    width: 100%;
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 
-.span2{
+.span2 {
   grid-column: span 2 / span 2;
 }
 
-.sectiontitlegroup{
-margin-bottom: 3rem;
+.sectiontitlegroup {
+  margin-bottom: 3rem;
 }
 
-.sectiontitle{
+.sectiontitle {
   @include serif;
   font-size: 2.5rem;
   margin: 0;
   margin-bottom: 1rem;
-
 }
 
-.overlay{
+.overlay {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-   background: linear-gradient(
-     135deg,
-     rgba($white, 0.1),
-     rgba($white, 0.3)
-   );
-   background-size: cover;
-   z-index: 0;
+  background: linear-gradient(135deg, rgba($white, 0.1), rgba($white, 0.3));
+  background-size: cover;
+  z-index: 0;
 }
 
-.spe{
+.spe {
   position: relative;
   display: flex;
   flex-direction: column;
   //gap: 2rem;
-  
 
   border: 1px solid $gray200;
   //border-right: 1px solid $gray200;
 
-  box-shadow: 0 2px 4px rgba($gray800, .05);
+  box-shadow: 0 2px 4px rgba($gray800, 0.05);
 
-  &:nth-child(3n+1){
+  &:nth-child(3n + 1) {
     grid-column: span 2 / span 2;
   }
 
-
-  &_column{
+  &_column {
     flex-direction: row;
-    gap:2rem;
+    gap: 2rem;
   }
- 
-  &_left{
+
+  &_left {
     position: relative;
     flex: 1 0 30%;
-     clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
   }
 
-  &_right{
+  &_right {
     flex-wrap: 1;
     padding: 1rem;
   }
 
-
   &_top {
-  //  flex:0 0 auto;
- //   width: 300px;
+    //  flex:0 0 auto;
+    //   width: 300px;
     position: relative;
     height: 100px;
-   // overflow: hidden;
-   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
-  // clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)
-
+    // overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+    // clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)
   }
 
-//   &:nth-child(2n) .spe_left{
-//     order:1;
-//     clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
-// }
+  //   &:nth-child(2n) .spe_left{
+  //     order:1;
+  //     clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
+  // }
 
-  &_bottom{
-    flex:1;
+  &_bottom {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0.5rem 1rem 1rem 1rem ;
-  //  background-color: $white;
+    padding: 0.5rem 1rem 1rem 1rem;
+    //  background-color: $white;
   }
 
-//   &:nth-child(2n) .spe_right{
-//     padding-left: 2rem;
-// }
+  //   &:nth-child(2n) .spe_right{
+  //     padding-left: 2rem;
+  // }
 
-&_bottominner{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
+  &_bottominner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 
-
-  &_title{
+  &_title {
     margin-top: 0;
     margin-bottom: 1rem;
     font-size: 1.6rem;
     @include serif;
   }
 
-
-  &_linkcontainer{
+  &_linkcontainer {
     align-self: flex-end;
-    color:$gray500;
+    color: $gray500;
 
-    &::after{
-      content: '';
-      display: block;
-      background-color: $gray800;
-      height: 1px;
-      width: 0%;
-      transform: translateY(5px);
-      transition: all .2s;
-    }
+    @media (hover: hover) and (pointer: fine) {
+      &::after {
+        content: '';
+        display: block;
+        background-color: $gray800;
+        height: 1px;
+        width: 0%;
+        transform: translateY(5px);
+        transition: all 0.2s;
+      }
 
-    &:hover{
-      color:$gray800;
-    }
-  
-    &:hover:after {
-      width: 100%;
+      &:hover {
+        color: $gray800;
+      }
+
+      &:hover:after {
+        width: 100%;
+      }
     }
   }
-  
 
-
-  &_link{
+  &_link {
     display: flex;
     align-items: center;
-    gap:.5rem;
+    gap: 0.5rem;
 
     @include seriflight;
     font-size: 1.1rem;
     margin-top: 1rem;
     align-self: flex-end;
-
   }
 }
 
-@media (max-width:$breakpoint-md) {
-  .spe{
+@media (max-width: $breakpoint-md) {
+  .spe {
     grid-column: span 4 / span 4 !important;
   }
-  
 }
 
-.arrowlink{
+.arrowlink {
   width: 20px;
   height: 20px;
   stroke-width: 1px;
 }
 
-
-.phasegroup{
+.phasegroup {
   @include desktop-container;
-
 }
 
 .separator {
