@@ -164,3 +164,9 @@
     // padding-left: 3rem;
   }
 }
+
+@media (max-width: $breakpoint-sm) {
+  .rightblock{
+    display: none;
+  }
+}
