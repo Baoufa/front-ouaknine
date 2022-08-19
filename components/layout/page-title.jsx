@@ -17,11 +17,12 @@ export default function PageTitle({
   imgAlt,
   imgRatio,
   imgLqip,
+  white,
 }) {
   return (
     <div className={classes.titlegroup}>
       <div className={classes.titlegroupinner}>
-        <div className={classes.left}>
+        <div className={`${classes.left} ${!white && classes.black}`}>
           <h1 className={classes.title}>{title ? title : ''}</h1>
           <p className={classes.subtitle}>{subtitle ? subtitle : ''}</p>
         </div>
@@ -29,12 +30,12 @@ export default function PageTitle({
         {btn && (
           <div className={classes.right}>
             {label1 && (
-              <Button outline={true} onClick={onClick1}>
+              <Button outline={true} onClick={onClick1} white={white}>
                 {label1}
               </Button>
             )}
             {label2 && (
-              <Button outline={true} onClick={onClick2}>
+              <Button outline={true} onClick={onClick2} white={white}>
                 Phases d intervention
               </Button>
             )}

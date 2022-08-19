@@ -1,0 +1,94 @@
+@use '../../styles/variables' as *;
+
+.container {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5rem;
+
+  background-color: $white;
+  padding: 1.2rem;
+  box-shadow: 2px 2px 4px rgba(black, 0.1);
+
+  width: calc(50% - 2rem);
+  @include borderlight;
+  z-index: 199;
+  font-size: 0.9rem;
+  opacity: 0;
+  
+}
+
+.show{
+  animation: show 0.3s linear 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateY(5%);
+
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cookie {
+  flex: 0 0 auto;
+  width: 70px;
+  height: 70px;
+  stroke-width: 1px;
+  color: $gray400;
+}
+
+@media (max-width: $breakpoint-md) {
+  .container {
+    left: 2.5%;
+    width: 95%;
+  }
+}
+@media (max-width: $breakpoint-sm) {
+  .cookie {
+    display: none;
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.btngroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: flex-start;
+  gap: 1rem;
+}
+
+.svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1px;
+  color: $green600;
+}
+
+.accept {
+  color: $green600;
+}
+
+.deny {
+  color: $red600;
+}

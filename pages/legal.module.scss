@@ -1,0 +1,29 @@
+@use '../styles/variables' as *;
+
+.container {
+  @include desktop-container;
+
+}
+
+
+.cookie{
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin-top: 4rem;
+  @include borderlight;
+  padding: 2rem;
+  font-size: 1rem;
+}
+
+.label{
+  margin-right: 1rem;
+}
+
+@media (max-width: $breakpoint-sm) {
+  .cookie{
+    display: flex;
+    justify-content: center;
+  }
+  
+}

@@ -1,11 +1,12 @@
 import AnimatedLogoLoader from './animated-logo-loader';
 import classes from './loader.module.scss';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import useTimeout from '../../hooks/useTimout';
+import { LoaderContextSchema } from '../../context/loader-context';
 
 export default function Loader() {
-  const [isLoading, setIsLoading] = useState(true);
+  const {isLoading, setIsLoading} = useContext(LoaderContextSchema)
 
   useEffect(() => {
     document.body.classList.add('body-full');

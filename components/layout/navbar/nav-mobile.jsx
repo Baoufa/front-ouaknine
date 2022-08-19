@@ -36,7 +36,7 @@ function NavMobile({ navlinks }) {
         <li
           className={`${classes.navitem} ${classes.langblock} ${classes[`animation${i}`]}`}
         >
-          <LanguagePickerMobile />
+          <LanguagePickerMobile onClick={toggleNav}/>
         </li>
       </ul>
     </nav>

@@ -18,6 +18,7 @@ export default function Home({ data }) {
     tag1,
     tag2,
     tag3,
+    white,
     imageTitleUrl,
     imageTitleAlt,
     imgRatioTitle,
@@ -55,8 +56,8 @@ export default function Home({ data }) {
 
         <div className={classes.overlay}></div>
 
-        <div className={classes.upperinner}>
-          <div className={classes.titlegroup}>
+        <div className={`${classes.upperinner}`}>
+          <div className={`${classes.titlegroup} ${!white && classes.black}`}>
             {title1 && title2 && (
               <h1>
                 <p className={classes.title}>{title1?.trim()}</p>
@@ -66,17 +67,17 @@ export default function Home({ data }) {
             <div className={classes.spegroup}>
               {tag1 && (
                 <Link href='/expertise'>
-                  <a className={classes.spe}>{tag1?.trim()}</a>
+                  <a className={`${classes.spe} ${!white && classes.spe_black}`}>{tag1?.trim()}</a>
                 </Link>
               )}
               {tag2 && (
                 <Link href='/expertise'>
-                  <a className={classes.spe}>{tag2?.trim()}</a>
+                  <a className={`${classes.spe} ${!white && classes.spe_black}`}>{tag2?.trim()}</a>
                 </Link>
               )}
               {tag3 && (
                 <Link href='/expertise'>
-                  <a className={classes.spe}>{tag3?.trim()}</a>
+                  <a className={`${classes.spe} ${!white && classes.spe_black}`}>{tag3?.trim()}</a>
                 </Link>
               )}
             </div>
@@ -138,6 +139,7 @@ export async function getStaticProps(ctx) {
         tag1,
         tag2,
         tag3, 
+        white,
         "imageTitleUrl": imageTitle.asset->url,
         "imageTitleAlt" : imageTitle.alt,
         "imgRatioTitle" : imageTitle.asset->metadata.dimensions.aspectRatio,

@@ -14,7 +14,7 @@
   // gap:3rem;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 2rem;
   width: 100%;
 }
@@ -41,6 +41,10 @@
   margin-bottom: 1rem;
 }
 
+.sectiontitle2{
+  margin-bottom: 2rem;
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -62,10 +66,10 @@
   //border-right: 1px solid $gray200;
 
   box-shadow: 0 2px 4px rgba($gray800, 0.05);
-
-  &:nth-child(3n + 1) {
-    grid-column: span 2 / span 2;
-  }
+  grid-column: span 3 / span 3;
+  // &:nth-child(3n + 1) {
+  //   grid-column: span 6 / span 6;
+  // }
 
   &_column {
     flex-direction: row;
@@ -87,7 +91,7 @@
     //  flex:0 0 auto;
     //   width: 300px;
     position: relative;
-    height: 100px;
+    height: 60px;
     // overflow: hidden;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
     // clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)
@@ -103,7 +107,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0.5rem 1rem 1rem 1rem;
+    padding: 1rem 1rem 1rem 1rem;
     //  background-color: $white;
   }
 
@@ -127,6 +131,7 @@
   &_linkcontainer {
     align-self: flex-end;
     color: $gray500;
+    margin-top: 1rem;
 
     @media (hover: hover) and (pointer: fine) {
       &::after {
@@ -156,7 +161,6 @@
 
     @include seriflight;
     font-size: 1.1rem;
-    margin-top: 1rem;
     align-self: flex-end;
   }
 }
@@ -182,9 +186,47 @@
 }
 
 .phasegroupinner{
+display: flex;
+flex-direction: column;
 background-color: $white;;
-padding: 4rem;
+padding: 4rem 4rem 2rem 4rem;
 font-size: 1.1rem;
+}
+
+.linkcontainer {
+  align-self: flex-end;
+  margin-top: 3rem;
+  color: $gray500;
+
+  @media (hover: hover) and (pointer: fine) {
+    &::after {
+      content: '';
+      display: block;
+      background-color: $gray800;
+      height: 1px;
+      width: 0%;
+      transform: translateY(5px);
+      transition: all 0.2s;
+    }
+
+    &:hover {
+      color: $gray800;
+    }
+
+    &:hover:after {
+      width: 100%;
+    }
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  @include seriflight;
+  font-size: 1.1rem;
+  align-self: flex-end;
 }
 
 @media (max-width: $breakpoint-sm){
@@ -196,7 +238,6 @@ font-size: 1.1rem;
   padding: 1rem;
   font-size: 1rem;
   }
-
 }
 
 .separator {

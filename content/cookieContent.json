@@ -1,0 +1,16 @@
+{
+  "fr": {
+    "title": "Cookies",
+    "body": "Nous utilisons des cookies pour améliorer l’expérience utilisateur et analyser le trafic sur notre site web. En cliquant sur “Accepter“, vous consentez à l’utilisation de cookies sur notre site web, conformément à la description fournie dans notre politique relative aux cookies. Vous pouvez modifier vos paramètres d’acceptation des cookies à tout moment dans les conditions légales.",
+    "accept": "Accepter",
+    "decline": "Refuser"
+    
+  },
+
+  "en": {
+    "title": "Cookie Consent",
+    "body": "Google Map",
+    "accept": "Accept",
+    "decline": "Decline"
+  }
+}

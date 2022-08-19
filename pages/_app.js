@@ -1,5 +1,7 @@
 import App from 'next/app';
 import NavContext from '../context/nav-context';
+import CookieContext from '../context/cookie-context';
+import LoaderContext from '../context/loader-context';
 import Layout from '../components/layout/layout';
 import clientApi from '../libs/clientApi';
 import '../styles/globals.scss';
@@ -8,27 +10,16 @@ import '../styles/font.css';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <NavContext>
-      <Layout seo={pageProps.seo} navlinks={pageProps.navLinks}>
-        <Component {...pageProps} />
-      </Layout>
-    </NavContext>
+    <CookieContext>
+      <LoaderContext>
+        <NavContext>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </NavContext>
+      </LoaderContext>
+    </CookieContext>
   );
 }
-
-MyApp.getInitialProps = async appContext => {
-  // calls page's `getInitialProps` and fills `appProps.pageProps`
-  const appProps = await App.getInitialProps(appContext);
-  const locale = appContext.ctx.locale;
-
-  try {
-    const seoArray = await clientApi.fetch(`*[_type == "seo" && language == "${locale}"]`);
-    const seo = seoArray[0];
-    return { ...appProps, pageProps: { seo } };
-  } catch (err) {
-    console.log(err.message);
-    return { ...appProps, pageProps: null };
-  }
-};
 
 export default MyApp;

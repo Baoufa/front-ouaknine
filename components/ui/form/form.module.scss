@@ -7,9 +7,9 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap:1rem;
 
-  transform: translateX(-5%);
-  opacity: 0;
-  transition: all .9s linear .3s;
+  // transform: translateX(-5%);
+  // opacity: 0;
+  // transition: all .9s linear .3s;
 }
 
 @media (max-width: $breakpoint-md) {
@@ -19,10 +19,10 @@
   }
 }
 
-.show {
-  transform: translateY(0);
-  opacity: 1;
-}
+// .show {
+//   transform: translateY(0);
+//   opacity: 1;
+// }
 
 .titleblock{
   grid-column: span 2 / span 2;

@@ -1,9 +1,8 @@
 import { PortableText } from '@portabletext/react';
 
-import classes from './rich-text.module.scss'
+import classes from './rich-text.module.scss';
 
-export default function RichText({value}) {
-
+export default function RichText({ value }) {
   return (
     <PortableText
       value={value}
@@ -17,12 +16,33 @@ export default function RichText({value}) {
             } else {
               return <p>{children}</p>;
             }
-          }
+          },
+          blockquote: ({ children }) => (
+            <blockquote className={classes.blockquote}>{children}</blockquote>
+          ),
         },
         listItem: {
-          bullet : ({children}) => <li className={classes.bullet}>{children}</li>
+          bullet: ({ children }) => (
+            <li className={classes.bullet}>{children}</li>
+          ),
         },
-
+        marks: {
+          link:  ({ children, value }) => {
+              const rel = !value.href.startsWith('/')
+                ? 'noreferrer noopener'
+                : undefined;
+              return (
+                <a
+                  className={classes.link}
+                  href={value.href}
+                  rel={rel}
+                  target='°blank'
+                >
+                  {children}
+                </a>
+              );
+          },
+        },
       }}
     />
   );

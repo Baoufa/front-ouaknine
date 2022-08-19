@@ -26,6 +26,7 @@ function Expertise({ data }) {
     descriptionseo,
     title,
     subtitle,
+    white,
     imageBg,
     imageTitle,
     titleSection1,
@@ -50,6 +51,7 @@ function Expertise({ data }) {
         imgAlt={imageTitle ? imageTitle?.alt : null}
         imgRatio={imageBg ? imageBg?.metadata.dimensions.aspectRatio : 1}
         imgLqip={imageBg ? imageBg?.metadata.lqip : null}
+        white={white ? white : false}
       />
 
       <section id='section1' className={classes.section1}>
@@ -118,9 +120,17 @@ function Expertise({ data }) {
         <div className={classes.phasegroup}>
           <div className={classes.phasegroupinner}>
             {titleSection2 && (
-              <h2 className={classes.sectiontitle}>{titleSection2}</h2>
+              <h2 className={`${classes.sectiontitle} ${classes.sectiontitle2}`}>{titleSection2}</h2>
             )}
             {descSection2 && <RichText value={descSection2} />}
+            <div className={classes.linkcontainer}>
+              <Link href='/contact'>
+                <a className={classes.link}>
+                  <span>{ExpertiseContent[locale].contactLinkLabel}</span>
+                  <ArrowSmRightIcon className={classes.arrowlink} />
+                </a>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

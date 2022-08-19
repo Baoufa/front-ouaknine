@@ -8,17 +8,18 @@ import NavMobileButton from './nav-mobile-button';
 import classes from './main-header.module.scss';
 import navlinks from '../../../content/headerContent.json';
 import useLocale from '../../../hooks/useLocale';
+import { useRouter } from 'next/router';
 
 import AnimatedLogo from './animated-logo';
 import logo from '../../../public/images/logodraft.svg';
 
-function MainHeader(props) {
+function MainHeader() {
   const { isOn, toggleNav } = useContext(NavContextSchema);
   const locale = useLocale();
-
+  const {pathname} = useRouter();
   return (
     <>
-      <header className={classes.header}>
+      <header className={`${classes.header} ${pathname === '/articles' ? classes.border : ''}`}>
         <div className={classes.navcontainer}>
           <Link href='/'>
             <a className={classes.logocontainer}>

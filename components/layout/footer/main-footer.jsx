@@ -1,5 +1,5 @@
 import classes from './main-footer.module.scss';
-
+import Link from 'next/link';
 import LogoSquare from '../../../public/images/logosquare.svg';
 import Image from 'next/image';
 
@@ -14,7 +14,7 @@ function MainFooter() {
         <div className={classes.links}>
           <p>Cabinet Ouaknine</p>
           <span>|</span>
-          <p>Mentions légales</p>
+          <Link href='/legal'>Mentions légales</Link>
           <span>|</span>
           <p>Admin</p>
         </div>

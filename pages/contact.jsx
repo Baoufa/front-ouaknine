@@ -22,6 +22,7 @@ function Contact({ data }) {
     descriptionseo,
     title,
     subtitle,
+    white,
     imageTitleUrl,
     imageTitleAlt,
     imgRatioTitle,
@@ -45,6 +46,7 @@ function Contact({ data }) {
         imgAlt={imageTitleAlt ? imageTitleAlt : 'Background image'}
         imgRatio={imgRatioTitle ? imgRatioTitle : 1}
         imgLqip={lqipTitle ? lqipTitle : null}
+        white={white ? white : false}
       />
       <section className={classes.container}>
         <div className={classes.grid}>
@@ -116,6 +118,7 @@ export async function getStaticProps(ctx) {
         descriptionseo,
         title,
         subtitle,
+        white,
         "imageTitleUrl": imageTitle.asset->url,
         "imageTitleAlt" : imageTitle.alt,
         "imgRatioTitle" : imageTitle.asset->metadata.dimensions.aspectRatio,
@@ -126,6 +129,7 @@ export async function getStaticProps(ctx) {
         subform
       }`
     );
+    console.log(content);
     return { props: { data: content?.length && content[0] } };
   } catch (err) {
     console.log(err.message);

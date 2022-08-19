@@ -3,7 +3,7 @@ import useLocale from '../../../hooks/useLocale';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-function LanguagePickerMobile() {
+function LanguagePickerMobile(props) {
   const locale = useLocale();
   const router = useRouter();
   const [state, setState] = useState(locale);
@@ -13,6 +13,7 @@ function LanguagePickerMobile() {
   const toggleHandler = loc => {
     setState(l => loc);
     router.push({ pathname, query }, asPath, { locale: loc });
+    props.onClick();
   };
 
   return (

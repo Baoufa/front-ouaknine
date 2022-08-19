@@ -10,3 +10,31 @@
 .title {
   margin-bottom: 2rem;
 }
+
+.link{
+  text-decoration: underline;
+
+  &:hover{
+    color: $gray400;
+  }
+  &:visited{
+    color: $gray400;
+  }
+}
+
+.blockquote {
+  @include serif;
+  font-size: 1.5rem;
+  width: 50%;
+  margin: 3rem auto;
+  font-style: italic;
+  font-weight: 200;
+  text-align: center;
+
+  &:before{
+    content:'" '
+  }
+  &:after{
+    content:' "'
+  }
+}
