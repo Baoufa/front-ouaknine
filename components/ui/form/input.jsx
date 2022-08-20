@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import classes from './input.module.scss';
 import useAutosizeTextArea from '../../../hooks/useAutoSizeTextarea';
 
-function Input({ type, id, content, val, onChange }) {
+function Input({ type, inputMode, id, content, val, onChange }) {
   const [isFocus, setIsFocus] = useState(false);
   const textareaRef = useRef();
 
@@ -30,7 +30,8 @@ function Input({ type, id, content, val, onChange }) {
       </label>
       {type !== 'textarea' && (
         <input
-          type='text'
+          type={type}
+          inputMode={inputMode}
           name={id}
           id={id}
           className={classes.input}
