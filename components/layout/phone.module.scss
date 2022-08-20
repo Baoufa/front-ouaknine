@@ -5,6 +5,10 @@
   bottom: 1rem;
   right: 1rem;
   z-index: 198;
+  overflow: visible;
+  border-radius: 100px;
+  width: 60px;
+  height: 60px;
 }
 
 .svg{
@@ -17,6 +21,7 @@
   height: 60px;
   box-shadow: 2px 2px 4px rgba(black, .1);
   color:$gray600;
+  overflow: visible;
 }
 
 @media (min-width: $breakpoint-sm){
