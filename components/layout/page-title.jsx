@@ -54,7 +54,7 @@ export default function PageTitle({
         placeholder={'empty'}
         priority
         sizes='100vw'
-        quality={50}
+        quality={75}
       />
 
       <div className={classes.overlay}></div>

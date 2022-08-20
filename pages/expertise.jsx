@@ -47,7 +47,7 @@ function Expertise({ data }) {
         onClick2={() => scrollTo('section2')}
         label1={titleSection1 ? titleSection1 : ''}
         label2={titleSection2 ? titleSection2 : ''}
-        imgUrl={imageBg ? `${imageBg?.url}?w=1600&blur=100` : null}
+        imgUrl={imageBg ? `${imageBg?.url}?w=1600` : null}
         imgAlt={imageTitle ? imageTitle?.alt : null}
         imgRatio={imageBg ? imageBg?.metadata.dimensions.aspectRatio : 1}
         imgLqip={imageBg ? imageBg?.metadata.lqip : null}
