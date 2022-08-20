@@ -113,13 +113,15 @@ function Form({ titleform, subform }) {
       />
       <Input
         type='email'
+        inputMode='email'
         id='email'
         content={emailForm[locale].email}
         val={value.email}
         onChange={onValueHandler}
       />
       <Input
-        type='text'
+        type='tel'
+        inputMode='tel'
         id='phone'
         content={emailForm[locale].phone}
         val={value.phone}
