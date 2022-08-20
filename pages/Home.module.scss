@@ -22,7 +22,9 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(135deg, rgba($white, 0.3), rgba($gray400, 0.6));
+  //background: linear-gradient(135deg, rgba($white, 0.3), rgba($gray400, 0.6));
+  background: linear-gradient(135deg, rgba(#0e7490, .8), rgba(#0e7490, 0.1));
+
   background-size: cover;
   z-index: 0;
 }
@@ -51,6 +53,7 @@
   color: $white;
   padding: 0rem 2rem;
   animation: opa 1.5s;
+  z-index: 1;
 }
 
 .black{
@@ -114,7 +117,7 @@
   color: rgba($white, 0.8);
   font-size: 1.2rem;
   //font-size: 1.5vw;
- // backdrop-filter: blur(2px);
+   backdrop-filter: blur(2px);
   border: 1px solid rgba($white, 0.8);
   @include serif;
   font-weight: 500;
