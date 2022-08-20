@@ -85,7 +85,7 @@ export default function Home({ data }) {
           {/* <Link href="/#homedesc" scroll={false}> */}
 
           <ChevronDoubleDownIcon
-            className={classes.arrow}
+            className={`${classes.arrow} ${!white && classes.arrow_black}`}
             onClick={() => scrollTo('homedesc')}
           />
 

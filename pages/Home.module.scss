@@ -257,6 +257,19 @@ $gapDel: 0.6s;
     animation-play-state: paused;
     animation: scale 0.2s;
   }
+
+  &_black{
+    border: 1px solid $gray700;
+    color: $gray700;
+   
+    &:hover {
+      background-color: rgba($gray400, 0.2);
+    }
+  
+    &:active {
+      background-color: rgba($gray400, 0.2);
+    }
+  }
 }
 
 .bottom {

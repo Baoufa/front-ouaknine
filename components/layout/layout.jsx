@@ -1,6 +1,7 @@
 import MainHeader from './navbar/main-header';
 import MainFooter from './footer/main-footer';
 import Cookie from './cookie';
+import Phone from './phone';
 
 import classes from './layout.module.scss';
 import Loader from './loader';
@@ -13,12 +14,16 @@ function Layout(props) {
   const { doNotShow } = useContext(CookieContextSchema);
   const { isOn } = useContext(NavContextSchema);
 
+
   return (
     <>
       <Loader />
       {!doNotShow && !isOn && <Cookie />}
+      {!isOn && <Phone />}
       <MainHeader />
-      <main className={classes.main}>{props.children}</main>
+      <main className={classes.main}>
+      
+        {props.children}</main>
       <MainFooter />
     </>
   );

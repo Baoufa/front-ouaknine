@@ -1,0 +1,27 @@
+@use '../../styles/variables' as *;
+
+.phone{
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 198;
+}
+
+.svg{
+  @include borderlight;
+  background-color: rgba($white, .6);
+  backdrop-filter: blur(5px);
+  border-radius: 100px;
+  padding: 1rem;
+  width: 60px;
+  height: 60px;
+  box-shadow: 2px 2px 4px rgba(black, .1);
+  color:$gray600;
+}
+
+@media (min-width: $breakpoint-sm){
+  .phone{
+    display: none;
+  }
+
+}
