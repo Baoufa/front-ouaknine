@@ -8,14 +8,22 @@
 
 
 .svglogoanimatedloader{
-  width: 19vw * 1;
-  height: 3.56vw * 1;
+  width: 19vw * 1.2;
+  height: 3.56vw * 1.2;
 }
 
 @media (max-width: $breakpoint-md) {
   .svglogoanimatedloader{
-       width: 19vw * 2.5;
-       height: 3.56vw * 2.5;
+       width: 19vw * 2;
+       height: 3.56vw * 2;
+       transform:translateY(-50px);
+   }
+ }
+@media (max-width: $breakpoint-sm) {
+  .svglogoanimatedloader{
+       width: 19vw * 3.5;
+       height: 3.56vw * 3.5;
+       transform:translateY(-50px);
    }
  }
 
