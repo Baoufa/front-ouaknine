@@ -21,12 +21,12 @@ function LanguagePickerMobile(props) {
       <div className={classes.switch}>
         <div
           className={`${classes.toggle} ${
-            state === 'en' && classes.toggleactive
+            locale === 'en' && classes.toggleactive
           }`}
         ></div>
         <span
           className={`${classes.label} ${
-            state === 'en' && classes.labelactive
+            locale === 'en' && classes.labelactive
           }`}
           onClick={() => toggleHandler('fr')}
         >
@@ -34,7 +34,7 @@ function LanguagePickerMobile(props) {
         </span>
         <span
           className={`${classes.label} ${
-            state === 'fr' && classes.labelactive
+            locale === 'fr' && classes.labelactive
           }`}
           onClick={() => toggleHandler('en')}
         >

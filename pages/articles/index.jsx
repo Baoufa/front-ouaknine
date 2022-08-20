@@ -64,12 +64,12 @@ export async function getStaticProps(ctx) {
       "estimatedReadingTime": round(length(pt::text(content${locale}.body${locale})) / 5 / 180 )
     }`
     );
-
-    console.log(posts);
     return { props: { data: content?.length && content[0], posts: posts } };
   } catch (err) {
     console.log(err.message);
-    return { props: { data: null } };
+    return {
+      notFound: true,
+    }
   }
 }
 

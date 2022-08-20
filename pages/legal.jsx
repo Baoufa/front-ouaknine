@@ -39,11 +39,12 @@ export async function getStaticProps(ctx) {
     const content = await clientApi.fetch(
       `*[_type == "legal" && language == "${locale}"]`
     );
-    console.log(content[0].block);
     return { props: { data: content?.length && content[0] } };
   } catch (err) {
     console.log(err.message);
-    return { props: { data: null } };
+    return {
+      notFound: true,
+    }
   }
 }
 

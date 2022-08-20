@@ -152,7 +152,9 @@ export async function getStaticProps(ctx) {
     return { props: { data: content?.length && content[0] } };
   } catch (err) {
     console.log(err.message);
-    return { props: { data: null } };
+    return {
+      notFound: true,
+    }
   }
 }
 

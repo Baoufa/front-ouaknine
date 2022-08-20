@@ -19,7 +19,6 @@ function CookieContext(props) {
       setState(prevState => ({ ...prevState, isRead: true }));
       const bol = localStorage.getItem('analytics');
       if (bol === 'true' || bol === 'false') {
-        console.log(bol)
         setState(prevState => ({
           ...prevState,
           isAccepted: bol,

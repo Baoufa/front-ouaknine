@@ -14,9 +14,11 @@ import classes from './language-picker.module.scss';
 function LanguagePicker() {
   const [state, setState] = useState(false);
   const locale = useLocale();
-  const { pathname } = useRouter();
+  const { pathname, query } = useRouter();
   const dropdown = useRef();
   const capLocale = locale.charAt(0).toUpperCase() + locale.slice(1);
+
+  console.log(query);
 
   const toggleHandler = () => {
     setState(bol => !bol);
@@ -47,29 +49,36 @@ function LanguagePicker() {
         />
       </div>
       <div className={`${classes.selector} ${state && classes.selectoractive}`}>
-        
-          <Link locale='fr' href={pathname}>
-            <a className={classes.label}>
-              <CheckIcon
-                className={`${classes.check} ${
-                  locale !== 'fr' && classes.checkinactive
-                }`}
-              />
-              <span>Français</span>
-            </a>
-          </Link>
-      
+        <Link
+          locale='fr'
+          href={{
+            pathname: pathname,
+            query,
+          }}
+        >
+          <a className={classes.label}>
+            <CheckIcon
+              className={`${classes.check} ${
+                locale !== 'fr' && classes.checkinactive
+              }`}
+            />
+            <span>Français</span>
+          </a>
+        </Link>
 
-          <Link locale='en' href={pathname}>
-            <a className={classes.label}>
-              <CheckIcon
-                className={`${classes.check} ${
-                  locale !== 'en' && classes.checkinactive
-                }`}
-              />
-              <span>English</span>
-            </a>
-          </Link>
+        <Link locale='en' href={{
+            pathname: pathname,
+            query,
+          }}>
+          <a className={classes.label}>
+            <CheckIcon
+              className={`${classes.check} ${
+                locale !== 'en' && classes.checkinactive
+              }`}
+            />
+            <span>English</span>
+          </a>
+        </Link>
       </div>
     </div>
   );

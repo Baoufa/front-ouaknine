@@ -50,7 +50,9 @@ function ArticleCard({
         ref={ref}
         className={`${classes.item} ${viewed && classes.itemactive}`}
       >
-        <Link href={`/articles/${slug}`}>
+        <Link
+          href={ `/articles/${_id}`}
+        >
           <a className={classes.article}>
             <div className={classes.img}>
               <Image
