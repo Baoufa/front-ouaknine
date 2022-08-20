@@ -4,10 +4,10 @@
 .titlegroup{
   position: relative;
   display: flex;
-  align-items:center;
+  align-items:flex-start;
   overflow: hidden;
   z-index: 0;
-  min-height: 35vh;
+ // min-height: 45vh;
 }
 
 .black{
@@ -27,11 +27,12 @@
   left: 0;
   height: 100%;
   width: 100%;
-   background: linear-gradient(
-     135deg,
-     rgba($white, 0.3),
-     rgba($gray200, 0.6)
-   );
+  //  background: linear-gradient(
+  //    135deg,
+  //    rgba($white, 0.3),
+  //    rgba($gray200, 0.6)
+  //  );
+   background: linear-gradient(135deg, rgba(#0e7490, .8), rgba(#0e7490, 0.1));
    background-size: cover;
    z-index: 0;
 }
@@ -40,12 +41,22 @@
   position: relative;
   z-index: 100;
   @include desktop-container;
+
+
   padding: 2rem 0 3rem 0;
   color: $white;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap:3rem;
+
+  background-color: rgba($white, .1);
+  
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  backdrop-filter: blur(20px);
 }
 
 .title{
@@ -75,6 +86,10 @@
     flex-direction: column;
     align-items: flex-start;
     gap:2rem;
+
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
   }
 
   .title{

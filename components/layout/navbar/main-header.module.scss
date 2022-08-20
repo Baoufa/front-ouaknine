@@ -32,14 +32,24 @@
 // }
 
 .logocontainer{
+  position:relative;
   width: 209px;
   height: 39.16px;
+  cursor: pointer;
 }
 
 .logo {
-  width: 209px !important;
-  height: 39.16px !important;
-  cursor: pointer;
+  width: 209px ;
+  height: 39.16px;
+  
+}
+
+@media (max-width: $breakpoint-sm){
+  .logocontainer{
+    width: 209px * .8;
+    height: 39.16px * .8;
+  }
+ 
 }
 
 .banner {

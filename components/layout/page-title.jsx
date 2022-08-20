@@ -49,7 +49,7 @@ export default function PageTitle({
         alt={imgAlt ? imgAlt : 'Background image'}
         objectFit={'cover'}
         layout={'fill'}
-        objectPosition={'top'}
+        objectPosition={'center'}
         blurDataURL={imgUrl ? imgLqip : ''}
         placeholder={'empty'}
         priority

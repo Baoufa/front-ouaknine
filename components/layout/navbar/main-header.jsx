@@ -28,9 +28,7 @@ function MainHeader() {
                 className={classes.logo}
                 src={logo}
                 alt='logo'
-                width={209}
-                height={39.16}
-                layout={'fixed'}
+                layout={'responsive'}
               />
             </a>
           </Link>
