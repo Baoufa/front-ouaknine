@@ -1,5 +1,6 @@
 import { PortableText } from '@portabletext/react';
-
+import SanityImage from './sanityImage';
+import Image from 'next/image';
 import classes from './rich-text.module.scss';
 
 export default function RichText({ value }) {
@@ -21,26 +22,35 @@ export default function RichText({ value }) {
             <blockquote className={classes.blockquote}>{children}</blockquote>
           ),
         },
+        types: {
+          image: ({ value }) => {
+            return (
+              <div className={classes.img}>
+                <SanityImage {...value} />
+              </div>
+            );
+          },
+        },
         listItem: {
           bullet: ({ children }) => (
             <li className={classes.bullet}>{children}</li>
           ),
         },
         marks: {
-          link:  ({ children, value }) => {
-              const rel = !value.href.startsWith('/')
-                ? 'noreferrer noopener'
-                : undefined;
-              return (
-                <a
-                  className={classes.link}
-                  href={value.href}
-                  rel={rel}
-                  target='°blank'
-                >
-                  {children}
-                </a>
-              );
+          link: ({ children, value }) => {
+            const rel = !value.href.startsWith('/')
+              ? 'noreferrer noopener'
+              : undefined;
+            return (
+              <a
+                className={classes.link}
+                href={value.href}
+                rel={rel}
+                target='°blank'
+              >
+                {children}
+              </a>
+            );
           },
         },
       }}

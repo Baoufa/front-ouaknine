@@ -1,7 +1,7 @@
 @use '../../styles/variables' as *;
 
-.bullet{
-  list-style:none;
+.bullet {
+  list-style: none;
   padding-left: 1rem;
   margin: 1rem 0 1rem 1rem;
   border-left: 5px solid $gray300;
@@ -11,13 +11,13 @@
   margin-bottom: 2rem;
 }
 
-.link{
+.link {
   text-decoration: underline;
 
-  &:hover{
+  &:hover {
     color: $gray400;
   }
-  &:visited{
+  &:visited {
     color: $gray400;
   }
 }
@@ -31,10 +31,23 @@
   font-weight: 200;
   text-align: center;
 
-  &:before{
-    content:'" '
+  &:before {
+    content: '" ';
   }
-  &:after{
-    content:' "'
+  &:after {
+    content: ' "';
+  }
+}
+
+.img {
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+}
+
+@media (max-width: $breakpoint-sm) {
+  .img {
+    width: 100%;
+    height: 100%;
   }
 }

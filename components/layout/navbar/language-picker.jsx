@@ -18,8 +18,6 @@ function LanguagePicker() {
   const dropdown = useRef();
   const capLocale = locale.charAt(0).toUpperCase() + locale.slice(1);
 
-  console.log(query);
-
   const toggleHandler = () => {
     setState(bol => !bol);
   };

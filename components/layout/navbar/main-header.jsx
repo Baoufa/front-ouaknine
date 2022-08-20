@@ -19,7 +19,7 @@ function MainHeader() {
   const {pathname} = useRouter();
   return (
     <>
-      <header className={`${classes.header} ${pathname === '/articles' ? classes.border : ''}`}>
+      <header className={`${classes.header} ${pathname.includes('/articles') ? classes.border : ''}`}>
         <div className={classes.navcontainer}>
           <Link href='/'>
             <a className={classes.logocontainer}>

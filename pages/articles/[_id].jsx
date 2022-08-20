@@ -1,10 +1,12 @@
+import Image from 'next/image';
+
 import clientApi from '../../libs/clientApi';
 
 import RichText from '../../components/ui/rich-text';
 
 import classes from './_id.module.scss';
 
-function Article({data}) {
+function Article({ data }) {
   const {
     _id,
     author,
@@ -18,16 +20,31 @@ function Article({data}) {
     mainImage,
   } = data;
 
-
-  return <section className={classes.container}>
-    <article>
-      {title && <h1>{title}</h1>}
-      {author && <p>{author}</p>}
-      
-      {body && <RichText value={body} />}
-
-    </article>
-  </section>;
+  return (
+    <section className={classes.container}>
+      <article className={classes.article}>
+        {title && <h1>{title}</h1>}
+        {author && <p>{author}</p>}
+        {mainImage && (
+          <Image
+            className={classes.img}
+            src={mainImage?.url ? `${mainImage?.url}?w=1600` : ''}
+            alt={title ? title : 'Image article'}
+            width={100}
+            height={100}
+            blurDataURL={
+              mainImage?.metadata?.lqip ? mainImage?.metadata?.lqip : null
+            }
+            placeholder={'blur'}
+            sizes='100vw'
+            priority
+            quality={30}
+          />
+        )}
+        {body && <RichText value={body} />}
+      </article>
+    </section>
+  );
 }
 
 export async function getStaticPaths({ locales }) {
@@ -80,21 +97,21 @@ export async function getStaticProps({ locale, params }) {
     }`
     );
 
-    if(content.length === 0) {
-        return {
-          redirect: {
-            destination: '/articles',
-            permanent: false,
-            // statusCode: 301
-          },
-      }
+    if (content.length === 0) {
+      return {
+        redirect: {
+          destination: '/articles',
+          permanent: false,
+          // statusCode: 301
+        },
+      };
     }
 
     return { props: { data: content?.length && content[0] } };
   } catch (err) {
     return {
       notFound: true,
-    }
+    };
   }
 }
 
