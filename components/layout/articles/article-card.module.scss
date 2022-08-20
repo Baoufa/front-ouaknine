@@ -13,13 +13,14 @@
 }
 
 .title{
-  @include serif
+  @include serif;
+  margin-top:.5rem;
 }
 
 .article {
   margin: 0 auto 3rem auto;
   display: flex;
-  width: 90%;
+  width: 100%;
   justify-content: flex-start;
   align-items: center;
   gap:3rem;

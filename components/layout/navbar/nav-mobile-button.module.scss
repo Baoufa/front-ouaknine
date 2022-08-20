@@ -11,6 +11,7 @@
   height: 3rem;
   cursor: pointer;
   z-index: 40;
+  //width: 100%;
 
   @include scaleclick;
 }
@@ -53,10 +54,10 @@
 }
 .rotatemiddle {
   width: 0%;
-  transform: translateX(100px);
-  -webkit-transform: translateX(100px);
-  -moz-transform: translateX(100px);
-  -ms-transform: translateX(100px);
+  // transform: translateX(100px);
+  // -webkit-transform: translateX(100px);
+  // -moz-transform: translateX(100px);
+  // -ms-transform: translateX(100px);
 }
 
 .rotatebottom {

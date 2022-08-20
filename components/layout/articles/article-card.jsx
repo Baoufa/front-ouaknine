@@ -2,14 +2,27 @@ import classes from './article-card.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import useTimeout from '../../../hooks/useTimout';
-import { useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
+
+import useLocale from '../../../hooks/useLocale';
 import { useInView } from 'react-intersection-observer';
 import { ClockIcon, ShareIcon } from '@heroicons/react/outline';
 
 import defaultImage from '../../../public/images/alex-vasey-tDuQe2ShHpk-unsplash.jpeg';
 
-function ArticleCard() {
+import CONTENT from '../../../content/articleCardContent.json';
+
+function ArticleCard({
+  _id,
+  title,
+  slug,
+  author,
+  publishedAt,
+  body,
+  estimatedReadingTime,
+}) {
+  const locale = useLocale();
+
   const [viewed, setViewed] = useState(false);
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -17,15 +30,27 @@ function ArticleCard() {
   });
 
   useEffect(() => {
-    if(inView && !viewed){
+    if (inView && !viewed) {
       setViewed(true);
     }
-  }, [inView, viewed])
+  }, [inView, viewed]);
+
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+
+  let formattedDate;
+  if (publishedAt) {
+    formattedDate = new Date(publishedAt).toLocaleDateString(locale, options);
+  }
+
+  const shareHandler = (title, slug) => {};
 
   return (
-    <li ref={ref} className={`${classes.item} ${viewed && classes.itemactive}`}>
-      <article>
-        <Link href='/articles'>
+    <>
+      <article
+        ref={ref}
+        className={`${classes.item} ${viewed && classes.itemactive}`}
+      >
+        <Link href={`/articles/${slug}`}>
           <a className={classes.article}>
             <div className={classes.img}>
               <Image
@@ -35,40 +60,39 @@ function ArticleCard() {
                 height={250}
                 placeholder={'blur'}
                 objectFit={'cover'}
-                layout={'responsive'} 
+                layout={'responsive'}
                 objectPosition={'center'}
               />
             </div>
 
             <div className={classes.description}>
               <div className={classes.upper}>
-                <p className={classes.date}>25 juiller 2021</p>
-                <h2 className={classes.title}>Article Title</h2>
-                <p className={classes.content}>
-                  {' '}
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-                  dolorum molestiae dolores aliquam est ab nihil repellendus
-                  fugit quibusdam sapiente quod libero in impedit modi, neque
-                  error suscipit qui minima? Lorem ipsum, dolor sit amet
-                  consectetur adipisicing elit. Facilis ut praesentium nemo rem.
-                  Dignissimos officiis, veritatis debitis sequi, dolorem nostrum
-                  quaerat impedit ipsum culpa, laudantium distinctio asperiores
-                  quis quidem velit.
-                </p>
+                {formattedDate && (
+                  <p className={classes.date}>{formattedDate}</p>
+                )}
+                {title && <h2 className={classes.title}>{title}</h2>}
+                {body && (
+                  <p className={classes.content}>
+                    {body[0]?.children[0]?.text}
+                  </p>
+                )}
               </div>
               <div className={classes.lower}>
                 <div className={classes.readtime}>
                   <ClockIcon className={classes.clock} />
-                  <p>3 min read</p>
+                  <p>{estimatedReadingTime + CONTENT[locale].read}</p>
                 </div>
-                <ShareIcon className={classes.share} />
+                <ShareIcon
+                  className={classes.share}
+                  onClick={() => shareHandler(title, slug)}
+                />
               </div>
             </div>
           </a>
         </Link>
       </article>
       <div className={classes.separator}></div>
-    </li>
+    </>
   );
 }
 

@@ -42,7 +42,7 @@ function Contact({ data }) {
         title={title ? title : ''}
         subtitle={subtitle ? subtitle : ''}
         btn={false}
-        imgUrl={imageTitleUrl ? `${imageTitleUrl}?w=1600` : null}
+        imgUrl={imageTitleUrl ? `${imageTitleUrl}?w=1600&blur=100` : null}
         imgAlt={imageTitleAlt ? imageTitleAlt : 'Background image'}
         imgRatio={imgRatioTitle ? imgRatioTitle : 1}
         imgLqip={lqipTitle ? lqipTitle : null}
