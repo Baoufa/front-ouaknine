@@ -9,6 +9,11 @@
   border-radius: 100px;
   width: 60px;
   height: 60px;
+  transition: all .2s;
+
+  &:active{
+    transform: scale(.92);
+  }
 }
 
 .svg{
