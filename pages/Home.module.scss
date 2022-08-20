@@ -173,6 +173,7 @@ $gapDel: 0.6s;
   .titlegroup {
     margin: auto 0;
     padding: 0rem 0rem;
+    gap:1rem;
   }
 
   .title {
@@ -187,7 +188,7 @@ $gapDel: 0.6s;
     font-size: 6.1vw;
     line-height: 6.1vw;
     letter-spacing: 1.2vw;
-    margin-bottom: 4vh;
+   // margin-bottom: 4svh;
     font-weight: 700;
   }
 
