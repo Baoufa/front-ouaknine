@@ -15,7 +15,6 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 2rem;
   width: 100%;
 }
 
@@ -31,7 +30,7 @@
 }
 
 .sectiontitlegroup {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .sectiontitle {
@@ -41,13 +40,14 @@
   margin-bottom: 1rem;
 }
 
-@media (max-width: $breakpoint-sm){
-  .sectiontitle{
-    font-size:2rem;
+@media (max-width: $breakpoint-sm) {
+  .sectiontitle {
+    font-size: 2rem;
   }
 }
 
-.sectiontitle2{
+.sectiontitle2 {
+  font-size: 3rem;
   margin-bottom: 2rem;
 }
 
@@ -62,120 +62,6 @@
   z-index: 0;
 }
 
-.spe {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  //gap: 2rem;
-
-  border: 1px solid $gray200;
-  //border-right: 1px solid $gray200;
-
-  box-shadow: 0 2px 4px rgba($gray800, 0.04);
-  grid-column: span 3 / span 3;
-  // &:nth-child(3n + 1) {
-  //   grid-column: span 6 / span 6;
-  // }
-
-  &_column {
-    flex-direction: row;
-    gap: 2rem;
-  }
-
-  &_left {
-    position: relative;
-    flex: 1 0 30%;
-    clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
-  }
-
-  &_right {
-    flex-wrap: 1;
-    padding: 1rem;
-  }
-
-  &_top {
-    //  flex:0 0 auto;
-    //   width: 300px;
-    position: relative;
-    height: 300px;
-    // overflow: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
-    // clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)
-  }
-
-  //   &:nth-child(2n) .spe_left{
-  //     order:1;
-  //     clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
-  // }
-
-  &_bottom {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: .5rem 1rem 1rem 1rem;
-    //  background-color: $white;
-  }
-
-  //   &:nth-child(2n) .spe_right{
-  //     padding-left: 2rem;
-  // }
-
-  &_bottominner {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-
-  &_title {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
-    @include serif;
-  }
-
-  &_linkcontainer {
-    align-self: flex-end;
-    color: $gray500;
-    margin-top: 1rem;
-
-    @media (hover: hover) and (pointer: fine) {
-      &::after {
-        content: '';
-        display: block;
-        background-color: $gray800;
-        height: 1px;
-        width: 0%;
-        transform: translateY(5px);
-        transition: all 0.2s;
-      }
-
-      &:hover {
-        color: $gray800;
-      }
-
-      &:hover:after {
-        width: 100%;
-      }
-    }
-  }
-
-  &_link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    @include seriflight;
-    font-size: 1.1rem;
-    align-self: flex-end;
-  }
-}
-
-@media (max-width: $breakpoint-md) {
-  .spe {
-    grid-column: span 4 / span 4 !important;
-  }
-}
 
 .arrowlink {
   width: 20px;
@@ -183,20 +69,19 @@
   stroke-width: 1px;
 }
 
-
 .phasegroup {
   @include desktop-container;
   @include borderlight;
-  padding: 1.5rem;
-  background-color: $gray100;
+  padding: 3rem;
+  background-color: $gray50;
 }
 
-.phasegroupinner{
-display: flex;
-flex-direction: column;
-background-color: $white;;
-padding: 4rem 4rem 2rem 4rem;
-font-size: 1.1rem;
+.phasegroupinner {
+  display: flex;
+  flex-direction: column;
+  background-color: $gray50;
+  padding: 4rem 4rem 2rem 4rem;
+  font-size: 1.1rem;
 }
 
 .linkcontainer {
@@ -235,20 +120,22 @@ font-size: 1.1rem;
   align-self: flex-end;
 }
 
-@media (max-width: $breakpoint-sm){
+@media (max-width: $breakpoint-sm) {
   .phasegroup {
     padding: 0.5rem;
   }
-  
-  .phasegroupinner{
-  padding: 1rem;
-  font-size: 1rem;
+
+  .phasegroupinner {
+    padding: 1rem;
+    font-size: 1rem;
   }
 }
 
 .separator {
   margin: 0rem auto;
   height: 1px;
-  width: 30%;
+  width: 10%;
   background-color: $gray200;
+  grid-column: 1 / span 5;
+ // transform: translateX(50px);
 }

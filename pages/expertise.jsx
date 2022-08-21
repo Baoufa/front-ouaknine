@@ -2,6 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import classes from './expertise.module.scss';
 import { ArrowSmRightIcon } from '@heroicons/react/outline';
+import ArticleCard from '../components/layout/articles/article-card';
+
+import ExpertiseCard from '../components/layout/expertise-card';
 
 import clientApi from '../libs/clientApi';
 
@@ -71,46 +74,21 @@ function Expertise({ data }) {
           {expertiseList &&
             expertiseList.map((item, index) => {
               return (
-                <li key={item._key} className={`${classes.spe}`}>
-                  <div className={classes.spe_top}>
-                    {imageItemsArray[index]?.url && (
-                      <Image
-                        src={`${imageItemsArray[index].url}?w=1000`}
-                        alt={'alt'}
-                        objectFit={'cover'}
-                        layout={'fill'}
-                        objectPosition={'center'}
-                        blurDataURL={imageItemsArray[index]?.metadata?.lqip}
-                        placeholder={'blur'}
-                        sizes='(min-width: 75em) 33vw,
-              (min-width: 48em) 50vw,
-              100vw'
-                      />
-                    )}
-                    <div className={classes.overlay}></div>
-                  </div>
-                  <div className={classes.spe_bottom}>
-                    <div className={classes.spe_bottominner}>
-                      {item?.title && (
-                        <h3 className={classes.spe_title}>{item.title}</h3>
-                      )}
-                      {item?.description && (
-                        <RichText value={item.description} />
-                      )}
-                    </div>
-
-                    <div className={classes.spe_linkcontainer}>
-                      <Link href='/contact'>
-                        <a className={classes.spe_link}>
-                          <span>
-                            {ExpertiseContent[locale].contactLinkLabel}
-                          </span>
-                          <ArrowSmRightIcon className={classes.arrowlink} />
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                </li>
+                <>
+                <ExpertiseCard key={item._key} 
+                index={index}
+                imgUrl={`${imageItemsArray[index]?.url}?w=1000`}
+                blurDataURL={imageItemsArray[index]?.metadata?.lqip}
+                title={item?.title}
+                description={item?.description}
+                linkLabel={ExpertiseContent[locale].contactLinkLabel}
+                isAnimated={index === 0 ? false : true }
+                length={expertiseList.length}
+                />
+          
+                
+                </>
+                
               );
             })}
         </ul>
