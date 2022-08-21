@@ -2,7 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import classes from './expertise.module.scss';
 import { ArrowSmRightIcon } from '@heroicons/react/outline';
-import ArticleCard from '../components/layout/articles/article-card';
+import scale from '../public/images/scale.svg' 
+import AnimatedScale from '../components/layout/animated-scale';
+
+import { useInView } from 'react-intersection-observer';
 
 import ExpertiseCard from '../components/layout/expertise-card';
 
@@ -39,6 +42,12 @@ function Expertise({ data }) {
     titleSection2,
     descSection2,
   } = data;
+
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0.5,
+    triggerOnce: true,
+  });
 
   return (
     <div className={classes.container}>
@@ -93,10 +102,14 @@ function Expertise({ data }) {
             })}
         </ul>
       </section>
-      <div className={classes.separator}></div>
+      <div className={classes.separator} ref={ref}>
+            {/* <Image src={scale} alt={'scale'} layout={'responsive'} /> */}
+            <AnimatedScale animate={inView} />
+      </div>
       <section id='section2' className={classes.section2}>
         <div className={classes.phasegroup}>
           <div className={classes.phasegroupinner}>
+        
             {titleSection2 && (
               <h2 className={`${classes.sectiontitle} ${classes.sectiontitle2}`}>{titleSection2}</h2>
             )}

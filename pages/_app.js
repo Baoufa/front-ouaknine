@@ -7,6 +7,7 @@ import clientApi from '../libs/clientApi';
 import '../styles/globals.scss';
 import '../styles/logo.scss';
 import '../styles/font.css';
+import '../styles/scale.scss';
 
 function MyApp({ Component, pageProps }) {
   return (
