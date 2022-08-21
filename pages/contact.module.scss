@@ -57,20 +57,7 @@
   // padding-right: 3rem;
 }
 
-// .leftblock {
-//   display: flex;
-//   align-items: flex-start;
-//   flex-direction: column;
-//   gap: 1.5rem;
-//   padding: 3rem 3rem 3rem 3rem;
-//   border:1px solid $gray200;
-//   //clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
 
-//   // @include borderrightlight;
-//   // padding-right: 3rem;
-//   animation: appear 1s;
-//   animation-fill-mode: forwards;
-// }
 
 .portable {
   white-space: pre-line;
@@ -153,6 +140,7 @@
   .separator{
     width: 90%;
   }
+
 }
 
 .rightblock {
@@ -194,6 +182,19 @@
     order: 1;
     //animation: appear .5s;
     // padding-left: 3rem;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+
+    
+  .leftblockinner {
+    clip-path: none;
+
+    gap: 1.5rem;
+    padding: 1.5rem 1.5rem 2rem 1.5rem;
+    background-color: $white;
+
   }
 }
 
