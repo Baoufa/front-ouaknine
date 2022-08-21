@@ -4,6 +4,7 @@ import { ArrowSmRightIcon } from '@heroicons/react/outline';
 import { useInView } from 'react-intersection-observer';
 import RichText from '../../components/ui/rich-text';
 
+
 import classes from './expertise-card.module.scss';
 
 function ExpertiseCard({
@@ -31,7 +32,7 @@ function ExpertiseCard({
     >
       <div className={classes.spe}>
       <div className={classes.spe_top}>
-        {imgUrl && (
+        {blurDataURL && (
           <Image
             src={imgUrl}
             alt={'alt'}
