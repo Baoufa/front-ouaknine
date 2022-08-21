@@ -15,6 +15,8 @@ const COLOR = '#f4f4f5';
 const FILL = '#a1a1aa';
 
 function Share({title, url}) {
+
+  console.log(url)
   return (
     <div className={`${classes.container}`}>
       <p>Partager sur</p>

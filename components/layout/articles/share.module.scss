@@ -18,10 +18,10 @@
     content: '';
     display: block;
     position: absolute;
-    bottom: -11px;
+    bottom: -9px;
     right: 10px;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     transform: rotate(45deg);
     background-color: $white;
     border-right: 1px solid $gray200;
@@ -37,8 +37,8 @@
 
 .icon{
   padding: .7rem;
-  background-color: $gray200 ;
-  color: $gray600;
+  background-color: $gray100 ;
+  color: $gray500;
   width: 40px;
   height: 40px;
 }
