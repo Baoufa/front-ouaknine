@@ -4,10 +4,12 @@
  * W. https://svgartista.net
  **************************************************/
 
+@use './variables' as *;
+
 .st0 {
   fill: none;
-  stroke: #a1a1aa;
-  stroke-width: 2;
+  stroke: $gray300;
+  stroke-width: 5px;
   stroke-linecap: round;
   stroke-linejoin: round;
   width: 100%;

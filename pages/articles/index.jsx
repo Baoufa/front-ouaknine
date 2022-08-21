@@ -53,6 +53,7 @@ export async function getStaticProps(ctx) {
           < dateTime(now())
       && content${locale}.language == "${locale}"] | order(publishedAt desc)
          {
+      mainImage,    
       _id,
       author,
       publishedAt,

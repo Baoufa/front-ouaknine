@@ -6,6 +6,7 @@ import clientApi from '../libs/clientApi';
 import RichText from '../components/ui/rich-text.jsx';
 import { ChevronDoubleDownIcon } from '@heroicons/react/outline';
 import scrollTo from '../libs/scrollTo';
+import AnimatedScale from '../components/layout/animated-scale';
 
 import img from '../public/images/abstract4.jpeg';
 
@@ -93,8 +94,11 @@ export default function Home({ data }) {
         </div>
       </div>
 
+      {/* <div className={classes.separator} ref={ref} id='section2'>
+            <AnimatedScale animate={inView} /></div> */}
+  
       <section className={classes.bottom} id='homedesc'>
-        <div className={`${classes.image} ${inView && classes.show}`} ref={ref}>
+        <div className={`${classes.image}`} ref={ref}>
           {imageUrl && (
             <Image
               src={`${imageUrl}?w=700`}
@@ -121,6 +125,7 @@ export default function Home({ data }) {
         </div>
       </section>
 
+     
       {/* <Image src={'/images/scale.svg'} width={1400} height={129.09} alt={'test'} /> */}
     </div>
   );

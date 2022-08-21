@@ -1,6 +1,6 @@
-const scrollTo = elID => {
+const scrollTo = (elID, offset = 96 ) => {
   globalThis.scrollTo({
-    top: document.getElementById(elID).offsetTop + 6 * 16,
+    top: document.getElementById(elID).offsetTop + offset,
     behavior: 'smooth',
   });
 };

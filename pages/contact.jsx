@@ -11,10 +11,14 @@ import mapImage from '../public/images/maptrans.svg';
 import googlePin from '../public/images/googlemaps_icon.svg';
 import HeadPage from '../components/head/head-page';
 
+import { useInView } from 'react-intersection-observer';
+
 import Button from '../components/ui/button';
 import { PhoneIcon } from '@heroicons/react/solid';
 
 import PageTitle from '../components/layout/page-title';
+
+import AnimatedScale from '../components/layout/animated-scale';
 
 function Contact({ data }) {
   const {
@@ -33,6 +37,12 @@ function Contact({ data }) {
     subform,
   } = data;
   const locale = useLocale();
+
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0.5,
+    triggerOnce: true,
+  });
 
   return (
     <div>
@@ -100,7 +110,12 @@ function Contact({ data }) {
         </div>
       </section>
 
-      <div className={classes.separator}></div>
+      <div className={classes.separator} ref={ref} id='section2'>
+            {/* <Image src={scale} alt={'scale'} layout={'responsive'} /> */}
+            <AnimatedScale animate={inView} />
+      </div>
+
+      {/* <div className={classes.separator}></div> */}
       <section className={classes.container}>
         <Form titleform={titleform && titleform} subform={subform && subform} />
       </section>

@@ -56,7 +56,7 @@ function Expertise({ data }) {
         subtitle={subtitle ? subtitle : ''}
         btn={true}
         onClick1={() => scrollTo('section1')}
-        onClick2={() => scrollTo('section2')}
+        onClick2={() => scrollTo('section2', 0)}
         label1={titleSection1 ? titleSection1 : ''}
         label2={titleSection2 ? titleSection2 : ''}
         imgUrl={imageBg ? `${imageBg?.url}?w=1600` : null}
@@ -64,6 +64,7 @@ function Expertise({ data }) {
         imgRatio={imageBg ? imageBg?.metadata.dimensions.aspectRatio : 1}
         imgLqip={imageBg ? imageBg?.metadata.lqip : null}
         white={white ? white : false}
+
       />
 
       <section id='section1' className={classes.section1}>
@@ -102,11 +103,11 @@ function Expertise({ data }) {
             })}
         </ul>
       </section>
-      <div className={classes.separator} ref={ref}>
+      <div className={classes.separator} ref={ref} id='section2'>
             {/* <Image src={scale} alt={'scale'} layout={'responsive'} /> */}
             <AnimatedScale animate={inView} />
       </div>
-      <section id='section2' className={classes.section2}>
+      <section  className={classes.section2}>
         <div className={classes.phasegroup}>
           <div className={classes.phasegroupinner}>
         
