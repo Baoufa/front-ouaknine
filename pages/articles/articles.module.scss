@@ -11,8 +11,18 @@
   justify-content: center;
   gap:3rem;
   width: 80%;
-
 }
+
+@media (max-width: $breakpoint-md){
+  .list{
+    width: 100%;
+  }
+}
+// @media (max-width: $breakpoint-sm){
+//   .list{
+//     width: 100%;
+//   }
+// }
 
 .titleblock{
   margin-bottom: 6rem;

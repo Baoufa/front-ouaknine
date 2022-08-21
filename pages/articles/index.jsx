@@ -15,7 +15,7 @@ function Articles({ data, posts }) {
 
       <ul className={classes.list}>
         {posts.map(post => {
-          const { _id, author, publishedAt, title, slug, body, estimatedReadingTime } = post;
+          const { _id, author, publishedAt, title, slug, body, estimatedReadingTime, mainImage } = post;
 
           return (
             <li key={_id}>
@@ -27,6 +27,7 @@ function Articles({ data, posts }) {
                 publishedAt={publishedAt}
                 body={body}
                 estimatedReadingTime={estimatedReadingTime}
+                mainImage={mainImage.asset}
               />
             </li>
           );
@@ -52,8 +53,8 @@ export async function getStaticProps(ctx) {
       && dateTime(publishedAt) 
           < dateTime(now())
       && content${locale}.language == "${locale}"] | order(publishedAt desc)
-         {
-      mainImage,    
+         {  
+      mainImage,  
       _id,
       author,
       publishedAt,
@@ -65,6 +66,7 @@ export async function getStaticProps(ctx) {
       "estimatedReadingTime": round(length(pt::text(content${locale}.body${locale})) / 5 / 180 )
     }`
     );
+    console.log(posts)
     return { props: { data: content?.length && content[0], posts: posts } };
   } catch (err) {
     console.log(err.message);

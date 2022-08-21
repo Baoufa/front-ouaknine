@@ -2,6 +2,8 @@ import classes from './article-card.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import ActicleCardImg from './article-card-img';
+
 import { useEffect, useState } from 'react';
 
 import useLocale from '../../../hooks/useLocale';
@@ -20,6 +22,7 @@ function ArticleCard({
   publishedAt,
   body,
   estimatedReadingTime,
+  mainImage,
 }) {
   const locale = useLocale();
 
@@ -50,21 +53,10 @@ function ArticleCard({
         ref={ref}
         className={`${classes.item} ${viewed && classes.itemactive}`}
       >
-        <Link
-          href={ `/articles/${_id}`}
-        >
+        <Link href={`/articles/${_id}`}>
           <a className={classes.article}>
             <div className={classes.img}>
-              <Image
-                src={defaultImage}
-                alt='title'
-                width={250}
-                height={250}
-                placeholder={'blur'}
-                objectFit={'cover'}
-                layout={'responsive'}
-                objectPosition={'center'}
-              />
+              <ActicleCardImg asset={mainImage} />
             </div>
 
             <div className={classes.description}>
