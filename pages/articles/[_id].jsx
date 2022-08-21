@@ -107,7 +107,7 @@ export async function getStaticProps({ locale, params }) {
       };
     }
 
-    return { props: { data: content?.length && content[0] } };
+    return { props: { data: content?.length && content[0] }, revalidate: 10  };
   } catch (err) {
     return {
       notFound: true,

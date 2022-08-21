@@ -67,7 +67,7 @@ export async function getStaticProps(ctx) {
     }`
     );
     console.log(posts)
-    return { props: { data: content?.length && content[0], posts: posts } };
+    return { props: { data: content?.length && content[0], posts: posts }, revalidate: 10  };
   } catch (err) {
     console.log(err.message);
     return {

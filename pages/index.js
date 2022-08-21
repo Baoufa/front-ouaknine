@@ -68,17 +68,29 @@ export default function Home({ data }) {
             <div className={classes.spegroup}>
               {tag1 && (
                 <Link href='/expertise'>
-                  <a className={`${classes.spe} ${!white && classes.spe_black}`}>{tag1?.trim()}</a>
+                  <a
+                    className={`${classes.spe} ${!white && classes.spe_black}`}
+                  >
+                    {tag1?.trim()}
+                  </a>
                 </Link>
               )}
               {tag2 && (
                 <Link href='/expertise'>
-                  <a className={`${classes.spe} ${!white && classes.spe_black}`}>{tag2?.trim()}</a>
+                  <a
+                    className={`${classes.spe} ${!white && classes.spe_black}`}
+                  >
+                    {tag2?.trim()}
+                  </a>
                 </Link>
               )}
               {tag3 && (
                 <Link href='/expertise'>
-                  <a className={`${classes.spe} ${!white && classes.spe_black}`}>{tag3?.trim()}</a>
+                  <a
+                    className={`${classes.spe} ${!white && classes.spe_black}`}
+                  >
+                    {tag3?.trim()}
+                  </a>
                 </Link>
               )}
             </div>
@@ -95,8 +107,9 @@ export default function Home({ data }) {
       </div>
 
       <div className={classes.separator} ref={ref} id='section2'>
-            <AnimatedScale animate={inView} /></div>
-  
+        <AnimatedScale animate={inView} />
+      </div>
+
       <section className={classes.bottom} id='homedesc'>
         <div className={`${classes.image}`} ref={ref}>
           {imageUrl && (
@@ -125,7 +138,6 @@ export default function Home({ data }) {
         </div>
       </section>
 
-     
       {/* <Image src={'/images/scale.svg'} width={1400} height={129.09} alt={'test'} /> */}
     </div>
   );
@@ -156,11 +168,11 @@ export async function getStaticProps(ctx) {
         "imgRatio" : mainImage.asset->metadata.dimensions.aspectRatio,
         "lqip": mainImage.asset->metadata.lqip}`
     );
-    return { props: { data: content?.length && content[0] } };
+    return { props: { data: content?.length && content[0] }, revalidate: 10 };
   } catch (err) {
     console.log(err.message);
     return {
       notFound: true,
-    }
+    };
   }
 }

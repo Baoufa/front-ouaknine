@@ -144,7 +144,7 @@ export async function getStaticProps(ctx) {
         subform
       }`
     );
-    return { props: { data: content?.length && content[0] } };
+    return { props: { data: content?.length && content[0] }, revalidate: 10  };
   } catch (err) {
     console.log(err.message);
     return {
