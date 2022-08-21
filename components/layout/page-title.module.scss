@@ -46,17 +46,19 @@
   padding: 2rem 0 3rem 0;
   color: $white;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
   gap:3rem;
 
-  background-color: rgba($white, .1);
+  height: 10vh;
+
+  //background-color: rgba($white, .1);
   
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding-left: 3rem;
   padding-right: 3rem;
-  backdrop-filter: blur(15px);
+ // backdrop-filter: blur(15px);
 }
 
 .title{

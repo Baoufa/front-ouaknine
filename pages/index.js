@@ -34,7 +34,7 @@ export default function Home({ data }) {
 
   const { ref, inView, entry } = useInView({
     /* Optional options */
-    threshold: 0.2,
+    threshold: 0.1,
     triggerOnce: true,
   });
 
@@ -94,8 +94,8 @@ export default function Home({ data }) {
         </div>
       </div>
 
-      {/* <div className={classes.separator} ref={ref} id='section2'>
-            <AnimatedScale animate={inView} /></div> */}
+      <div className={classes.separator} ref={ref} id='section2'>
+            <AnimatedScale animate={inView} /></div>
   
       <section className={classes.bottom} id='homedesc'>
         <div className={`${classes.image}`} ref={ref}>

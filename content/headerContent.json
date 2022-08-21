@@ -1,7 +1,7 @@
 {
   "fr": {
     "nav": [
-      { "label": "Accueil", "url": "/" },
+      { "label": "Le Cabinet", "url": "/" },
       { "label": "Expertise", "url": "/expertise" },
       { "label": "Articles", "url": "/articles" },
       { "label": "Contact", "url": "/contact" }
@@ -10,7 +10,7 @@
 
   "en": {
     "nav": [
-      { "label": "Home", "url": "/" },
+      { "label": "The Firm", "url": "/" },
       { "label": "Expertise", "url": "/expertise" },
       { "label": "Blog", "url": "/articles" },
       { "label": "Contact", "url": "/contact" }

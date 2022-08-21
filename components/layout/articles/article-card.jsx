@@ -1,6 +1,7 @@
 import classes from './article-card.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
+import Share from './share';
 
 import ActicleCardImg from './article-card-img';
 
@@ -10,7 +11,7 @@ import useLocale from '../../../hooks/useLocale';
 import { useInView } from 'react-intersection-observer';
 import { ClockIcon, ShareIcon } from '@heroicons/react/outline';
 
-import defaultImage from '../../../public/images/alex-vasey-tDuQe2ShHpk-unsplash.jpeg';
+import { useRouter } from 'next/router';
 
 import CONTENT from '../../../content/articleCardContent.json';
 
@@ -25,6 +26,7 @@ function ArticleCard({
   mainImage,
 }) {
   const locale = useLocale();
+  const {pathname} = useRouter()
 
   const [viewed, setViewed] = useState(false);
   const { ref, inView, entry } = useInView({
@@ -76,10 +78,15 @@ function ArticleCard({
                   <ClockIcon className={classes.clock} />
                   <p>{estimatedReadingTime + CONTENT[locale].read}</p>
                 </div>
+                <div className={classes.sharegroup}>
                 <ShareIcon
                   className={classes.share}
                   onClick={() => shareHandler(title, slug)}
                 />
+                <Share url={`${process.env.NEXT_PUBLIC_HOST}/${locale}/article/${_id}`} />
+                </div>
+               
+
               </div>
             </div>
           </a>

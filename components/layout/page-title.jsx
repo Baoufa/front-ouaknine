@@ -24,7 +24,7 @@ export default function PageTitle({
       <div className={classes.titlegroupinner}>
         <div className={`${classes.left} ${!white && classes.black}`}>
           <h1 className={classes.title}>{title ? title : ''}</h1>
-          <p className={classes.subtitle}>{subtitle ? subtitle : ''}</p>
+          {/* <p className={classes.subtitle}>{subtitle ? subtitle : ''}</p> */}
         </div>
 
         {btn && (
