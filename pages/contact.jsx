@@ -1,6 +1,7 @@
 import classes from './contact.module.scss';
 import Form from '../components/ui/form/form';
 
+import { useRef, useState } from 'react';
 import RichText from '../components/ui/rich-text';
 import contactContent from '../content/contactContent.json';
 
@@ -17,6 +18,7 @@ import Button from '../components/ui/button';
 import { PhoneIcon } from '@heroicons/react/solid';
 
 import PageTitle from '../components/layout/page-title';
+import useOffset from '../hooks/useOffset';
 
 import AnimatedScale from '../components/layout/animated-scale';
 
@@ -43,6 +45,11 @@ function Contact({ data }) {
     threshold: 0.5,
     triggerOnce: true,
   });
+
+  const scaleRef = useRef();
+  const [percentView, setPercentView] = useState(1);
+
+  useOffset(percentView, setPercentView, scaleRef, -200, 1.5)
 
   return (
     <div>
@@ -112,7 +119,10 @@ function Contact({ data }) {
 
       <div className={classes.separator} ref={ref} id='section2'>
             {/* <Image src={scale} alt={'scale'} layout={'responsive'} /> */}
-            <AnimatedScale animate={inView} />
+            <div ref={scaleRef}>
+            <AnimatedScale animate={inView} percentView={percentView}/>
+            </div>
+            
       </div>
 
       {/* <div className={classes.separator}></div> */}

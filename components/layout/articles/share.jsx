@@ -1,12 +1,14 @@
 import classes from './share.module.scss';
+import useLocale from '../../../hooks/useLocale';
 import {
   EmailShareButton,
   FacebookShareButton,
   LinkedinShareButton,
-  TelegramShareButton,
   TwitterShareButton,
   WhatsappShareButton,
 } from 'react-share';
+
+import CONTENT from '../../../content/shareContent.json'
 
 import {FaFacebookF, FaTwitter,FaWhatsapp,FaLinkedinIn, FaEnvelope} from 'react-icons/fa'
 import { RiWhatsappFill} from "react-icons/ri";
@@ -16,10 +18,12 @@ const FILL = '#a1a1aa';
 
 function Share({title, url}) {
 
+  const locale = useLocale();
+
   console.log(url)
   return (
     <div className={`${classes.container}`}>
-      <p>Partager sur</p>
+      <p className={classes.label}>{CONTENT[locale].label}</p>
       <div className={classes.icongroup}>
         <FacebookShareButton url={url}>
           <FaFacebookF className={classes.icon}/>

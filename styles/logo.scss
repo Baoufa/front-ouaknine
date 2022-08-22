@@ -28,14 +28,15 @@
  }
 
  .svglogoanimated{
-  width: 190px * 1.2;
-  height: 35.6px * 1.2;
+  width: 209px ;
+  height: 39.16px;
+  
 }
 
- @media (max-width: $breakpoint-md) {
+ @media (max-width: $breakpoint-sm) {
  .svglogoanimated{
-      width: 19vh * 1.2;
-      height: 3.56vh * 1.2;
+  width: 209px * .9;
+  height: 39.16px * .9;
   }
 }
 

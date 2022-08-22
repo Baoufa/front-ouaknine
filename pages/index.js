@@ -8,9 +8,13 @@ import { ChevronDoubleDownIcon } from '@heroicons/react/outline';
 import scrollTo from '../libs/scrollTo';
 import AnimatedScale from '../components/layout/animated-scale';
 
+import { useRef, useEffect, useState } from 'react';
+
 import img from '../public/images/abstract4.jpeg';
 
 import classes from './Home.module.scss';
+import useEventListener from '../hooks/useEventListener';
+import useOffset from '../hooks/useOffset';
 
 export default function Home({ data }) {
   const {
@@ -37,6 +41,14 @@ export default function Home({ data }) {
     threshold: 0.1,
     triggerOnce: true,
   });
+
+  
+  const scaleRef = useRef();
+  const [percentView, setPercentView] = useState(1);
+
+  useOffset(percentView, setPercentView, scaleRef, -200, 1.5)
+  
+  
 
   return (
     <div className={classes.container}>
@@ -106,8 +118,11 @@ export default function Home({ data }) {
         </div>
       </div>
 
-      <div className={classes.separator} ref={ref} id='section2'>
-        <AnimatedScale animate={inView} />
+      <div className={classes.separator}  id='section2'>
+        <div ref={scaleRef} >
+        <AnimatedScale animate={inView} percentView={percentView}  />
+        </div>
+       
       </div>
 
       <section className={classes.bottom} id='homedesc'>

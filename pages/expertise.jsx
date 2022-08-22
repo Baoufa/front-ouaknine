@@ -79,7 +79,6 @@ function Expertise({ data }) {
             ></RichText>
           )}
         </div>
-
         <ul className={classes.spegroup}>
           {expertiseList &&
             expertiseList.map((item, index) => {

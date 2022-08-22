@@ -31,6 +31,8 @@
 
 .sectiontitlegroup {
   margin-bottom: 6rem;
+  @include borderlight;
+  padding: 3rem 4rem 5rem 4rem;
 }
 
 .sectiontitle {
@@ -137,7 +139,10 @@
   .separator{
     width: 60%;
   }
+
 }
+
+
 @media (max-width: $breakpoint-sm) {
   .phasegroup {
     padding: 0.5rem;

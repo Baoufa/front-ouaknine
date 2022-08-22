@@ -27,7 +27,7 @@ export default function PageTitle({
           {/* <p className={classes.subtitle}>{subtitle ? subtitle : ''}</p> */}
         </div>
 
-        {btn && (
+        {/* {btn && (
           <div className={classes.right}>
             {label1 && (
               <Button outline={true} onClick={onClick1} white={white}>
@@ -40,7 +40,7 @@ export default function PageTitle({
               </Button>
             )}
           </div>
-        )}
+        )} */}
       </div>
 
       {imgUrl && <Image

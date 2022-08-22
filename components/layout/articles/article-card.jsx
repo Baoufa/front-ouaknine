@@ -2,6 +2,9 @@ import classes from './article-card.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import Share from './share';
+import { useRef } from 'react';
+
+import useClickOutside from '../../../hooks/useClickoutside';
 
 import ActicleCardImg from './article-card-img';
 
@@ -34,20 +37,27 @@ function ArticleCard({
     threshold: 0,
   });
 
+  const shareRef = useRef();
+  const [shareOn, setShareOn] = useState(false)
+
+  
   useEffect(() => {
     if (inView && !viewed) {
       setViewed(true);
     }
   }, [inView, viewed]);
-
+  
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-
+  
   let formattedDate;
   if (publishedAt) {
     formattedDate = new Date(publishedAt).toLocaleDateString(locale, options);
   }
-
-  const shareHandler = (title, slug) => {};
+  
+  const toggleShare = () => {
+    setShareOn(bol => !bol);
+  }
+  useClickOutside(shareOn, setShareOn, shareRef);
 
   return (
     <>
@@ -55,14 +65,15 @@ function ArticleCard({
         ref={ref}
         className={`${classes.item} ${viewed && classes.itemactive}`}
       >
-        <Link href={`/articles/${_id}`}>
-          <a className={classes.article}>
+     
+          <div className={classes.article}>
             <div className={classes.img}>
               <ActicleCardImg asset={mainImage} />
             </div>
 
             <div className={classes.description}>
-              <div className={classes.upper}>
+              <Link  href={`/articles/${_id}`}>
+                <a className={classes.upper}>
                 {formattedDate && (
                   <p className={classes.date}>{formattedDate}</p>
                 )}
@@ -72,7 +83,10 @@ function ArticleCard({
                     {body[0]?.children[0]?.text}
                   </p>
                 )}
-              </div>
+
+                </a>
+             
+              </Link>
               <div className={classes.lower}>
                 <div className={classes.readtime}>
                   <ClockIcon className={classes.clock} />
@@ -81,16 +95,18 @@ function ArticleCard({
                 <div className={classes.sharegroup}>
                 <ShareIcon
                   className={classes.share}
-                  onClick={() => shareHandler(title, slug)}
+                  onClick={toggleShare}
+                  onBlur={toggleShare}
+                  ref={shareRef}
                 />
-                <Share url={`${process.env.NEXT_PUBLIC_HOST}/${locale}/article/${_id}`} />
+                { shareOn && <Share url={`${process.env.NEXT_PUBLIC_HOST}/${locale}/article/${_id}`} />}
                 </div>
                
 
               </div>
             </div>
-          </a>
-        </Link>
+          </div>
+     
       </article>
       <div className={classes.separator}></div>
     </>

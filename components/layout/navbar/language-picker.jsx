@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import useClickOutside from '../../../hooks/useClickoutside';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import {
@@ -22,17 +23,19 @@ function LanguagePicker() {
     setState(bol => !bol);
   };
 
-  useEffect(() => {
-    if (!state) return;
-    function handleClick(event) {
-      if (dropdown.current && !dropdown.current.contains(event.target)) {
-        setState(false);
-      }
-    }
-    window.addEventListener('click', handleClick);
-    // clean up
-    return () => window.removeEventListener('click', handleClick);
-  }, [state]);
+
+  useClickOutside(state, setState, dropdown);
+  // useEffect(() => {
+  //   if (!state) return;
+  //   function handleClick(event) {
+  //     if (dropdown.current && !dropdown.current.contains(event.target)) {
+  //       setState(false);
+  //     }
+  //   }
+  //   window.addEventListener('click', handleClick);
+  //   // clean up
+  //   return () => window.removeEventListener('click', handleClick);
+  // }, [state]);
 
   return (
     <div className={classes.container} onClick={toggleHandler} ref={dropdown}>
