@@ -7,4 +7,4 @@ const usePercentView = (state, setState, ref) => {
   }, [state, setState, ref]);
 }
 
-export default useClickOutside;
+export default usePercentView;

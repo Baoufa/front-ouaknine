@@ -20,7 +20,7 @@ import { PhoneIcon } from '@heroicons/react/solid';
 import PageTitle from '../components/layout/page-title';
 import useOffset from '../hooks/useOffset';
 
-import AnimatedScale from '../components/layout/animated-scale';
+import AnimatedScale from '../components/layout/animated-scale-center';
 
 function Contact({ data }) {
   const {

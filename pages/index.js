@@ -46,7 +46,7 @@ export default function Home({ data }) {
   const scaleRef = useRef();
   const [percentView, setPercentView] = useState(1);
 
-  useOffset(percentView, setPercentView, scaleRef, -200, 1.5)
+  useOffset(percentView, setPercentView, scaleRef, 200, 1)
   
   
 

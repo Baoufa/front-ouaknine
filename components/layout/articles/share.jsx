@@ -20,7 +20,6 @@ function Share({title, url}) {
 
   const locale = useLocale();
 
-  console.log(url)
   return (
     <div className={`${classes.container}`}>
       <p className={classes.label}>{CONTENT[locale].label}</p>

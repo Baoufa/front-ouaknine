@@ -11,7 +11,9 @@ const useOffset = (state, setState, ref, offset = 1, m1 = 1, m2 = 1) => {
   useEffect(() => {
     const scaleY = ref.current.getBoundingClientRect().top + offset;
     const windowY = scrollY.innerHeight;
-    const offsetScale = (scaleY / windowY) * m1;
+    const x = (scaleY / windowY) * m1;
+    //const offsetScale = Math.sqrt(x, 5000);
+    const offsetScale = x
      
     if (offsetScale >= 0 && offsetScale <= 1) {
       setState(offsetScale);

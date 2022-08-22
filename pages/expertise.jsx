@@ -3,7 +3,7 @@ import Link from 'next/link';
 import classes from './expertise.module.scss';
 import { ArrowSmRightIcon } from '@heroicons/react/outline';
 import scale from '../public/images/scale.svg' 
-import AnimatedScale from '../components/layout/animated-scale';
+import AnimatedScale from '../components/layout/animated-scale-center';
 
 import { useInView } from 'react-intersection-observer';
 
