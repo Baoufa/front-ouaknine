@@ -59,7 +59,7 @@ export default function Home({ data }) {
           alt={imageTitleAlt ? imageTitleAlt : 'Image background'}
           objectFit={'cover'}
           layout={'fill'}
-          objectPosition={'top right'}
+          objectPosition={'center'}
           blurDataURL={lqipTitle ? lqipTitle : null}
           placeholder={'empty'}
           sizes='100vw'

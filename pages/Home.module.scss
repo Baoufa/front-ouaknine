@@ -22,8 +22,9 @@
   left: 0;
   height: 100%;
   width: 100%;
- // background: linear-gradient(135deg, rgba(#0f766e, 0.9), rgba(#0f766e, 0.1));
- //background: linear-gradient(135deg, rgba(#0e7490, .8), rgba(#0e7490, 0.1));
+// background: linear-gradient(135deg, rgba($gray900, 0.7), rgba($gray900, 0.2));
+ background: linear-gradient(135deg, rgba($gray800, 0.7), rgba($white, 0.2));
+// background: linear-gradient(135deg, rgba(#0e7490, .8), rgba(#0e7490, 0.1));
 
   background-size: cover;
   z-index: 0;

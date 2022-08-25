@@ -34,6 +34,7 @@
     font-size: 2.5rem;
     @include serif;
     cursor: pointer;
+    user-select: none;
 
     @media (hover: hover) and (pointer: fine) {
       &::after {
@@ -45,7 +46,7 @@
         margin-top: 1rem;
         margin-bottom: 2rem;
         transform: translateY(5px);
-        transition: all 0.2s;
+        transition: all .3s ease-in-out;
       }
 
       &:hover {
@@ -98,7 +99,7 @@
         height: 1px;
         width: 0%;
         transform: translateY(5px);
-        transition: all 1s ease-in-out;
+        transition: all 0.2s;
       }
 
       &:hover {
