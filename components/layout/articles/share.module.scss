@@ -8,20 +8,21 @@
   padding: 1rem 1.5rem;
   //width: 350px;
   top:-140px;
-  right: 0px;
+
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap:1rem;
   box-shadow: 2px 2px 8px rgba($gray600, .05);
-  animation: appear .3s;
+  animation: appear .2s;
   user-select: none;
+  z-index: 10;
 
   &:after{
     content: '';
     display: block;
     position: absolute;
     bottom: -9px;
-    right: 10px;
     width: 15px;
     height: 15px;
     transform: rotate(45deg);
@@ -29,7 +30,23 @@
     border-right: 1px solid $gray200;
     border-bottom: 1px solid $gray200;
   }
-  
+}
+
+.right{
+  right: 0px;
+
+  &:after{
+    right: 10px;
+  }
+}
+
+.left{
+  left: 0px;
+  right: none;
+
+  &:after{
+    left: 10px;
+  }
 }
 
 .label{

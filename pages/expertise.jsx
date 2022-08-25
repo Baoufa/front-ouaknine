@@ -68,17 +68,16 @@ function Expertise({ data }) {
       />
 
       <section id='section1' className={classes.section1}>
-        <div className={`${classes.sectiontitlegroup} ${classes.span2}`}>
+        {/* <div className={`${classes.sectiontitlegroup} ${classes.span2}`}>
           {titleSection1 && (
             <h2 className={classes.sectiontitle}>{titleSection1}</h2>
           )}
           {descSection1 && (
             <RichText
               value={descSection1}
-              className={classes.setionsubtitle}
             ></RichText>
           )}
-        </div>
+        </div> */}
         <ul className={classes.spegroup}>
           {expertiseList &&
             expertiseList.map((item, index) => {

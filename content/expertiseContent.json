@@ -1,9 +1,15 @@
 {
   "fr": {
-    "contactLinkLabel": "Nous contacter"
+    "contactLinkLabel": "Nous contacter",
+    "seeMore": "voir plus",
+    "seeLess" : "voir moins",
+    "share" : "Partager"
   },
 
   "en": {
-    "contactLinkLabel": "Contact us"
+    "contactLinkLabel": "Contact us",
+    "seeMore": "see more",
+    "seeLess" : "see less",
+    "share" : "Share"
   }
 }

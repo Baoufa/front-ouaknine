@@ -16,12 +16,12 @@ import { RiWhatsappFill} from "react-icons/ri";
 const COLOR = '#f4f4f5';
 const FILL = '#a1a1aa';
 
-function Share({title, url}) {
+function Share({title, url, dir}) {
 
   const locale = useLocale();
 
   return (
-    <div className={`${classes.container}`}>
+    <div className={`${classes.container} ${dir === 'left' && classes.left} ${dir === 'right' && classes.right}`}>
       <p className={classes.label}>{CONTENT[locale].label}</p>
       <div className={classes.icongroup}>
         <FacebookShareButton url={url}>

@@ -41,23 +41,18 @@
   position: relative;
   z-index: 100;
   @include desktop-container;
+  height: 30vh;
 
-
-  padding: 0rem 0 0rem 0;
+  padding: 2rem 0rem 2rem 3rem;
+  // margin : 0 0rem 0 0rem;
   color: $white;
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
-  gap:3rem;
-
-  height: 35vh;
-
-  //background-color: rgba($white, .1);
   
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
+  
+  // justify-content: space-between;
+  // gap:3rem;
+  //background-color: rgba($white, .1);
  // backdrop-filter: blur(15px);
 }
 
@@ -66,10 +61,8 @@
   font-size: 3.5rem;
   font-weight: 700;
   margin-top: 0rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
 }
-
-
 
 .subtitle{
   font-size: 1.4rem;
@@ -85,13 +78,17 @@
 
 @media (max-width: $breakpoint-md) {
   .titlegroupinner{
-    flex-direction: column;
-    align-items: flex-start;
-    gap:2rem;
+ //   flex-direction: column;
+ //   align-items: flex-start;
+  //  gap:2rem;
 
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  height: 100%;
+
+
+  // margin-top: 1.5rem;
+  // margin-bottom: 1.5rem;
+  padding: 4rem 0rem 2rem 0rem;
+  //margin: 0;
   }
 
   .title{

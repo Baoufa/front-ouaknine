@@ -5,8 +5,11 @@ import useLocale from '../../hooks/useLocale';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowSmRightIcon } from '@heroicons/react/outline';
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
 import { useInView } from 'react-intersection-observer';
 import RichText from '../../components/ui/rich-text';
+
+import CONTENT from '../../content/expertiseContent.json';
 
 import { ShareIcon } from '@heroicons/react/outline';
 import Share from './articles/share';
@@ -24,10 +27,30 @@ function ExpertiseCard({
   length,
 }) {
   const locale = useLocale();
+  const [seeMore, setSeeMore] = useState(false);
+
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0.3,
     triggerOnce: true,
+    onChange: () => {
+      if (!inView) {
+        setSeeMore(false);
+      }
+    },
+  });
+  const {
+    ref: ref2,
+    inView: inView2,
+    entry: entry2,
+  } = useInView({
+    /* Optional options */
+    threshold: 0,
+    onChange: () => {
+      if (!inView2) {
+        setSeeMore(false);
+      }
+    },
   });
 
   const shareRef = useRef();
@@ -38,66 +61,39 @@ function ExpertiseCard({
   };
   useClickOutside(shareOn, setShareOn, shareRef);
 
+  const toggleSeeMore = () => {
+    setSeeMore(bol => !bol);
+  };
+
   return (
     <li
-      className={`${classes.speouter} ${isAnimated && classes.isHidden} ${
+      className={`${classes.spe} ${isAnimated && classes.isHidden} ${
         inView && isAnimated && classes.itemactive
       } `}
       ref={ref}
     >
-      <div className={classes.spe}>
-        <div className={classes.spe_top}>
-          {blurDataURL && (
-            <Image
-              src={imgUrl}
-              alt={'alt'}
-              objectFit={'cover'}
-              layout={'fill'}
-              objectPosition={'center'}
-              blurDataURL={blurDataURL}
-              placeholder={'blur'}
-              sizes='(min-width: 75em) 33vw,
-              (min-width: 48em) 50vw,
-              100vw'
-            />
-          )}
-          <div className={classes.overlay}></div>
-        </div>
-        <div className={classes.spe_bottom}>
-          <div className={classes.spe_bottominner}>
-            {title && <h3 className={classes.spe_title}>{title}</h3>}
-            {description && <RichText value={description} />}
+      {title && <h3 className={classes.spe_title} onClick={toggleSeeMore}>{title}</h3>}
+
+   {seeMore &&   <div className={`${classes.spe_lower}`}>
+        {description && (
+          <div className={`${classes.spe_description}`}>
+            <RichText value={description} />
           </div>
+        )}
 
-          <div className={classes.lowerbar}>
-            <button
-              className={classes.sharegroup}
-              ref={shareRef}
-              onClick={toggleShare}
-              onBlur={toggleShare}
-            >
-              <p className={classes.label}>Partager</p>
-              <ShareIcon className={classes.share} />
-              {shareOn && (
-                <Share
-                  url={`${process.env.NEXT_PUBLIC_HOST}/${locale}/article`}
-                />
-              )}
-            </button>
-
-            <div className={classes.spe_linkcontainer}>
-              <Link href='/contact'>
-                <a className={classes.spe_link}>
-                  <span>{linkLabel}</span>
-                  <ArrowSmRightIcon className={classes.arrowlink} />
-                </a>
-              </Link>
-            </div>
+        <div className={classes.lowerbar}>
+          <div className={classes.spe_linkcontainer}>
+            <Link href='/contact'>
+              <a className={classes.spe_link}>
+                <span>{linkLabel}</span>
+                <ArrowSmRightIcon className={classes.arrowlink} />
+              </a>
+            </Link>
           </div>
         </div>
-      </div>
-
-      {index !== length - 1 && <div className={classes.separator}></div>}
+      </div>}
+{/* 
+      {index !== length - 1 && <div className={classes.separator}></div>} */}
     </li>
   );
 }

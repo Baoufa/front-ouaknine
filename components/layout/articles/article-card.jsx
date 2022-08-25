@@ -38,7 +38,11 @@ function ArticleCard({
   });
 
   const shareRef = useRef();
-  const [shareOn, setShareOn] = useState(false)
+  const [shareOn, setShareOn] = useState(false);
+  const toggleShare = () => {
+    setShareOn(bol => !bol);
+  }
+  useClickOutside(shareOn, setShareOn, shareRef);
 
   
   useEffect(() => {
@@ -54,10 +58,7 @@ function ArticleCard({
     formattedDate = new Date(publishedAt).toLocaleDateString(locale, options);
   }
   
-  const toggleShare = () => {
-    setShareOn(bol => !bol);
-  }
-  useClickOutside(shareOn, setShareOn, shareRef);
+
 
   return (
     <>
@@ -90,7 +91,8 @@ function ArticleCard({
               <div className={classes.lower}>
                 <div className={classes.readtime}>
                   <ClockIcon className={classes.clock} />
-                  <p>{estimatedReadingTime + CONTENT[locale].read}</p>
+                  {locale === 'fr' && <p>{CONTENT[locale].read + ' - ' + estimatedReadingTime + ' min'}</p>}
+                  {locale === 'en' && <p>{estimatedReadingTime + 'mn - ' +  CONTENT[locale].read}</p>}
                 </div>
                 <div className={classes.sharegroup}>
                 <ShareIcon
@@ -99,7 +101,7 @@ function ArticleCard({
                   onBlur={toggleShare}
                   ref={shareRef}
                 />
-                { shareOn && <Share url={`${process.env.NEXT_PUBLIC_HOST}/${locale}/article/${_id}`} />}
+                { shareOn && <Share url={`${process.env.NEXT_PUBLIC_HOST}/${locale}/article/${_id}`} dir='right' />}
                 </div>
                
 

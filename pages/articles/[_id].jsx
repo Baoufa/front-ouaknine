@@ -1,10 +1,16 @@
+import { useRef, useState } from 'react';
+
 import Image from 'next/image';
-
 import clientApi from '../../libs/clientApi';
-
 import RichText from '../../components/ui/rich-text';
-
 import classes from './_id.module.scss';
+
+import useLocale from '../../hooks/useLocale';
+import CONTENT from '../../content/articleCardContent.json';
+import useClickOutside from '../../hooks/useClickoutside';
+
+import { ShareIcon, ClockIcon } from '@heroicons/react/outline';
+import Share from '../../components/layout/articles/share';
 
 function Article({ data }) {
   const {
@@ -20,26 +26,70 @@ function Article({ data }) {
     mainImage,
   } = data;
 
+  const locale = useLocale();
+
+  const shareRef = useRef();
+  const [shareOn, setShareOn] = useState(false);
+  const toggleShare = () => {
+    setShareOn(bol => !bol);
+  };
+
+  useClickOutside(shareOn, setShareOn, shareRef);
+
   return (
     <section className={classes.container}>
       <article className={classes.article}>
-        {title && <h1>{title}</h1>}
-        {author && <p>{author}</p>}
+      
+      
+        <div className={classes.titlegroup}>
+          {title && <h1 className={classes.title}>{title}</h1>}
+
+          <div className={classes.sharegroup}>
+            <ShareIcon
+              className={classes.share}
+              onClick={toggleShare}
+              onBlur={toggleShare}
+              ref={shareRef}
+            />
+            {shareOn && (
+              <Share
+                url={`${process.env.NEXT_PUBLIC_HOST}/${locale}/article/${_id}`}
+                dir='right'
+              />
+            )}
+          </div>
+        </div>
+
+
+          <div className={classes.readtime}>
+            <ClockIcon className={classes.clock} />
+            {locale === 'fr' && (
+              <p>
+                {CONTENT[locale].read + ' - ' + estimatedReadingTime + ' min'}
+              </p>
+            )}
+            {locale === 'en' && (
+              <p>{estimatedReadingTime + 'mn - ' + CONTENT[locale].read}</p>
+            )}
+          </div>
+   
+        {author && <p className={classes.author}>{CONTENT[locale].author + author}</p>}
         {mainImage && (
-          <Image
-            className={classes.img}
-            src={mainImage?.url ? `${mainImage?.url}?w=1600` : ''}
-            alt={title ? title : 'Image article'}
-            width={100}
-            height={100}
-            blurDataURL={
-              mainImage?.metadata?.lqip ? mainImage?.metadata?.lqip : null
-            }
-            placeholder={'blur'}
-            sizes='100vw'
-            priority
-            quality={30}
-          />
+          <div className={classes.img}>
+            <Image
+              src={mainImage?.url ? `${mainImage?.url}?w=1600` : ''}
+              alt={title ? title : 'Image article'}
+              layout={'fill'}
+              objectFit={'cover'}
+              blurDataURL={
+                mainImage?.metadata?.lqip ? mainImage?.metadata?.lqip : null
+              }
+              placeholder={'blur'}
+              sizes='100vw'
+              priority
+              quality={30}
+            />
+          </div>
         )}
         {body && <RichText value={body} />}
       </article>
@@ -107,7 +157,7 @@ export async function getStaticProps({ locale, params }) {
       };
     }
 
-    return { props: { data: content?.length && content[0] }, revalidate: 10  };
+    return { props: { data: content?.length && content[0] }, revalidate: 10 };
   } catch (err) {
     return {
       notFound: true,

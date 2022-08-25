@@ -1,9 +1,11 @@
 {
   "fr": {
-    "read": " min - temps de lecture"
+    "read": "temps de lecture",
+    "author" : "Auteur : "
   },
 
   "en": {
-    "read": " min read time"
+    "read": "read time",
+    "author" : "Author: "
   }
 }
