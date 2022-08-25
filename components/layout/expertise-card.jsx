@@ -2,10 +2,12 @@ import { useState, useRef } from 'react';
 import useClickOutside from '../../hooks/usePercentView';
 import useLocale from '../../hooks/useLocale';
 
+import scrollTo from '../../libs/scrollTo';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowSmRightIcon } from '@heroicons/react/outline';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
+import { ArrowSmRightIcon, ChevronDownIcon } from '@heroicons/react/outline';
+import { ChevronUpIcon } from '@heroicons/react/solid';
 import { useInView } from 'react-intersection-observer';
 import RichText from '../../components/ui/rich-text';
 
@@ -17,6 +19,7 @@ import Share from './articles/share';
 import classes from './expertise-card.module.scss';
 
 function ExpertiseCard({
+  _id,
   imgUrl,
   blurDataURL,
   title,
@@ -53,28 +56,39 @@ function ExpertiseCard({
     },
   });
 
-  const shareRef = useRef();
-  const [shareOn, setShareOn] = useState(false);
-
-  const toggleShare = () => {
-    setShareOn(bol => !bol);
-  };
-  useClickOutside(shareOn, setShareOn, shareRef);
-
   const toggleSeeMore = () => {
     setSeeMore(bol => !bol);
+
+    if(!seeMore){
+      scrollTo(_id, 40);
+    }
+   
   };
 
-  return (
-    <li
-      className={`${classes.spe} ${isAnimated && classes.isHidden} ${
-        inView && isAnimated && classes.itemactive
-      } `}
-      ref={ref}
-    >
-      {title && <h3 className={classes.spe_title} onClick={toggleSeeMore}>{title}</h3>}
+  const animationCSS = `animation${index}`;
+  const animationSepCSS = `animationsep${index}`;
 
-   {seeMore &&   <div className={`${classes.spe_lower}`}>
+  return (
+    <li id={_id} className={`${classes.spe} ${classes[animationCSS]}`}>
+      {title && (
+        <div className={classes.spe_titlegroup} onClick={toggleSeeMore}>
+          <ChevronDownIcon
+            className={`${classes.spe_chevron} ${
+              seeMore && classes.spe_chevronselected
+            }`}
+          />
+          <div className={classes.spe_titleouter}>
+            <h3 className={`${classes.spe_title}`}>{title}</h3>
+            <div
+              className={`${classes.spe_titlebar} ${
+                seeMore && classes.spe_selected
+              }`}
+            ></div>
+          </div>
+        </div>
+      )}
+
+      <div className={`${classes.spe_lower} ${seeMore && classes.spe_show}`}>
         {description && (
           <div className={`${classes.spe_description}`}>
             <RichText value={description} />
@@ -91,8 +105,8 @@ function ExpertiseCard({
             </Link>
           </div>
         </div>
-      </div>}
-{/* 
+      </div>
+      {/* 
       {index !== length - 1 && <div className={classes.separator}></div>} */}
     </li>
   );

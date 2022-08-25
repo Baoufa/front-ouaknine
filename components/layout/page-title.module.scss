@@ -32,7 +32,9 @@
   //    rgba($white, 0.3),
   //    rgba($gray200, 0.6)
   //  );
-   background: linear-gradient(135deg, rgba(#0e7490, .8), rgba(#0e7490, 0.3));
+  background: linear-gradient(135deg, rgba(#164e63, .9), rgba(#164e63, 0.2));
+ //background: linear-gradient(135deg, rgba(#1e293b, 0.9), rgba(#1e293b, 0.2));
+  //backdrop-filter: blur(10px);
    background-size: cover;
    z-index: 0;
 }
@@ -41,9 +43,9 @@
   position: relative;
   z-index: 100;
   @include desktop-container;
-  height: 30vh;
+  height: 26vh;
 
-  padding: 2rem 0rem 2rem 3rem;
+  padding: 2rem 0rem 1rem 0rem;
   // margin : 0 0rem 0 0rem;
   color: $white;
   display: flex;
@@ -59,9 +61,11 @@
 .title{
   //font-family: le-monde-livre-classic-byol;
   font-size: 3.5rem;
-  font-weight: 700;
+  font-weight: 500;
   margin-top: 0rem;
   margin-bottom: 0rem;
+  letter-spacing: .1rem;
+  width: 100%;
 }
 
 .subtitle{

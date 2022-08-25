@@ -27,69 +27,110 @@
   display: flex;
   flex-direction: column;
 
-  &_title {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    // font-size: 1.6rem;
-    font-size: 2.5rem;
-    @include serif;
+  &:nth-child(n + 2) {
+    margin-top: 1rem;
+  }
+
+  &_titlegroup {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &_chevron {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    stroke-width: 1px;
+    margin-right: 1rem;
+    transition: all 0.3s;
     cursor: pointer;
-    user-select: none;
+  }
 
-    @media (hover: hover) and (pointer: fine) {
-      &::after {
-        content: '';
-        display: block;
-        background-color: $gray800;
-        height: 1px;
-        width: 60%;
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-        transform: translateY(5px);
-        transition: all .3s ease-in-out;
-      }
-
-      &:hover {
-        color: $gray800;
-      }
-
-      &:hover:after {
-        width: 100%;
-      }
+  &_chevron {
+    &:hover + .spe_titleouter > .spe_titlebar {
+      width: 100%;
     }
-  
+  }
+
+  &_chevronselected {
+    transform: rotate(-180deg);
+  }
+
+  &_titleouter {
+    flex-grow: 1;
+    // display: inline-flex;
+    // flex-direction: column;
+  }
+
+  &_title {
+    display: inline;
+    margin-bottom: 0rem;
+    // font-size: 1.6rem;
+    font-size: 2rem;
+    @include serif;
+
+    user-select: none;
+    //  color: $gray800;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  &_title {
+    &:hover + .spe_titlebar {
+      width: 100%;
+    }
+  }
+
+  &_titlebar {
+    content: '';
+    flex-grow: 1;
+    display: flex;
+    background-color: $gray400;
+    height: 1px;
+    width: 70%;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    transform: translateY(5px);
+    transition: all 0.3s ease-in-out;
+
+    &:active {
+      transform: scale(0.99);
+    }
+  }
+
+  &_selected {
+    content: '';
+    display: block;
+    background-color: $gray400;
+    height: 1px;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    transform: translateY(5px);
+    transition: all 0.3s ease-in-out;
   }
 
   &_lower {
-    flex: 1;
+    max-height: 0px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    //padding: 0rem 1rem 1rem 1rem;
-    //  background-color: $white;
+    justify-content: flex-end;
+    align-items: flex-end;
+    overflow: hidden;
+    transition: all 0.5s ease-out;
+    padding-left: 4rem;
   }
-
-  //   &:nth-child(2n) .spe_right{
-  //     padding-left: 2rem;
-  // }
-
- 
-
-  &_shorten {
-    @include text-shorten(2);
-  }
-
-
-  &_chevron {
-    width: 16px;
-    height: 16px;
-    stroke-width: 1px;
+  &_show {
+    //opacity: 0;
+    max-height: 300vh;
+    animation: appear 0.5s ease-in 0.2s;
+    animation-fill-mode: backwards;
   }
 
   &_linkcontainer {
-    align-self: flex-end;
     color: $gray500;
-    margin-top: 0rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 
     @media (hover: hover) and (pointer: fine) {
       &::after {
@@ -101,7 +142,6 @@
         transform: translateY(5px);
         transition: all 0.2s;
       }
-
       &:hover {
         color: $gray800;
       }
@@ -151,87 +191,107 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 3rem;
-}
-
-.label {
-  @include serif;
-}
-
-.sharegroup {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: flex-start;
-  position: relative;
-  background-color: $gray100;
-  color: $gray400;
-  cursor: pointer;
-  padding: 0.5rem 1.5rem;
-  transition: all 0.2s;
-
-  &:hover {
-    background-color: $gray200;
-  }
-  // &:active {
-  //   transform: scale(.95);
-  // }
-}
-
-.share {
-  width: 19px;
-  height: 19px;
-  //padding: .5rem .5rem;
-  stroke-width: 1px;
-  cursor: pointer;
-  color: $gray400;
-  transition: all 2s;
-  // background-color: $gray100;
-
-  @include scaleclick;
-}
-
-@media (max-width: $breakpoint-md) {
-  .spe {
-    grid-column: span 4 / span 4 !important;
-  }
 }
 
 @media (max-width: $breakpoint-sm) {
   .spe {
-    grid-column: span 4 / span 4 !important;
-    flex-direction: column;
-    //justify-content: center;
-    align-items: center;
-    gap: 2rem;
+    &:nth-child(n + 2) {
+      margin-top: 1rem;
+    }
 
-    &_top {
-      position: relative;
-      flex: 1 0 auto;
-      width: 90vw;
-      height: 50vw;
-      margin: 0 auto;
-      // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 83%);
+    &_titlegroup {
+    }
+
+    &_chevron {
+      width: 1.2rem;
+      height: 1.2rem;
+      stroke-width: 1px;
+      margin-right: 0.8rem;
+    }
+
+    &_chevron {
+      &:hover + .spe_titleouter > .spe_titlebar {
+      }
+    }
+
+    &_chevronselected {
+    }
+
+    &_titleouter {
     }
 
     &_title {
+      font-size: 1.8rem;
+    }
+
+    &_title {
+      &:hover + .spe_titlebar {
+        width: 90%;
+      }
+    }
+
+    &_titlebar {
+      width: 90%;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+
+      &:active {
+      }
+    }
+
+    &_selected {
+      width: 100% !important;
+      margin-top: 0.5rem;
       margin-bottom: 1.5rem;
     }
 
+    &_lower {
+      padding-left: 2rem;
+    }
+    &_show {
+    }
+
     &_linkcontainer {
-      margin-top: 0rem;
-      align-self: center;
+    }
+
+    &_link {
     }
   }
+}
 
-  .separator {
-    margin: 3rem auto 3.5rem auto;
-    border: none;
-    width: 100%;
-    transform: translateX(0);
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 
-  .lowerbar {
-    margin-top: 2.5rem;
+
+$prevDeExp: 0s;
+$newDeExp: 0s;
+$gapDeExp: .4s;
+
+@for $i from 1 through 15 {
+  $newDeExp: $prevDeExp + $gapDeExp;
+  $prevDeExp: $newDeExp;
+  .animation#{($i - 1)} {
+    animation: itemanimationExp 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+    animation-delay: $newDeExp;
+    animation-fill-mode: backwards;
+  }
+}
+
+@keyframes itemanimationExp {
+  0% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
   }
 }

@@ -84,6 +84,7 @@ function Expertise({ data }) {
               return (
                 <>
                 <ExpertiseCard key={item._key} 
+                _id={item._key}
                 index={index}
                 imgUrl={`${imageItemsArray[index]?.url}?w=1000`}
                 blurDataURL={imageItemsArray[index]?.metadata?.lqip}
@@ -101,29 +102,7 @@ function Expertise({ data }) {
             })}
         </ul>
       </section>
-      <div className={classes.separator} ref={ref} id='section2'>
-            {/* <Image src={scale} alt={'scale'} layout={'responsive'} /> */}
-            <AnimatedScale animate={inView} />
-      </div>
-      <section  className={classes.section2}>
-        <div className={classes.phasegroup}>
-          <div className={classes.phasegroupinner}>
-        
-            {titleSection2 && (
-              <h2 className={`${classes.sectiontitle} ${classes.sectiontitle2}`}>{titleSection2}</h2>
-            )}
-            {descSection2 && <RichText value={descSection2} />}
-            <div className={classes.linkcontainer}>
-              <Link href='/contact'>
-                <a className={classes.link}>
-                  <span>{ExpertiseContent[locale].contactLinkLabel}</span>
-                  <ArrowSmRightIcon className={classes.arrowlink} />
-                </a>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </div>
   );
 }

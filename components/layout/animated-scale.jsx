@@ -9,7 +9,7 @@ const AnimatedScale = props => {
       xmlnsXlink='http://www.w3.org/1999/xlink'
       x='0px'
       y='0px'
-      viewBox="0 0 1200 100"
+      viewBox="0 0 1200 66.58"
       xmlSpace='preserve'
     >
       <path
