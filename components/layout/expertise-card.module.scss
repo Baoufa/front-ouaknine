@@ -26,6 +26,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 
   &:nth-child(n + 2) {
     margin-top: 1rem;
@@ -141,8 +142,9 @@
   }
 
   &_titlespe{
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     padding-left: 0rem;
+    //@include seriflight;
   }
 
   &_right{  

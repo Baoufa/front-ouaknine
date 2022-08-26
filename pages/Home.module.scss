@@ -299,19 +299,19 @@ $gapDel: 0.6s;
  // transform: translateX(50px);
 }
 
-@media (max-width: $breakpoint-md) {
-  .separator{
-    width: 60%;
-    margin-top: 6rem;
-    margin-bottom: 1rem;
+// @media (max-width: $breakpoint-md) {
+//   .separator{
+//     width: 60%;
+//     margin-top: 6rem;
+//     margin-bottom: 1rem;
 
-  }
-}
+//   }
+// }
 @media (max-width: $breakpoint-sm) {
   .separator{
     width: 100%;
-    margin-top: 4rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
     object-fit: cover;
     overflow: hidden;
   }
@@ -321,6 +321,7 @@ $gapDel: 0.6s;
   display: flex;
   gap: 1rem;
   flex-direction: row;
+  padding-top: 5rem;
   // padding-right: 4rem;
   // padding-left: 4rem;
   // background-color: $gray50;
@@ -376,6 +377,7 @@ $gapDel: 0.6s;
 
 @media (max-width: $breakpoint-md) {
   .bottom {
+    padding-top: 4rem;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -402,6 +404,7 @@ $gapDel: 0.6s;
 
 @media (max-width: $breakpoint-sm) {
   .bottom {
+    padding-top: 2rem;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;

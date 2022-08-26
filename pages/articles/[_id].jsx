@@ -28,8 +28,6 @@ function Article({ data }) {
     mainImage,
   } = data;
 
-  console.log(source)
-
   const locale = useLocale();
 
   const shareRef = useRef();

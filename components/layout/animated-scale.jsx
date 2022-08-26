@@ -9,11 +9,12 @@ const AnimatedScale = props => {
       xmlnsXlink='http://www.w3.org/1999/xlink'
       x='0px'
       y='0px'
-      viewBox="0 0 1200 66.58"
+      viewBox="0 0 1200 70"
       xmlSpace='preserve'
+      className={`st2 ${false && 'svg-scale-1'}`}
     >
       <path
-        className={`st2 ${false && 'svg-scale-1'}`}
+    
         style={{
           strokeDashoffset: `${5259.669921875 * percentView}px`,
           strokeDasharray: '5259.669921875px',

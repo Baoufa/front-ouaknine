@@ -24,7 +24,7 @@ function Cookie() {
   return (
     <div className={`${classes.container} ${!isLoading && classes.show}`}>
       <div className={classes.cookie}>
-        <Image src={CookieImg} width={70} height={70} alt='cookie' />
+        <Image src={CookieImg} layout={'fill'} objectFit={'cover'} alt='cookie' />
       </div>
 
       <div className={classes.right}>

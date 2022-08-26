@@ -57,7 +57,7 @@ function MainHeader() {
       >
         <div className={classes.navcontainer}>
           <Link href='/'>
-            <a className={classes.logocontainer} onClick={clickHandler}>
+            <a className={classes.logocontainer} onClick={clickHandler} alt={"Logo image Alice Ouaknine, Droit Pénal, Criminal Law, Paris, France"} aria-label={"Logo image Alice Ouaknine, Droit Pénal, Criminal Law, Paris, France"} >
               <AnimatedLogo
                 width={209}
                 height={39.16}

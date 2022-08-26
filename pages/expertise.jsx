@@ -35,8 +35,10 @@ function Expertise({ data }) {
     title,
     subtitle,
     white,
-    imageBg,
-    imageTitle,
+    imageTitleUrl,
+    imageTitleAlt,
+    imgRatioTitle,
+    lqipTitle,
     titleSection1,
     descSection1,
     expertiseList,
@@ -56,17 +58,12 @@ function Expertise({ data }) {
       <PageTitle
         title={title ? title : ''}
         subtitle={subtitle ? subtitle : ''}
-        btn={true}
-        onClick1={() => scrollTo('section1')}
-        onClick2={() => scrollTo('section2', 0)}
-        label1={titleSection1 ? titleSection1 : ''}
-        label2={titleSection2 ? titleSection2 : ''}
-        imgUrl={imageBg ? `${imageBg?.url}?w=1600` : null}
-        imgAlt={imageTitle ? imageTitle?.alt : null}
-        imgRatio={imageBg ? imageBg?.metadata.dimensions.aspectRatio : 1}
-        imgLqip={imageBg ? imageBg?.metadata.lqip : null}
+        btn={false}
+        imgUrl={imageTitleUrl ? `${imageTitleUrl}?w=1600` : null}
+        imgAlt={imageTitleAlt ? imageTitleAlt : 'Background image'}
+        imgRatio={imgRatioTitle ? imgRatioTitle : 1}
+        imgLqip={lqipTitle ? lqipTitle : null}
         white={white ? white : false}
-
       />
 
       <section id='section1' className={classes.section1}>
@@ -83,8 +80,6 @@ function Expertise({ data }) {
         <ul className={classes.spegroup}>
           {expertiseList &&
             expertiseList.map((item, index) => {
-              console.log(item)
-
               return (
                 <>
                 <ExpertiseCard key={item._id} 
@@ -122,9 +117,14 @@ export async function getStaticProps(ctx) {
     const content = await clientApi.fetch(
       `*[_type == "expertise" && language == "${locale}"]{
         ...,
+        "imageTitleUrl": imageTitle.asset->url,
+        "imageTitleAlt" : imageTitle.alt,
+        "imgRatioTitle" : imageTitle.asset->metadata.dimensions.aspectRatio,
+        "lqipTitle": imageTitle.asset->metadata.lqip,
         "expertiseList": expertiseList[]->
             }`
     );
+    console.log(content)
     return { props: { data: content?.length && content[0] }, revalidate: 10  };
   } catch (err) {
     console.log(err.message);

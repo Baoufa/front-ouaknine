@@ -1,4 +1,5 @@
 import Head from 'next/head';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
@@ -8,16 +9,20 @@ import { ChevronDoubleDownIcon } from '@heroicons/react/outline';
 import scrollTo from '../libs/scrollTo';
 import AnimatedScale from '../components/layout/animated-scale';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
+import HeadPage from '../components/head/head-page';
 
 import img from '../public/images/abstract4.jpeg';
 
 import classes from './Home.module.scss';
-import useEventListener from '../hooks/useEventListener';
+
 import useOffset from '../hooks/useOffset';
+import AnimatedScaleMobile from '../components/layout/animated-scale-mobile';
 
 export default function Home({ data }) {
   const {
+    titleseo,
+    descriptionseo,
     title1,
     title2,
     tag1,
@@ -55,6 +60,7 @@ export default function Home({ data }) {
 
   return (
     <div className={classes.container}>
+    <HeadPage title={titleseo} description={descriptionseo} />
       <div className={classes.upper}>
         <Image
           className={classes.img}
@@ -124,6 +130,7 @@ export default function Home({ data }) {
       <div className={classes.separator}  id='section2'>
         <div ref={scaleRef} >
         <AnimatedScale animate={inView} percentView={percentView}  />
+        <AnimatedScaleMobile animate={inView} percentView={percentView}  />
         </div>
        
       </div>
@@ -189,8 +196,6 @@ export async function getStaticProps(ctx) {
         "imgRatio" : mainImage.asset->metadata.dimensions.aspectRatio,
         "lqip": mainImage.asset->metadata.lqip}`
     );
-
-    console.log(content[0])
     return { props: { data: content?.length && content[0] }, revalidate: 10 };
   } catch (err) {
     console.log(err.message);

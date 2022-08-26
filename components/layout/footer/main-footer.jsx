@@ -2,34 +2,45 @@ import classes from './main-footer.module.scss';
 import Link from 'next/link';
 import LogoSquare from '../../../public/images/logosquare.svg';
 import Image from 'next/image';
+import useLocale from '../../../hooks/useLocale';
+import CONTENT from '../../../content/footerContent.json';
 
 import { FaLinkedin, FaGooglePlusSquare } from 'react-icons/fa';
 
 function MainFooter() {
+  const locale = useLocale();
+
   return (
     <footer className={classes.footer}>
       <div className={classes.innercontainer}>
-        <Image
-          className={classes.logo}
-          src={LogoSquare}
-          alt={'logo'}
-          width={70}
-          height={38.73}
-          layout={'fixed'}
-        />
+        <div className={classes.logo}>
+          <Image
+            src={LogoSquare}
+            alt={'logo'}
+            width={70}
+            height={38.73}
+            layout={'fixed'}
+          />
+        </div>
 
         <div className={classes.links}>
-          <Link href='/'>Cabinet Ouaknine</Link>
+          <Link href='/'><a className={classes.link}>{CONTENT[locale].link1}</a></Link>
           <span>|</span>
-          <Link href='/legal'>Mentions légales</Link>
+          <Link href='/legal'><a className={classes.link}>{CONTENT[locale].link2}</a></Link>
           <span>|</span>
-          <p>Admin</p>
+          <a
+            href='https://cabinet-ouaknine.sanity.studio/desk'
+            target='_blank'
+            rel='noreferrer'
+            alt='Administration Alice Ouaknine'
+            aria-label='Administration console'
+            className={classes.link}
+          >{CONTENT[locale].link3}
+          </a>
         </div>
 
         <p className={classes.address}>
-          {
-            '7 rue Augustin Thierry, 75019 Paris, France\nTel: +33 (0)6 52 25 71 47\nFax: +33 (0)6 52 25 71 47'
-          }
+        {CONTENT[locale].address}
         </p>
 
         <div className={classes.social}>
