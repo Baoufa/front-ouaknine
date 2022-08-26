@@ -66,6 +66,8 @@
   margin-bottom: 0rem;
   letter-spacing: .1rem;
   width: 100%;
+  animation: appear 2s;
+  animation-fill-mode: forwards;
 }
 
 .subtitle{
@@ -102,4 +104,15 @@
   .subtitle{
     font-weight: 300;
   }
+}
+
+@keyframes appear {
+from{
+  opacity: 0;
+}
+
+to{
+  opacity: 1;
+}
+
 }

@@ -21,11 +21,13 @@ import imgDefault from '../public/images/alex-vasey-tDuQe2ShHpk-unsplash.jpeg';
 import imgCriminal from '../public/images/expertise/criminal.jpeg';
 import imgMeeting from '../public/images/expertise/meeting.jpeg';
 import PageTitle from '../components/layout/page-title';
+import { useRouter } from 'next/router';
 
 import scrollTo from '../libs/scrollTo';
 
 function Expertise({ data }) {
   const locale = useLocale();
+  const { query } = useRouter();
 
   const {
     titleseo,
@@ -81,18 +83,22 @@ function Expertise({ data }) {
         <ul className={classes.spegroup}>
           {expertiseList &&
             expertiseList.map((item, index) => {
+              console.log(item)
+
               return (
                 <>
-                <ExpertiseCard key={item._key} 
-                _id={item._key}
+                <ExpertiseCard key={item._id} 
+                _id={item._id}
                 index={index}
-                imgUrl={`${imageItemsArray[index]?.url}?w=1000`}
-                blurDataURL={imageItemsArray[index]?.metadata?.lqip}
+               // imgUrl={`${imageItemsArray[index]?.url}?w=1000`}
+               // blurDataURL={imageItemsArray[index]?.metadata?.lqip}
                 title={item?.title}
                 description={item?.description}
+                right={item?.right}
                 linkLabel={ExpertiseContent[locale].contactLinkLabel}
                 isAnimated={index === 0 ? false : true }
                 length={expertiseList.length}
+                query={query}
                 />
           
                 
@@ -114,8 +120,7 @@ export async function getStaticProps(ctx) {
     const content = await clientApi.fetch(
       `*[_type == "expertise" && language == "${locale}"]{
         ...,
-        "imageItemsArray":expertiseList[].imageTitle.asset->,
-        "imageBg":imageTitle.asset->
+        "expertiseList": expertiseList[]->
             }`
     );
     return { props: { data: content?.length && content[0] }, revalidate: 10  };

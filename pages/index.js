@@ -21,8 +21,11 @@ export default function Home({ data }) {
     title1,
     title2,
     tag1,
+    link1,
     tag2,
+    link2,
     tag3,
+    link3,
     white,
     imageTitleUrl,
     imageTitleAlt,
@@ -79,7 +82,7 @@ export default function Home({ data }) {
             )}
             <div className={classes.spegroup}>
               {tag1 && (
-                <Link href='/expertise'>
+                <Link href={{pathname: '/expertise', query:{_id : link1}}}>
                   <a
                     className={`${classes.spe} ${!white && classes.spe_black}`}
                   >
@@ -88,7 +91,7 @@ export default function Home({ data }) {
                 </Link>
               )}
               {tag2 && (
-                <Link href='/expertise'>
+                <Link href={{pathname: '/expertise', query:{_id : link2}}}>
                   <a
                     className={`${classes.spe} ${!white && classes.spe_black}`}
                   >
@@ -97,7 +100,7 @@ export default function Home({ data }) {
                 </Link>
               )}
               {tag3 && (
-                <Link href='/expertise'>
+                <Link href={{pathname: '/expertise', query:{_id : link3}}}>
                   <a
                     className={`${classes.spe} ${!white && classes.spe_black}`}
                   >
@@ -169,8 +172,11 @@ export async function getStaticProps(ctx) {
         title1,
         title2,
         tag1,
+        "link1": link1->_id,
         tag2,
+        "link2": link2->_id,
         tag3, 
+        "link3": link3->_id,
         white,
         "imageTitleUrl": imageTitle.asset->url,
         "imageTitleAlt" : imageTitle.alt,
@@ -183,6 +189,8 @@ export async function getStaticProps(ctx) {
         "imgRatio" : mainImage.asset->metadata.dimensions.aspectRatio,
         "lqip": mainImage.asset->metadata.lqip}`
     );
+
+    console.log(content[0])
     return { props: { data: content?.length && content[0] }, revalidate: 10 };
   } catch (err) {
     console.log(err.message);

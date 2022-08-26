@@ -73,9 +73,14 @@
     //  color: $gray800;
     transition: all 0.2s;
     cursor: pointer;
+    transform:translateY(100px);
   }
 
   &_title {
+    &:hover{
+      font-size: 2.02rem;
+    }
+
     &:hover + .spe_titlebar {
       width: 100%;
     }
@@ -112,19 +117,46 @@
 
   &_lower {
     max-height: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-end;
+    // align-items: flex-start;
+
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    gap:2rem;
     overflow: hidden;
     transition: all 0.5s ease-out;
     padding-left: 4rem;
   }
+
+
+  &_description{
+    padding-top: 2rem;
+    grid-column: span 6 / span 6;
+  }
+
+  &_right{  
+    //background-color: $gray50;
+    padding: 2rem;
+    grid-column: span 3 / span 3;
+    font-size: 1.1rem;
+    @include serif;
+    border-left: none !important;
+  }
+
   &_show {
     //opacity: 0;
     max-height: 300vh;
     animation: appear 0.5s ease-in 0.2s;
     animation-fill-mode: backwards;
+  }
+
+  &_lowerbar{
+    grid-column: span 8 / span 8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &_linkcontainer {
@@ -187,11 +219,6 @@
   // transform: translateX(50px);
 }
 
-.lowerbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
 @media (max-width: $breakpoint-sm) {
   .spe {
@@ -248,6 +275,20 @@
     &_lower {
       padding-left: 2rem;
     }
+    &_description{
+      padding-top: 2rem;
+      grid-column: span 8 / span 8;
+    }
+  
+    &_right{  
+      //background-color: $gray50;
+      padding: 0rem;
+      grid-column: span 8 / span 8;
+      font-size: 1.1rem;
+      @include serif;
+      border-left: none !important;
+    }
+
     &_show {
     }
 
@@ -270,18 +311,25 @@
   }
 }
 
-
 $prevDeExp: 0s;
 $newDeExp: 0s;
-$gapDeExp: .4s;
+$gapDeExp: 0.4s;
 
 @for $i from 1 through 15 {
   $newDeExp: $prevDeExp + $gapDeExp;
   $prevDeExp: $newDeExp;
-  .animation#{($i - 1)} {
-    animation: itemanimationExp 0.8s cubic-bezier(0.33, 1, 0.68, 1);
-    animation-delay: $newDeExp;
-    animation-fill-mode: backwards;
+  @if $i == 1 {
+    .animation#{($i - 1)} {
+      animation: itemanimationExp 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+      animation-delay: 0.4s;
+      animation-fill-mode: backwards;
+    }
+  } @else {
+    .animation#{($i - 1)} {
+      animation: itemanimationExp 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+      animation-delay: $newDeExp;
+      animation-fill-mode: backwards;
+    }
   }
 }
 

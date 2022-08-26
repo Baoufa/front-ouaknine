@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import useClickOutside from '../../hooks/usePercentView';
 import useLocale from '../../hooks/useLocale';
 
@@ -17,19 +17,23 @@ import { ShareIcon } from '@heroicons/react/outline';
 import Share from './articles/share';
 
 import classes from './expertise-card.module.scss';
+import { useRouter } from 'next/router';
 
 function ExpertiseCard({
   _id,
+  query,
   imgUrl,
   blurDataURL,
   title,
   description,
+  right,
   linkLabel,
   isAnimated,
   index,
   length,
 }) {
   const locale = useLocale();
+  const router = useRouter();
   const [seeMore, setSeeMore] = useState(false);
 
   const { ref, inView, entry } = useInView({
@@ -60,16 +64,32 @@ function ExpertiseCard({
     setSeeMore(bol => !bol);
 
     if(!seeMore){
-      scrollTo(_id, 40);
+     scrollTo(_id, 60);
     }
-   
   };
+
+  useEffect(() => {
+    console.log("_query", query);
+
+    if(query._id === _id){
+     // console.log(query);
+      setSeeMore(true);
+
+      if(!seeMore){
+       scrollTo(_id, 60);
+      //  router.replace(`${router.pathname}/#${_id}`)
+      //  router.replace(`${router.pathname}`)
+      }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query])
+  
 
   const animationCSS = `animation${index}`;
   const animationSepCSS = `animationsep${index}`;
 
   return (
-    <li id={_id} className={`${classes.spe} ${classes[animationCSS]}`}>
+    <li id={_id} className={`${classes.spe} ${!query?._id && classes[animationCSS]}`}>
       {title && (
         <div className={classes.spe_titlegroup} onClick={toggleSeeMore}>
           <ChevronDownIcon
@@ -94,8 +114,13 @@ function ExpertiseCard({
             <RichText value={description} />
           </div>
         )}
+        {right && (
+          <div className={`${classes.spe_right}`}>
+            <RichText value={right} />
+          </div>
+        )}
 
-        <div className={classes.lowerbar}>
+        <div className={classes.spe_lowerbar}>
           <div className={classes.spe_linkcontainer}>
             <Link href='/contact'>
               <a className={classes.spe_link}>
