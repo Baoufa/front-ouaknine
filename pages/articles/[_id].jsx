@@ -80,7 +80,7 @@ function Article({ data }) {
 
    
         {author && <p className={classes.author}>{CONTENT[locale].author + author}</p>}
-        {source && <p>Source : <a href={source}>{source}</a></p>}
+        {/* {source && <p>Source : <a href={source}>{source}</a></p>} */}
         {mainImage && (
           <div className={classes.img}>
             <SanityImage asset={mainImage}/>
