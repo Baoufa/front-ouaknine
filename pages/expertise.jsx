@@ -92,8 +92,10 @@ function Expertise({ data }) {
                 index={index}
                // imgUrl={`${imageItemsArray[index]?.url}?w=1000`}
                // blurDataURL={imageItemsArray[index]?.metadata?.lqip}
+
                 title={item?.title}
                 description={item?.description}
+                titleSpe={item?.titleSpe}
                 right={item?.right}
                 linkLabel={ExpertiseContent[locale].contactLinkLabel}
                 isAnimated={index === 0 ? false : true }

@@ -57,8 +57,6 @@ function ArticleCard({
   if (publishedAt) {
     formattedDate = new Date(publishedAt).toLocaleDateString(locale, options);
   }
-  
-
 
   return (
     <>
@@ -81,7 +79,7 @@ function ArticleCard({
                 {title && <h2 className={classes.title}>{title}</h2>}
                 {body && (
                   <p className={classes.content}>
-                    {body[0]?.children[0]?.text}
+                    { body?.map(item => item?.children[0]?.text).join(' ')}
                   </p>
                 )}
 

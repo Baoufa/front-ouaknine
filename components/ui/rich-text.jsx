@@ -38,15 +38,16 @@ export default function RichText({ value }) {
         },
         marks: {
           link: ({ children, value }) => {
-            const rel = !value.href.startsWith('/')
+            const rel = !value?.href?.startsWith('/')
               ? 'noreferrer noopener'
               : undefined;
             return (
+              // eslint-disable-next-line react/jsx-no-target-blank
               <a
                 className={classes.link}
-                href={value.href}
+                href={value?.href}
                 rel={rel}
-                target='°blank'
+                target='_blank'
               >
                 {children}
               </a>

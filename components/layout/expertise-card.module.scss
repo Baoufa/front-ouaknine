@@ -77,9 +77,12 @@
   }
 
   &_title {
-    &:hover{
-      font-size: 2.02rem;
+    @media (hover: hover) and (pointer: fine){
+      &:hover{
+        font-size: 2.02rem;
+      }
     }
+   
 
     &:hover + .spe_titlebar {
       width: 100%;
@@ -122,6 +125,7 @@
     // justify-content: flex-end;
     // align-items: flex-start;
 
+
     display: grid;
     grid-template-columns: repeat(9, minmax(0, 1fr));
     gap:2rem;
@@ -132,13 +136,18 @@
 
 
   &_description{
-    padding-top: 2rem;
+    padding-top: 1rem;
     grid-column: span 6 / span 6;
+  }
+
+  &_titlespe{
+    margin-bottom: 1rem;
+    padding-left: 0rem;
   }
 
   &_right{  
     //background-color: $gray50;
-    padding: 2rem;
+    padding: 1rem 2rem 2rem 2rem;
     grid-column: span 3 / span 3;
     font-size: 1.1rem;
     @include serif;
@@ -153,22 +162,22 @@
   }
 
   &_lowerbar{
-    grid-column: span 8 / span 8;
+    grid-column: span 9 / span 9;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   &_linkcontainer {
     color: $gray500;
-    margin-top: 3rem;
+    margin-top: 0rem;
     margin-bottom: 3rem;
 
     @media (hover: hover) and (pointer: fine) {
       &::after {
         content: '';
         display: block;
-        background-color: $gray800;
+        background-color: $gray500;
         height: 1px;
         width: 0%;
         transform: translateY(5px);
@@ -273,17 +282,18 @@
     }
 
     &_lower {
+      padding-top: 0;
       padding-left: 2rem;
     }
     &_description{
-      padding-top: 2rem;
-      grid-column: span 8 / span 8;
+      padding: 0;
+      grid-column: span 9 / span 9;
     }
   
     &_right{  
       //background-color: $gray50;
       padding: 0rem;
-      grid-column: span 8 / span 8;
+      grid-column: span 9 / span 9;
       font-size: 1.1rem;
       @include serif;
       border-left: none !important;

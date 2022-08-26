@@ -11,12 +11,14 @@ import useClickOutside from '../../hooks/useClickoutside';
 
 import { ShareIcon, ClockIcon } from '@heroicons/react/outline';
 import Share from '../../components/layout/articles/share';
+import SanityImage from '../../components/ui/sanityImage';
 
 function Article({ data }) {
   const {
     _id,
     author,
     publishedAt,
+    source,
     title,
     slug,
     body,
@@ -25,6 +27,8 @@ function Article({ data }) {
     estimatedReadingTime,
     mainImage,
   } = data;
+
+  console.log(source)
 
   const locale = useLocale();
 
@@ -72,23 +76,14 @@ function Article({ data }) {
               <p>{estimatedReadingTime + 'mn - ' + CONTENT[locale].read}</p>
             )}
           </div>
+
+
    
         {author && <p className={classes.author}>{CONTENT[locale].author + author}</p>}
+        {source && <p>Source : <a href='/'>{source}</a></p>}
         {mainImage && (
           <div className={classes.img}>
-            <Image
-              src={mainImage?.url ? `${mainImage?.url}?w=1600` : ''}
-              alt={title ? title : 'Image article'}
-              layout={'fill'}
-              objectFit={'cover'}
-              blurDataURL={
-                mainImage?.metadata?.lqip ? mainImage?.metadata?.lqip : null
-              }
-              placeholder={'blur'}
-              sizes='100vw'
-              priority
-              quality={30}
-            />
+            <SanityImage asset={mainImage}/>
           </div>
         )}
         {body && <RichText value={body} />}
@@ -135,6 +130,7 @@ export async function getStaticProps({ locale, params }) {
     const content = await clientApi.fetch(
       `*[_id == "${_id}"]{
       _id,
+      source,
       author,
       publishedAt,
       "title": content${locale}.title${locale},

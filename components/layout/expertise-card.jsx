@@ -26,6 +26,7 @@ function ExpertiseCard({
   blurDataURL,
   title,
   description,
+  titleSpe,
   right,
   linkLabel,
   isAnimated,
@@ -116,6 +117,7 @@ function ExpertiseCard({
         )}
         {right && (
           <div className={`${classes.spe_right}`}>
+            {titleSpe && <h4 className={classes.spe_titlespe}>{titleSpe}</h4>}
             <RichText value={right} />
           </div>
         )}

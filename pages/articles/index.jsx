@@ -27,7 +27,7 @@ function Articles({ data, posts }) {
                 publishedAt={publishedAt}
                 body={body}
                 estimatedReadingTime={estimatedReadingTime}
-                mainImage={mainImage.asset}
+                mainImage={mainImage?.asset}
               />
             </li>
           );
