@@ -7,6 +7,7 @@ export default function RichText({ value }) {
   return (
     <PortableText
       value={value}
+      onMissingComponent={false}
       components={{
         hardBreak: true,
         block: {
@@ -34,6 +35,9 @@ export default function RichText({ value }) {
         listItem: {
           bullet: ({ children }) => (
             <li className={classes.bullet}>{children}</li>
+          ),
+          number:({ children }) => (
+            <li>{children}</li>
           ),
         },
         marks: {

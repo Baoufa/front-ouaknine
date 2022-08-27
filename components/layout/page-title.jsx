@@ -18,6 +18,7 @@ export default function PageTitle({
   imgRatio,
   imgLqip,
   white,
+  position,
 }) {
   return (
     <div className={classes.titlegroup}>
@@ -49,7 +50,7 @@ export default function PageTitle({
         alt={imgAlt ? imgAlt : 'Background image'}
         objectFit={'cover'}
         layout={'fill'}
-        objectPosition={'top'}
+        objectPosition={position}
         blurDataURL={imgUrl ? imgLqip : ''}
         placeholder={'empty'}
         priority

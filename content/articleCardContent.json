@@ -1,11 +1,21 @@
 {
   "fr": {
     "read": "temps de lecture",
-    "author" : "Auteur : "
+    "author" : "Auteur : ",
+    "all" : "Tous les articles",
+    "fact" : "Fiches pratiques",
+    "press" : "Articles de presse",
+    "factSingle" : "Fiche pratique",
+    "pressSingle" : "Article de presse"
   },
 
   "en": {
     "read": "read time",
-    "author" : "Author: "
+    "author" : "Author: ",
+    "all" : "All",
+    "fact" : "Fact Sheets",
+    "press" : "Press",
+    "factSingle" : "Fact Sheet",
+    "pressSingle" : "Press"
   }
 }

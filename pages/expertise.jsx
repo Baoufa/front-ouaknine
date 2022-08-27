@@ -64,6 +64,7 @@ function Expertise({ data }) {
         imgRatio={imgRatioTitle ? imgRatioTitle : 1}
         imgLqip={lqipTitle ? lqipTitle : null}
         white={white ? white : false}
+        position={'center'}
       />
 
       <section id='section1' className={classes.section1}>

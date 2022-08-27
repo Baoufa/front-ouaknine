@@ -32,8 +32,9 @@
   //    rgba($white, 0.3),
   //    rgba($gray200, 0.6)
   //  );
-  background: linear-gradient(135deg, rgba(#164e63, .9), rgba(#164e63, 0.2));
+  background: linear-gradient(135deg, rgba(#164e63, .9), rgba($white, 0.2));
  //background: linear-gradient(135deg, rgba(#1e293b, 0.9), rgba(#1e293b, 0.2));
+// background: linear-gradient(135deg, rgba($gray800, 0.7), rgba($white, 0.2));
   //backdrop-filter: blur(10px);
    background-size: cover;
    z-index: 0;

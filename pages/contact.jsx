@@ -64,6 +64,7 @@ function Contact({ data }) {
         imgRatio={imgRatioTitle ? imgRatioTitle : 1}
         imgLqip={lqipTitle ? lqipTitle : null}
         white={white ? white : false}
+        position={'top'}
       />
       <section className={classes.container}>
         <div className={classes.grid}>

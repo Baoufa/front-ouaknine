@@ -149,7 +149,7 @@
 
   &_right{  
     //background-color: $gray50;
-    padding: 1rem 2rem 2rem 2rem;
+    padding: 1rem 2rem 0rem 2rem;
     grid-column: span 3 / span 3;
     font-size: 1.1rem;
     @include serif;

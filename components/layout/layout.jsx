@@ -17,7 +17,7 @@ function Layout(props) {
 
   return (
     <>
-      <Loader />
+      {/* <Loader /> */}
       {!doNotShow && !isOn && <Cookie />}
       {!isOn && <Phone />}
       <MainHeader />

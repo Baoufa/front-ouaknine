@@ -23,6 +23,7 @@ function ArticleCard({
   title,
   slug,
   author,
+  filter,
   publishedAt,
   body,
   estimatedReadingTime,
@@ -60,6 +61,7 @@ function ArticleCard({
 
   return (
     <>
+     <div className={classes.separator}></div>
       <article
         ref={ref}
         className={`${classes.item} ${viewed && classes.itemactive}`}
@@ -74,7 +76,7 @@ function ArticleCard({
               <Link  href={`/articles/${_id}`}>
                 <a className={classes.upper}>
                 {formattedDate && (
-                  <p className={classes.date}>{formattedDate}</p>
+                  <p className={classes.date}>{`${formattedDate} - ${CONTENT[locale][filter]}`}</p>
                 )}
                 {title && <h2 className={classes.title}>{title}</h2>}
                 {body && (
@@ -108,7 +110,7 @@ function ArticleCard({
           </div>
      
       </article>
-      <div className={classes.separator}></div>
+     
     </>
   );
 }
