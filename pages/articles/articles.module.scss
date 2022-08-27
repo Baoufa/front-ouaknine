@@ -88,6 +88,8 @@
   transition: all .2s;
   cursor: pointer;
   width: 250px;
+  color:inherit;
+  background-color: $white;
 
   -webkit-appearance: none;
   -moz-appearance: none;
