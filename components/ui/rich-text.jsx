@@ -7,9 +7,9 @@ export default function RichText({ value }) {
   return (
     <PortableText
       value={value}
-      onMissingComponent={false}
+      onMissingComponent={(message, options) => {return
+      }}
       components={{
-        hardBreak: true,
         block: {
           // Ex. 1: customizing common block types
           normal: ({ children }) => {
@@ -49,7 +49,7 @@ export default function RichText({ value }) {
               // eslint-disable-next-line react/jsx-no-target-blank
               <a
                 className={classes.link}
-                href={value?.href}
+                href={value?.href ? value.href : '/'}
                 rel={rel}
                 target='_blank'
               >

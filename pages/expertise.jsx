@@ -125,7 +125,6 @@ export async function getStaticProps(ctx) {
         "expertiseList": expertiseList[]->
             }`
     );
-    console.log(content)
     return { props: { data: content?.length && content[0] }, revalidate: 10  };
   } catch (err) {
     console.log(err.message);
