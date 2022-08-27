@@ -28,6 +28,7 @@ function ArticleCard({
   body,
   estimatedReadingTime,
   mainImage,
+  index,
 }) {
   const locale = useLocale();
   const {pathname} = useRouter()
@@ -64,7 +65,7 @@ function ArticleCard({
      <div className={classes.separator}></div>
       <article
         ref={ref}
-        className={`${classes.item} ${viewed && classes.itemactive}`}
+        className={`${classes.item} ${viewed && index > 0 && classes.itemactive}`}
       >
      
           <div className={classes.article}>
@@ -76,7 +77,7 @@ function ArticleCard({
               <Link  href={`/articles/${_id}`}>
                 <a className={classes.upper}>
                 {formattedDate && (
-                  <p className={classes.date}>{`${formattedDate} - ${CONTENT[locale][filter]}`}</p>
+                  <p className={classes.date}>{`${formattedDate} - ${CONTENT[locale][`${filter}Single`]}`}</p>
                 )}
                 {title && <h2 className={classes.title}>{title}</h2>}
                 {body && (

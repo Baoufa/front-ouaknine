@@ -89,7 +89,7 @@ function Articles({ data, posts }) {
 
         {filteredPosts.length > 0 && (
           <ul className={classes.list}>
-            {filteredPosts.map(post => {
+            {filteredPosts.map((post, index) => {
               const {
                 _id,
                 author,
@@ -105,6 +105,7 @@ function Articles({ data, posts }) {
               return (
                 <li key={_id}>
                   <ArticleCard
+                    index={index}
                     title={title}
                     _id={_id}
                     slug={slug?.current}

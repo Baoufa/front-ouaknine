@@ -2,14 +2,24 @@
 
 
 .item{
-  transform: translateY(20%);
-  opacity: 0;
-  transition: .8s all ease;
+
 }
 
 .itemactive{
-  transform: translateY(0);
-  opacity: 1;
+  animation: appear 1s ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes appear {
+  from{
+    transform: translateY(15%);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
 }
 
 .title{
@@ -18,19 +28,19 @@
 }
 
 .article {
-  margin: 4rem auto 3rem auto;
+  margin: 4rem auto 4rem auto;
   display: flex;
   width: 100%;
   justify-content: flex-start;
   align-items: center;
   gap:3rem;
-  height: 250px;
+  height: 100%;
 }
 
 .description{
   flex-grow: 1;
   width: 70%;
-  height: 250px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -100,8 +110,13 @@
 }
 
 @media (max-width:$breakpoint-sm) {
+
+  .title{
+    margin-top:1rem;
+  }
+
   .article {
-    margin: 0 auto 3rem auto;
+    margin: 3 auto 3rem auto;
     display: flex;
     flex-direction: column;
     gap:3rem;
