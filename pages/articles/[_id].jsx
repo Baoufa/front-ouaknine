@@ -9,9 +9,10 @@ import useLocale from '../../hooks/useLocale';
 import CONTENT from '../../content/articleCardContent.json';
 import useClickOutside from '../../hooks/useClickoutside';
 
-import { ShareIcon, ClockIcon } from '@heroicons/react/outline';
+import { ShareIcon, ClockIcon, ArrowLeftIcon } from '@heroicons/react/outline';
 import Share from '../../components/layout/articles/share';
 import SanityImage from '../../components/ui/sanityImage';
+import { useRouter } from 'next/router';
 
 function Article({ data }) {
   const {
@@ -36,55 +37,89 @@ function Article({ data }) {
     setShareOn(bol => !bol);
   };
 
+  const router = useRouter();
+
+  const backHandler = () => {
+    router.push('/articles')
+  }
+
   useClickOutside(shareOn, setShareOn, shareRef);
 
   return (
     <section className={classes.container}>
+      <button className={classes.backbtn} onClick={backHandler}><ArrowLeftIcon className={classes.back} alt={'back - retour'} aria-label={'back - retour'}/></button>
       <article className={classes.article}>
-      
-      
+
+        <div className={classes.titlegroupouter}>
         <div className={classes.titlegroup}>
           {title && <h1 className={classes.title}>{title}</h1>}
+        </div>
 
-          <div className={classes.sharegroup}>
-            <ShareIcon
-              className={classes.share}
-              onClick={toggleShare}
-              onBlur={toggleShare}
-              ref={shareRef}
-            />
-            {shareOn && (
-              <Share
-                url={`${process.env.NEXT_PUBLIC_HOST}/${locale}/article/${_id}`}
-                dir='right'
-              />
+        <div className={classes.sub}>
+          <div>
+            {author && (
+              <p className={classes.author}>
+                {CONTENT[locale].author + author}
+              </p>
             )}
+            {source && (
+              <p>
+                Source :{' '}
+                <a
+                  className={classes.link}
+                  href={source}
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  {CONTENT[locale].source}
+                </a>
+              </p>
+            )}
+          </div>
+          <div className={classes.actiongroup}>
+            <div className={classes.readtime}>
+              <ClockIcon className={classes.clock} />
+              {locale === 'fr' && (
+                <p>
+                  {CONTENT[locale].read + ' - ' + estimatedReadingTime + ' min'}
+                </p>
+              )}
+              {locale === 'en' && (
+                <p>{estimatedReadingTime + 'mn - ' + CONTENT[locale].read}</p>
+              )}
+            </div>
+
+            <div className={classes.sharegroup}>
+              <ShareIcon
+                className={classes.share}
+                onClick={toggleShare}
+                onBlur={toggleShare}
+                ref={shareRef}
+              />
+              {shareOn && (
+                <Share
+                  url={`${process.env.NEXT_PUBLIC_HOST}/${locale}/article/${_id}`}
+                  dir='right'
+                />
+              )}
+            </div>
           </div>
         </div>
 
+        </div>
+      
 
-          <div className={classes.readtime}>
-            <ClockIcon className={classes.clock} />
-            {locale === 'fr' && (
-              <p>
-                {CONTENT[locale].read + ' - ' + estimatedReadingTime + ' min'}
-              </p>
-            )}
-            {locale === 'en' && (
-              <p>{estimatedReadingTime + 'mn - ' + CONTENT[locale].read}</p>
-            )}
-          </div>
-
-
-   
-        {author && <p className={classes.author}>{CONTENT[locale].author + author}</p>}
-        {source && <p>Source : <a href={source} target='_blank' rel='noreferrer'>{source}</a></p>}
+<div className={classes.separator}></div>
+        <div className={classes.content}>
         {mainImage && (
           <div className={classes.img}>
-            <SanityImage asset={mainImage}/>
+            <SanityImage asset={mainImage} />
           </div>
         )}
-        {body && <RichText value={body} />}
+        <div>{body && <RichText value={body} />}</div>
+
+        </div>
+        
       </article>
     </section>
   );

@@ -26,7 +26,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
+
+  will-change: transform;
+
 
   &:nth-child(n + 2) {
     margin-top: 1rem;
@@ -35,6 +37,7 @@
   &_titlegroup {
     display: flex;
     align-items: baseline;
+    cursor: pointer;
   }
 
   &_chevron {
@@ -161,6 +164,7 @@
     max-height: 300vh;
     animation: appear 0.5s ease-in 0.2s;
     animation-fill-mode: backwards;
+    will-change: transform;
   }
 
   &_lowerbar{

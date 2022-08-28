@@ -4,17 +4,22 @@ import {
   MailIcon,
 } from '@heroicons/react/outline';
 import Button from '../button';
+import useLocale from '../../../hooks/useLocale';
+import CONTENT from '../../../content/emailResContent.json'
 
 import classes from './email-res.module.scss';
 
 function EmailRes(props) {
+  const locale = useLocale();
+
+
   if (props.ok) {
     return (
       <div className={classes.container}>
         <CheckCircleIcon className={classes.checkok} />
-        <h2 className={classes.title}>Votre message a bien été envoyé</h2>
+        <p className={classes.title}>{CONTENT[locale].okTitle}</p>
         <p className={classes.subtitle}>
-          Nous vous répondrons dans les plus bref délais
+        {CONTENT[locale].okBody}
         </p>
       </div>
     );
@@ -22,11 +27,11 @@ function EmailRes(props) {
     return (
       <div className={classes.container}>
         <ExclamationIcon className={classes.checknot} />
-        <h2 className={classes.title}>
-          {"Votre message n'a pas pu être envoyé"}
-        </h2>
+        <p className={classes.title}>
+        {CONTENT[locale].noTitle}
+        </p>
         <p className={classes.subtitle}>
-          Vous pouvez nous envoyer un email à :
+        {CONTENT[locale].noBody}
         </p>
         <Button
           className={classes.button}

@@ -6,7 +6,8 @@
     "fact" : "Fiches pratiques",
     "press" : "Articles de presse",
     "factSingle" : "Fiche pratique",
-    "pressSingle" : "Article de presse"
+    "pressSingle" : "Article de presse",
+    "source" : "consulter sur le site source"
   },
 
   "en": {
@@ -16,6 +17,7 @@
     "fact" : "Fact Sheets",
     "press" : "Press",
     "factSingle" : "Fact Sheet",
-    "pressSingle" : "Press"
+    "pressSingle" : "Press",
+    "source" : "read on the source website"
   }
 }

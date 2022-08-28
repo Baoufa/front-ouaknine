@@ -36,7 +36,7 @@ function ArticleCard({
   const [viewed, setViewed] = useState(false);
   const { ref, inView, entry } = useInView({
     /* Optional options */
-    threshold: 0,
+    threshold: 0.1,
   });
 
   const shareRef = useRef();
@@ -65,7 +65,7 @@ function ArticleCard({
      <div className={classes.separator}></div>
       <article
         ref={ref}
-        className={`${classes.item} ${viewed && index > 0 && classes.itemactive}`}
+        className={`${index > 0 && classes.item} ${viewed && index > 0 && classes.itemactive}`}
       >
      
           <div className={classes.article}>

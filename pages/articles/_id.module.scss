@@ -1,15 +1,42 @@
 @use '../../styles/variables' as *;
 
 .container{
+  padding-top: 3rem;
   @include desktop-container;
 }
 
-.article{
+.backbtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5rem;
+  transition: all .2s;
+  color: $gray400;
 
-  display: block;
+  &:hover, &:active{
+    background-color: $gray100;
+  }
+}
+
+.back{
+  width: 30px;
+  height: 30px;
+  stroke-width: .8px;
+  cursor: pointer;
+}
+
+.article{
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap:1rem;
+  gap:2rem;
+}
+
+.titlegroupouter{
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 0;
+  gap:2rem;
 }
 
 .titlegroup{
@@ -20,6 +47,7 @@
 
 .title{
   margin: 0;
+  width: 70%;
 }
 
 .img{
@@ -27,11 +55,33 @@
   position: relative;
   width: 40%;
   height: 100%;
-  margin: 0 auto;
+  margin: 2rem auto;
   margin-left: 3rem;
-  margin-bottom: 2rem;
 }
 
+.link{
+  text-decoration: underline;
+
+  &:hover, &:active{
+    color: $gray400;
+  }
+}
+
+.sub{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  gap:2rem;
+  width: 100%;
+}
+
+.actiongroup{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap:1rem;
+}
 
 .readtime{
   flex-grow: 0;
@@ -42,7 +92,7 @@
   justify-content: space-between;
   padding: 0.5rem 1rem;
   background-color: $gray100;
-  color: $gray400;
+  color: $gray600;
 }
 
 
@@ -54,6 +104,8 @@
 
 .sharegroup{
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .share{
@@ -62,7 +114,7 @@
   padding: .5rem .5rem;
   stroke-width: 1px;
   cursor: pointer;
-  color: $gray400;
+  color: $gray600;
   transition: all .2s;
   background-color: $white;
   
@@ -74,4 +126,14 @@
 
 .author{
   font-size: 1rem;
+}
+
+.content{
+  display: block;
+}
+
+.separator{
+  width: 80%;
+  height: 1px;
+  background-color: $gray200;
 }

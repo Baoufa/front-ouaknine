@@ -7,9 +7,9 @@ import CONTENT from '../../content/phoneContent.json'
 function Phone() {
   const locale = useLocale();
   return (
-    <button className={classes.phone} href='tel:+33629653512' alt={CONTENT[locale].alt} aria-label={CONTENT[locale].alt}>
+    <a className={classes.phone} href='tel:+33629653512' alt={CONTENT[locale].alt} aria-label={CONTENT[locale].alt}>
       <PhoneIcon className={classes.svg} />
-    </button>
+    </a>
   );
 }
 

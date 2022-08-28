@@ -14,7 +14,7 @@ function ActicleCardImg({ asset }) {
       <Image
         {...imageProps}
         alt='title'
-        placeholder={'empty'}
+        placeholder={'blur'}
         objectFit={'cover'}
         layout={'fill'}
         objectPosition={'center'}

@@ -90,9 +90,9 @@ function ExpertiseCard({
   const animationSepCSS = `animationsep${index}`;
 
   return (
-    <li id={_id} onClick={toggleSeeMore} className={`${classes.spe} ${!query?._id && classes[animationCSS]}`}>
+    <li id={_id} className={`${classes.spe} ${!query?._id && classes[animationCSS]}`}>
       {title && (
-        <div className={classes.spe_titlegroup} >
+        <div className={classes.spe_titlegroup} onClick={toggleSeeMore} >
           <ChevronDownIcon
             className={`${classes.spe_chevron} ${
               seeMore && classes.spe_chevronselected
