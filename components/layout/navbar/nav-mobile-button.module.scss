@@ -12,7 +12,7 @@
   cursor: pointer;
   z-index: 40;
   //width: 100%;
-
+  will-change: transform;
   @include scaleclick;
 }
 
@@ -33,6 +33,7 @@
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   -ms-transition: all 0.4s;
+  will-change: transform;
 
   &--top {
     width: 40%;
@@ -51,6 +52,7 @@
   -webkit-transform: translateY(9.5px) rotate(225deg);
   -moz-transform: translateY(9.5px) rotate(225deg);
   -ms-transform: translateY(9.5px) rotate(225deg);
+  will-change: transform;
 }
 .rotatemiddle {
   width: 0%;
@@ -58,6 +60,7 @@
   // -webkit-transform: translateX(100px);
   // -moz-transform: translateX(100px);
   // -ms-transform: translateX(100px);
+  will-change: transform;
 }
 
 .rotatebottom {
@@ -66,4 +69,5 @@
   -webkit-transform: translateY(-9.5px) rotate(-225deg);
   -moz-transform: translateY(-9.5px) rotate(-225deg);
   -ms-transform: translateY(-9.5px) rotate(-225deg);
+  will-change: transform;
 }
