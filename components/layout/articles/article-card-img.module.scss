@@ -18,6 +18,7 @@ height: 250px;
 @media (max-width: $breakpoint-sm){
 
   .container{
+    @include borderlight;
     position: relative;
     align-self: flex-start;
     width: 65vw;
