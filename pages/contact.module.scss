@@ -32,12 +32,14 @@
 }
 
 .leftblock {
+  opacity: 0;
   padding: 1px;
   clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
   overflow: hidden;
   background-color: $gray200;
-  animation: appear 1s;
+  animation: appear 1s linear .4s;
   animation-fill-mode: forwards;
+  will-change: all;
 }
 
 .leftblockinner {
