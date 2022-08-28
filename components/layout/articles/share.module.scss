@@ -2,7 +2,7 @@
 
 .container {
   position: absolute;
-
+  opacity: 0;
   background-color: white;
   @include borderlight;
   padding: 1rem 1.5rem;
@@ -17,6 +17,9 @@
   animation: appear .2s;
   user-select: none;
   z-index: 10;
+  will-change: opacity;
+  animation-fill-mode: forwards;
+
 
   &:after{
     content: '';

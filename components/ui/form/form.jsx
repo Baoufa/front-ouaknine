@@ -13,8 +13,8 @@ import EmailRes from './email-res';
 
 function Form({ titleform, subform }) {
   const locale = useLocale();
-  const [modal, setModal] = useState(false);
-  const [emailStatus, setEmailStatus] = useState(false)
+  const [modal, setModal] = useState(true);
+  const [emailStatus, setEmailStatus] = useState(true)
 
   const [value, setValue] = useState({
     firstName: '',

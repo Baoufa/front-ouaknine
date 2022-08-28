@@ -263,7 +263,11 @@
     }
 
     &_title {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
+
+      &:hover{
+        font-size: 1.6rem;
+      }
     }
 
     &_title {

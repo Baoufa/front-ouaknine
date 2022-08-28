@@ -5,13 +5,19 @@
   @include desktop-container;
 }
 
+@media (max-width: $breakpoint-sm){
+  .container{
+    padding-top: 2rem;
+  }
+}
+
 .backbtn{
   display: flex;
   align-items: center;
   justify-content: center;
   padding: .5rem;
   transition: all .2s;
-  color: $gray400;
+  color: $gray600;
 
   &:hover, &:active{
     background-color: $gray100;
@@ -19,9 +25,9 @@
 }
 
 .back{
-  width: 30px;
-  height: 30px;
-  stroke-width: .8px;
+  width: 24px;
+  height: 24px;
+  stroke-width: 1px;
   cursor: pointer;
 }
 
@@ -35,8 +41,15 @@
 .titlegroupouter{
   display: flex;
   flex-direction: column;
-  padding: 3rem 0;
+  padding: 3rem 0 2rem 0;
   gap:2rem;
+}
+
+@media (max-width: $breakpoint-sm){
+  .titlegroupouter{
+    padding: 1.5rem 0 1rem 0;
+    gap:2rem;
+  }
 }
 
 .titlegroup{
@@ -47,7 +60,14 @@
 
 .title{
   margin: 0;
-  width: 70%;
+  width: 80%;
+}
+
+@media (max-width: $breakpoint-sm){
+  .title{
+    width: 100%;
+    font-size: 2.5rem;
+  }
 }
 
 .img{
@@ -57,6 +77,17 @@
   height: 100%;
   margin: 2rem auto;
   margin-left: 3rem;
+}
+
+@media (max-width: $breakpoint-sm){
+  .img{
+    align-self: center;
+    float: none;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1rem;
+  }
 }
 
 .link{
@@ -72,8 +103,9 @@
   justify-content: space-between;
   align-items: flex-start;
   flex-direction: column;
-  gap:2rem;
+  gap:1rem;
   width: 100%;
+  font-size: .9rem;
 }
 
 .actiongroup{
@@ -125,15 +157,28 @@
 }
 
 .author{
-  font-size: 1rem;
 }
 
 .content{
   display: block;
 }
 
+@media (max-width: $breakpoint-sm){
+  .content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+}
+
 .separator{
   width: 80%;
   height: 1px;
   background-color: $gray200;
+}
+
+@media (max-width: $breakpoint-sm){
+  .separator{
+    width: 100%;
+  }
 }
