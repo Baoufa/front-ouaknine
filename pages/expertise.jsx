@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import classes from './expertise.module.scss';
 import { ArrowSmRightIcon } from '@heroicons/react/outline';
-import scale from '../public/images/scale.svg' 
+import scale from '../public/images/scale.svg';
 import AnimatedScale from '../components/layout/animated-scale-center';
 
 import { useInView } from 'react-intersection-observer';
@@ -22,6 +22,8 @@ import imgCriminal from '../public/images/expertise/criminal.jpeg';
 import imgMeeting from '../public/images/expertise/meeting.jpeg';
 import PageTitle from '../components/layout/page-title';
 import { useRouter } from 'next/router';
+
+import HeadPage from '../components/head/head-page';
 
 import scrollTo from '../libs/scrollTo';
 
@@ -55,6 +57,7 @@ function Expertise({ data }) {
 
   return (
     <div className={classes.container}>
+      <HeadPage title={titleseo} description={descriptionseo} />
       <PageTitle
         title={title ? title : ''}
         subtitle={subtitle ? subtitle : ''}
@@ -82,31 +85,26 @@ function Expertise({ data }) {
           {expertiseList &&
             expertiseList.map((item, index) => {
               return (
-                <>
-                <ExpertiseCard key={item._id} 
-                _id={item._id}
-                index={index}
-               // imgUrl={`${imageItemsArray[index]?.url}?w=1000`}
-               // blurDataURL={imageItemsArray[index]?.metadata?.lqip}
+                <ExpertiseCard
+                  key={item._id}
+                  _id={item._id}
+                  index={index}
+                  // imgUrl={`${imageItemsArray[index]?.url}?w=1000`}
+                  // blurDataURL={imageItemsArray[index]?.metadata?.lqip}
 
-                title={item?.title}
-                description={item?.description}
-                titleSpe={item?.titleSpe}
-                right={item?.right}
-                linkLabel={ExpertiseContent[locale].contactLinkLabel}
-                isAnimated={index === 0 ? false : true }
-                length={expertiseList.length}
-                query={query}
+                  title={item?.title}
+                  description={item?.description}
+                  titleSpe={item?.titleSpe}
+                  right={item?.right}
+                  linkLabel={ExpertiseContent[locale].contactLinkLabel}
+                  isAnimated={index === 0 ? false : true}
+                  length={expertiseList.length}
+                  query={query}
                 />
-          
-                
-                </>
-                
               );
             })}
         </ul>
       </section>
-      
     </div>
   );
 }
@@ -125,12 +123,12 @@ export async function getStaticProps(ctx) {
         "expertiseList": expertiseList[]->
             }`
     );
-    return { props: { data: content?.length && content[0] }, revalidate: 10  };
+    return { props: { data: content?.length && content[0] }, revalidate: 10 };
   } catch (err) {
     console.log(err.message);
     return {
       notFound: true,
-    }
+    };
   }
 }
 

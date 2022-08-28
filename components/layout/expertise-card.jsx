@@ -99,7 +99,7 @@ function ExpertiseCard({
             }`}
           />
           <div className={classes.spe_titleouter}>
-            <h3 className={`${classes.spe_title}`}>{title}</h3>
+            <h2 className={`${classes.spe_title}`}>{title}</h2>
             <div
               className={`${classes.spe_titlebar} ${
                 seeMore && classes.spe_selected
@@ -117,7 +117,7 @@ function ExpertiseCard({
         )}
         {right && (
           <div className={`${classes.spe_right}`}>
-            {titleSpe && <h4 className={classes.spe_titlespe}>{titleSpe}</h4>}
+            {titleSpe && <h3 className={classes.spe_titlespe}>{titleSpe}</h3>}
             <RichText value={right} />
           </div>
         )}

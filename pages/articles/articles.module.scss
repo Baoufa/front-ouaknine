@@ -80,10 +80,10 @@
 
 .select{
   padding: .5rem .5rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-family: inherit;
   outline: none;
-  @include seriflight;
+  @include serif;
   @include borderlight;
   transition: all .2s;
   cursor: pointer;

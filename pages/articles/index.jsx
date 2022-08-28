@@ -9,6 +9,16 @@ import CONTENT from '../../content/articleCardContent.json';
 import useLocale from '../../hooks/useLocale';
 
 import PageTitle from '../../components/layout/page-title';
+import HeadPage from '../../components/head/head-page';
+
+const localSwitcher = (locale) => {
+  if(locale === 'fr'){
+    return 'en';
+  }
+  if (locale === 'en'){
+    return 'fr';
+  }
+}
 
 function Articles({ data, posts }) {
   const {
@@ -48,6 +58,7 @@ function Articles({ data, posts }) {
 
   return (
     <div>
+      <HeadPage title={titleseo} description={descriptionseo} />
       <PageTitle
         title={title ? title : ''}
         subtitle={subtitle ? subtitle : ''}
@@ -98,7 +109,11 @@ function Articles({ data, posts }) {
                 title,
                 slug,
                 body,
+                titleOther,
+                slugOther,
+                bodyOther,
                 estimatedReadingTime,
+                estimatedReadingTimeOther,
                 mainImage,
               } = post;
 
@@ -106,14 +121,14 @@ function Articles({ data, posts }) {
                 <li key={_id}>
                   <ArticleCard
                     index={index}
-                    title={title}
+                    title={title ? title : titleOther}
                     _id={_id}
                     slug={slug?.current}
                     filter={filter}
                     author={author}
                     publishedAt={publishedAt}
-                    body={body}
-                    estimatedReadingTime={estimatedReadingTime}
+                    body={title ? body : bodyOther}
+                    estimatedReadingTime={title ? estimatedReadingTime : estimatedReadingTimeOther}
                     mainImage={mainImage?.asset}
                   />
                 </li>
@@ -146,8 +161,7 @@ export async function getStaticProps(ctx) {
     const posts = await clientApi.fetch(
       `*[_type == "post" 
       && dateTime(publishedAt) 
-          < dateTime(now())
-      && content${locale}.language == "${locale}"] | order(publishedAt desc)
+          < dateTime(now())] | order(publishedAt desc)
          {  
       mainImage,  
       _id,
@@ -158,12 +172,17 @@ export async function getStaticProps(ctx) {
       "title": content${locale}.title${locale},
       "slug": content${locale}.slug${locale},
       "body": content${locale}.body${locale},
+      "titleOther": content${localSwitcher(locale)}.title${localSwitcher(locale)},
+      "slugOther": content${localSwitcher(locale)}.slug${localSwitcher(locale)},
+      "bodyOther": content${localSwitcher(locale)}.body${localSwitcher(locale)},
       "numberOfCharacters": length(pt::text(content${locale}.body${locale})),
       "estimatedWordCount": round(length(pt::text(content${locale}.body${locale})) / 5),
-      "estimatedReadingTime": round(length(pt::text(content${locale}.body${locale})) / 5 / 180 )
+      "estimatedReadingTime": round(length(pt::text(content${locale}.body${locale})) / 5 / 180 ),
+      "numberOfCharactersOther": length(pt::text(content${localSwitcher(locale)}.body${localSwitcher(locale)})),
+      "estimatedWordCountOther": round(length(pt::text(content${localSwitcher(locale)}.body${localSwitcher(locale)})) / 5),
+      "estimatedReadingTimeOther": round(length(pt::text(content${localSwitcher(locale)}.body${localSwitcher(locale)})) / 5 / 180 )
     }`
     );
-
     return {
       props: { data: content?.length && content[0], posts: posts },
       revalidate: 10,
