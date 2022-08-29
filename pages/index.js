@@ -10,8 +10,6 @@ import AnimatedScale from '../components/layout/animated-scale';
 import { useRef, useState } from 'react';
 import HeadPage from '../components/head/head-page';
 
-import img from '../public/images/abstract4.jpeg';
-
 import classes from './Home.module.scss';
 
 import useOffset from '../hooks/useOffset';
@@ -58,7 +56,7 @@ export default function Home({ data }) {
       <div className={classes.upper}>
         <Image
           className={classes.img}
-          src={imageTitleUrl ? `${imageTitleUrl}?w=1600` : img}
+          src={imageTitleUrl ? `${imageTitleUrl}?w=1600` : ''}
           alt={imageTitleAlt ? imageTitleAlt : 'Image background'}
           objectFit={'cover'}
           layout={'fill'}

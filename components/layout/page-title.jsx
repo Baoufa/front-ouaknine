@@ -1,9 +1,7 @@
 import Image from 'next/image';
-import Button from '../ui/button';
 
 import classes from './page-title.module.scss';
 
-import img from '../../public/images/green.jpeg';
 
 export default function PageTitle({
   title,
@@ -23,7 +21,7 @@ export default function PageTitle({
 
       {imgUrl && <Image
         className={classes.img}
-        src={imgUrl ? imgUrl : img}
+        src={imgUrl ? imgUrl : ''}
         alt={imgAlt ? imgAlt : 'Background image'}
         objectFit={'cover'}
         layout={'fill'}
