@@ -1,13 +1,8 @@
 @use '../styles/variables' as *;
 
-.container {
-}
-
 .upper {
   position: relative;
 }
-
-
 
 .img {
   position: absolute;
@@ -22,9 +17,9 @@
   left: 0;
   height: 100%;
   width: 100%;
-// background: linear-gradient(135deg, rgba($gray900, 0.7), rgba($gray900, 0.2));
- background: linear-gradient(135deg, rgba($gray800, 0.7), rgba($white, 0.2));
-// background: linear-gradient(135deg, rgba(#0e7490, .8), rgba(#0e7490, 0.1));
+  // background: linear-gradient(135deg, rgba($gray900, 0.7), rgba($gray900, 0.2));
+  background: linear-gradient(135deg, rgba($gray800, 0.7), rgba($white, 0.2));
+  // background: linear-gradient(135deg, rgba(#0e7490, .8), rgba(#0e7490, 0.1));
 
   background-size: cover;
   z-index: 0;
@@ -41,8 +36,6 @@
   @include desktop-container;
 }
 
-
-
 .titlegroup {
   flex: 1 0 100%;
   display: flex;
@@ -57,8 +50,8 @@
   z-index: 1;
 }
 
-.black{
-  color:$gray800;
+.black {
+  color: $gray800;
 }
 
 @keyframes opa {
@@ -118,7 +111,7 @@
   color: rgba($white, 0.8);
   font-size: 1.1rem;
   //font-size: 1.5vw;
-   backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
   border: 1px solid rgba($white, 0.8);
   @include serif;
   font-weight: 500;
@@ -137,16 +130,16 @@
     transform: scale(0.98);
   }
 
-  &_black{
+  &_black {
     border: 1px solid $gray700;
     color: $gray700;
-     background-color: rgba($gray400, 0.1);
-   
+    background-color: rgba($gray400, 0.1);
+
     &:hover {
       background-color: rgba($gray400, 0.2);
       box-shadow: 4px 4px 4px rgba($gray700, 0.1);
     }
-  
+
     &:active {
       background-color: rgba($gray400, 0.2);
     }
@@ -191,7 +184,7 @@ $gapDel: 0.6s;
     font-size: 5.6vw;
     line-height: 5.6vw;
     letter-spacing: 1.3vw;
-   // margin-bottom: 4svh;
+    // margin-bottom: 4svh;
     font-weight: 500;
   }
 
@@ -204,8 +197,8 @@ $gapDel: 0.6s;
   .spe {
     padding: 0.5rem 5.4rem 0.5rem 1.2rem;
     font-size: 1.1rem;
-    letter-spacing: .07rem;
-  //  backdrop-filter: blur(2px);
+    letter-spacing: 0.07rem;
+    //  backdrop-filter: blur(2px);
     font-weight: 500;
   }
 }
@@ -268,22 +261,22 @@ $gapDel: 0.6s;
     animation: scale 0.2s;
   }
 
-  &_black{
+  &_black {
     border: 1px solid $gray700;
     color: $gray700;
-   
+
     &:hover {
       background-color: rgba($gray400, 0.2);
     }
-  
+
     &:active {
       background-color: rgba($gray400, 0.2);
     }
   }
 }
 
-@media (max-width: $breakpoint-sm){
-  .arrow{
+@media (max-width: $breakpoint-sm) {
+  .arrow {
     display: none;
   }
 }
@@ -296,21 +289,10 @@ $gapDel: 0.6s;
   height: 100%;
   width: 90%;
   max-width: 1200px;
-  //background-color: $gray200;
-  //grid-column: 1 / span 5;
- // transform: translateX(50px);
 }
 
-// @media (max-width: $breakpoint-md) {
-//   .separator{
-//     width: 60%;
-//     margin-top: 6rem;
-//     margin-bottom: 1rem;
-
-//   }
-// }
 @media (max-width: $breakpoint-sm) {
-  .separator{
+  .separator {
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 0rem;
@@ -324,9 +306,6 @@ $gapDel: 0.6s;
   gap: 1rem;
   flex-direction: row;
   padding-top: 5rem;
-  // padding-right: 4rem;
-  // padding-left: 4rem;
-  // background-color: $gray50;
   @include desktop-container;
 }
 
@@ -352,7 +331,7 @@ $gapDel: 0.6s;
 
 .show {
   animation: appearleft 1.2s;
-  animation-fill-mode:forwards;
+  animation-fill-mode: forwards;
 }
 
 .desc {
@@ -406,7 +385,7 @@ $gapDel: 0.6s;
 
 @media (max-width: $breakpoint-sm) {
   .bottom {
-     padding-top: 2rem;
+    padding-top: 2rem;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;

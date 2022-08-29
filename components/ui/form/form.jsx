@@ -4,7 +4,7 @@ import useLocale from '../../../hooks/useLocale';
 import Button from '../button';
 import Input from './input';
 import { useState, useEffect } from 'react';
-import { ChevronRightIcon, MailIcon, RefreshIcon } from '@heroicons/react/outline';
+import { ChevronRightIcon, RefreshIcon } from '@heroicons/react/outline';
 import axios from 'axios';
 import { useInView } from 'react-intersection-observer';
 import RichText from '../rich-text';

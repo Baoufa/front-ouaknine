@@ -1,6 +1,5 @@
 import { PortableText } from '@portabletext/react';
 import SanityImage from './sanityImage';
-import Image from 'next/image';
 import classes from './rich-text.module.scss';
 
 export default function RichText({ value }) {

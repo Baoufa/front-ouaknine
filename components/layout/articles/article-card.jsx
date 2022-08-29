@@ -1,5 +1,4 @@
 import classes from './article-card.module.scss';
-import Image from 'next/image';
 import Link from 'next/link';
 import Share from './share';
 import { useRef } from 'react';
@@ -21,8 +20,6 @@ import CONTENT from '../../../content/articleCardContent.json';
 function ArticleCard({
   _id,
   title,
-  slug,
-  author,
   filter,
   publishedAt,
   body,

@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react';
 
-import Image from 'next/image';
 import clientApi from '../../libs/clientApi';
 import RichText from '../../components/ui/rich-text';
 import classes from './_id.module.scss';

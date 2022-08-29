@@ -10,7 +10,7 @@ import {
 
 import CONTENT from '../../../content/shareContent.json'
 
-import {FaFacebookF, FaTwitter,FaWhatsapp,FaLinkedinIn, FaEnvelope} from 'react-icons/fa'
+import {FaFacebookF, FaTwitter,FaLinkedinIn, FaEnvelope} from 'react-icons/fa'
 import { RiWhatsappFill} from "react-icons/ri";
 
 const COLOR = '#f4f4f5';

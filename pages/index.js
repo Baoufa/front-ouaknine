@@ -1,5 +1,3 @@
-import Head from 'next/head';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
@@ -49,18 +47,14 @@ export default function Home({ data }) {
     threshold: 0.1,
     triggerOnce: true,
   });
-
-  
   const scaleRef = useRef();
   const [percentView, setPercentView] = useState(1);
 
-  useOffset(percentView, setPercentView, scaleRef, 200, 1)
-  
-  
+  useOffset(percentView, setPercentView, scaleRef, 200, 1);
 
   return (
     <div className={classes.container}>
-    <HeadPage title={titleseo} description={descriptionseo} />
+      <HeadPage title={titleseo} description={descriptionseo} />
       <div className={classes.upper}>
         <Image
           className={classes.img}
@@ -88,7 +82,7 @@ export default function Home({ data }) {
             )}
             <div className={classes.spegroup}>
               {tag1 && (
-                <Link href={{pathname: '/expertise', query:{_id : link1}}}>
+                <Link href={{ pathname: '/expertise', query: { _id: link1 } }}>
                   <a
                     className={`${classes.spe} ${!white && classes.spe_black}`}
                   >
@@ -97,7 +91,7 @@ export default function Home({ data }) {
                 </Link>
               )}
               {tag2 && (
-                <Link href={{pathname: '/expertise', query:{_id : link2}}}>
+                <Link href={{ pathname: '/expertise', query: { _id: link2 } }}>
                   <a
                     className={`${classes.spe} ${!white && classes.spe_black}`}
                   >
@@ -106,7 +100,7 @@ export default function Home({ data }) {
                 </Link>
               )}
               {tag3 && (
-                <Link href={{pathname: '/expertise', query:{_id : link3}}}>
+                <Link href={{ pathname: '/expertise', query: { _id: link3 } }}>
                   <a
                     className={`${classes.spe} ${!white && classes.spe_black}`}
                   >
@@ -127,12 +121,11 @@ export default function Home({ data }) {
         </div>
       </div>
 
-      <div className={classes.separator}  id='section2'>
-        <div ref={scaleRef} >
-        <AnimatedScale animate={inView} percentView={percentView}  />
-        <AnimatedScaleMobile animate={inView} percentView={percentView}  />
+      <div className={classes.separator} id='section2'>
+        <div ref={scaleRef}>
+          <AnimatedScale animate={inView} percentView={percentView} />
+          <AnimatedScaleMobile animate={inView} percentView={percentView} />
         </div>
-       
       </div>
 
       <section className={classes.bottom} id='homedesc'>

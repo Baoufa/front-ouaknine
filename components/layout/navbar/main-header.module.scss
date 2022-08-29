@@ -4,12 +4,9 @@
  
   position: relative;
   z-index: 1;
- // background-color: rgba($white, 0.1);
+ background-color: rgba($white, 1);
   backdrop-filter: blur(2px);
   width: 100%;
-  //overflow-x: hidden;
-  //overflow-inline: hidden;
-  background: linear-gradient(135deg, rgba($white, 1), rgba($gray50, .5));
 }
 
 .border {
@@ -25,12 +22,6 @@
   padding: 1rem 0rem;
   @include desktop-container;
 }
-
-// @media (max-width: $breakpoint-sm) {
-//   .navcontainer {
-//     padding: 0.5rem 0rem;
-//   }
-// }
 
 .logocontainer{
   position:relative;

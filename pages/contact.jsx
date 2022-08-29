@@ -119,14 +119,11 @@ function Contact({ data }) {
       </section>
 
       <div className={classes.separator} ref={ref} id='section2'>
-            {/* <Image src={scale} alt={'scale'} layout={'responsive'} /> */}
             <div ref={scaleRef}>
             <AnimatedScale animate={inView} percentView={percentView}/>
             </div>
             
       </div>
-
-      {/* <div className={classes.separator}></div> */}
       <section className={classes.container}>
         <Form titleform={titleform && titleform} subform={subform && subform} />
       </section>

@@ -1,7 +1,6 @@
 //import nodemailer from 'nodemailer';
 import Sib from 'sib-api-v3-sdk';
 import validator from 'validator';
-import useTimeout from '../../hooks/useTimout';
 
 export default function handler(req, res) {
   if (req.method === 'POST') {

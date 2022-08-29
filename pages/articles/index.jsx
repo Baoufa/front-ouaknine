@@ -73,7 +73,6 @@ function Articles({ data, posts }) {
 
       <section className={classes.container}>
         <div className={classes.titleblock}>
-          {/* {title && <h1 className={classes.title}>{title}</h1>} */}
           {subtitle && <p className={classes.subtitle}>{subtitle}</p>}
           <form className={classes.filters}>
             <label
@@ -145,9 +144,6 @@ export async function getStaticProps(ctx) {
   const locale = ctx.locale;
 
   try {
-    // const content = await clientApi.fetch(
-    //   `*[_type in ["articles" && language == "${locale}]"]`
-    // );
     const content = await clientApi.fetch(
       `*[_type == "articles" && language == "${locale}"]{
         ...,

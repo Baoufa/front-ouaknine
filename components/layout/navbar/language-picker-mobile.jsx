@@ -1,7 +1,7 @@
 import classes from './language-picker-mobile.module.scss';
 import useLocale from '../../../hooks/useLocale';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function LanguagePickerMobile(props) {
   const locale = useLocale();

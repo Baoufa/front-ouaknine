@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import useLocale from '../../hooks/useLocale';
-//import CONTENT from '../../content/headContent';
+import metaimagefr from '../../public/images/metaimagefr.png';
 
 function HeadPage(props) {
   const locale = useLocale();
@@ -9,8 +9,6 @@ function HeadPage(props) {
   const { title, description } = props;
   const { pathname, locales } = useRouter();
 
-  //title - up to 50-60 characters long
-  //description up to 150-160 characters
 
   return (
     <Head>
@@ -45,13 +43,13 @@ function HeadPage(props) {
       />
       <meta
         property='og:image'
-        content='https://ia.media-imdb.com/images/rock.jpg'
+        content={metaimagefr}
       />
       <meta property='og:image:alt' content={title} />
 
       <meta name='twitter:title' content={title} />
       <meta name='twitter:description' content={description} />
-      <meta name='twitter:image' content='LINK TO IMAGE' />
+      <meta name='twitter:image' content={metaimagefr} />
       <meta name='twitter:site' content='@USERNAME' />
       <meta name='twitter:creator' content='@USERNAME' />
 

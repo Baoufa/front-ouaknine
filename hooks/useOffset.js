@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import useEventListener from './useEventListener';
-import BezierEasing from 'bezier-easing';
 
 const useOffset = (state, setState, ref, offset = 1, m1 = 1, m2 = 1) => {
   const [scrollY, setScrollY] = useState({
@@ -12,7 +11,6 @@ const useOffset = (state, setState, ref, offset = 1, m1 = 1, m2 = 1) => {
     const scaleY = ref.current.getBoundingClientRect().top + offset;
     const windowY = scrollY.innerHeight;
     const x = (scaleY / windowY) * m1;
-    //const offsetScale = Math.sqrt(x, 5000);
     const offsetScale = x
      
     if (offsetScale >= 0 && offsetScale <= 1) {
@@ -24,6 +22,7 @@ const useOffset = (state, setState, ref, offset = 1, m1 = 1, m2 = 1) => {
     if (offsetScale > 1) {
       setState(1);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref, scrollY.innerHeight, scrollY.scrollY]);
 
   useEventListener('scroll', e =>

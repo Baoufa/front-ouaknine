@@ -7,15 +7,8 @@ import img from '../../public/images/green.jpeg';
 
 export default function PageTitle({
   title,
-  subtitle,
-  btn,
-  label1,
-  label2,
-  onClick1,
-  onClick2,
   imgUrl,
   imgAlt,
-  imgRatio,
   imgLqip,
   white,
   position,
@@ -25,23 +18,7 @@ export default function PageTitle({
       <div className={classes.titlegroupinner}>
         <div className={`${classes.left} ${!white && classes.black}`}>
           <h1 className={classes.title}>{title ? title : ''}</h1>
-          {/* <p className={classes.subtitle}>{subtitle ? subtitle : ''}</p> */}
         </div>
-
-        {/* {btn && (
-          <div className={classes.right}>
-            {label1 && (
-              <Button outline={true} onClick={onClick1} white={white}>
-                {label1}
-              </Button>
-            )}
-            {label2 && (
-              <Button outline={true} onClick={onClick2} white={white}>
-                Phases d intervention
-              </Button>
-            )}
-          </div>
-        )} */}
       </div>
 
       {imgUrl && <Image

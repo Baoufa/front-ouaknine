@@ -4,29 +4,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap:1.5rem;
-  padding: .6rem 1.5rem;
+  gap: 1.5rem;
+  padding: 0.6rem 1.5rem;
   color: $gray700;
- // background: $gray200;
-  transition: all .1s;
+  transition: all 0.1s;
   transition-timing-function: ease-in;
   background-color: $gray50;
- cursor: pointer;
- border: 1px solid $gray300;
- @include serif;
- font-weight: 500;
- font-size: 1rem;
- //box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: .04);
+  cursor: pointer;
+  border: 1px solid $gray300;
+  @include serif;
+  font-weight: 500;
+  font-size: 1rem;
 
-
-  &:hover{
+  &:hover {
     background-color: $gray100;
-    transform: translate(.5px,-.8px);
-    box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: .04);
+    transform: translate(0.5px, -0.8px);
+    box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.04);
   }
 
-  &:active{
-    transform: scale(.98);
+  &:active {
+    transform: scale(0.98);
   }
 }
 
@@ -51,57 +48,54 @@
     transform: scale(0.98);
   }
 
-  &_black{
+  &_black {
     border: 1px solid $gray700;
     color: $gray700;
-     background-color: rgba($gray400, 0.1);
-   
+    background-color: rgba($gray400, 0.1);
+
     &:hover {
       background-color: rgba($gray400, 0.2);
       box-shadow: 4px 4px 4px rgba($gray700, 0.1);
     }
-  
+
     &:active {
       background-color: rgba($gray400, 0.2);
     }
   }
 }
 
-@media (maw-width: $breakpoint-sm){
-  .btn{
+@media (maw-width: $breakpoint-sm) {
+  .btn {
     font-weight: 700;
   }
 
-  .outline{
+  .outline {
     font-weight: 700;
   }
 }
 
-.btn2{
+.btn2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap:1.5rem;
-  padding: .6rem 1.5rem;
+  gap: 1.5rem;
+  padding: 0.6rem 1.5rem;
   color: $gray500;
- // background: $gray200;
-  transition: all .1s;
+  transition: all 0.1s;
   transition-timing-function: ease-in;
   background-color: $gray200;
- box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: .1);
- cursor: pointer;
- 
+  box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: 0.1);
+  cursor: pointer;
 
-  &:hover{
-  //  background-color: $gray300;
+  &:hover {
     background-color: $gray300;
   }
 
-  &:enabled:active{
-    transform: scale(.98);
+  &:enabled:active {
+    transform: scale(0.98);
   }
 
-  &:disabled{
+  &:disabled {
     background-color: $gray100;
   }
 }

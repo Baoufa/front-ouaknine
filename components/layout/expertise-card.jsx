@@ -1,40 +1,24 @@
-import { useState, useRef, useEffect } from 'react';
-import useClickOutside from '../../hooks/usePercentView';
-import useLocale from '../../hooks/useLocale';
+import { useState, useEffect } from 'react';
 
 import scrollTo from '../../libs/scrollTo';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowSmRightIcon, ChevronDownIcon } from '@heroicons/react/outline';
-import { ChevronUpIcon } from '@heroicons/react/solid';
 import { useInView } from 'react-intersection-observer';
 import RichText from '../../components/ui/rich-text';
 
-import CONTENT from '../../content/expertiseContent.json';
-
-import { ShareIcon } from '@heroicons/react/outline';
-import Share from './articles/share';
-
 import classes from './expertise-card.module.scss';
-import { useRouter } from 'next/router';
 
 function ExpertiseCard({
   _id,
   query,
-  imgUrl,
-  blurDataURL,
   title,
   description,
   titleSpe,
   right,
   linkLabel,
-  isAnimated,
   index,
-  length,
 }) {
-  const locale = useLocale();
-  const router = useRouter();
   const [seeMore, setSeeMore] = useState(false);
 
   const { ref, inView, entry } = useInView({
@@ -64,35 +48,34 @@ function ExpertiseCard({
   const toggleSeeMore = () => {
     setSeeMore(bol => !bol);
 
-    if(!seeMore){
-     scrollTo(_id, 60);
+    if (!seeMore) {
+      scrollTo(_id, 60);
     }
   };
 
   useEffect(() => {
-    console.log("_query", query);
+    console.log('_query', query);
 
-    if(query._id === _id){
-     // console.log(query);
+    if (query._id === _id) {
       setSeeMore(true);
 
-      if(!seeMore){
-       scrollTo(_id, 60);
-      //  router.replace(`${router.pathname}/#${_id}`)
-      //  router.replace(`${router.pathname}`)
+      if (!seeMore) {
+        scrollTo(_id, 60);
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query])
-  
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
 
   const animationCSS = `animation${index}`;
   const animationSepCSS = `animationsep${index}`;
 
   return (
-    <li id={_id} className={`${classes.spe} ${!query?._id && classes[animationCSS]}`}>
+    <li
+      id={_id}
+      className={`${classes.spe} ${!query?._id && classes[animationCSS]}`}
+    >
       {title && (
-        <div className={classes.spe_titlegroup} onClick={toggleSeeMore} >
+        <div className={classes.spe_titlegroup} onClick={toggleSeeMore}>
           <ChevronDownIcon
             className={`${classes.spe_chevron} ${
               seeMore && classes.spe_chevronselected
@@ -133,8 +116,6 @@ function ExpertiseCard({
           </div>
         </div>
       </div>
-      {/* 
-      {index !== length - 1 && <div className={classes.separator}></div>} */}
     </li>
   );
 }

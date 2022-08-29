@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
 import useEventListener from '../hooks/useEventListener';
-import useTimeout from '../hooks/useTimout';
 
 export const NavContextSchema = createContext({
   isOn: null,
