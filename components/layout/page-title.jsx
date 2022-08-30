@@ -15,7 +15,7 @@ export default function PageTitle({
     <div className={classes.titlegroup}>
       <div className={classes.titlegroupinner}>
         <div className={`${classes.left} ${!white && classes.black}`}>
-          <h1 className={classes.title}>{title ? title : ''}</h1>
+          <h1 className={classes.title}>{title ? `${title}`: ''}</h1>
         </div>
       </div>
 
