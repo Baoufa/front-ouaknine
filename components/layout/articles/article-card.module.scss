@@ -72,6 +72,11 @@
 }
 
 @media (max-width:$breakpoint-sm) {
+  .itemactive{
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
   .topsub{
     display: flex;
     flex-direction: column;

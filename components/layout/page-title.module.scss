@@ -21,7 +21,6 @@
 }
 
 .overlay {
-
   position: absolute;
   top: 0;
   left: 0;
@@ -67,6 +66,15 @@
   animation: appear 2s;
   animation-fill-mode: forwards;
 }
+
+@media (max-width: $breakpoint-sm) {
+  .title{
+    animation: none;
+    opacity: 1;
+  }
+}
+
+
 
 .subtitle {
   font-size: 1.4rem;

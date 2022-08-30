@@ -151,6 +151,12 @@
 }
 
 @media (max-width: $breakpoint-sm) {
+  .leftblock{
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+
   .leftblockinner {
     clip-path: none;
 
