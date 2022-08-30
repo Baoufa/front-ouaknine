@@ -156,14 +156,15 @@
   //@include scaleclick;
 }
 
-.author{
-}
-
 .content{
   display: block;
 }
 
 @media (max-width: $breakpoint-sm){
+.actiongroup{
+  width: 100%;
+}
+
   .content{
     display: flex;
     flex-direction: column;

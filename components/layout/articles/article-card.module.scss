@@ -38,6 +38,8 @@
   height: 100%;
 }
 
+
+
 .description{
   flex-grow: 1;
   width: 70%;
@@ -48,8 +50,49 @@
   gap:2rem;
 }
 
+.topsub{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
 .date{
   color: $gray600;
+}
+
+.only{
+  display: inline-block;
+ // background-color: $gray600;
+  @include borderlight;
+  color: $gray600;
+  //@include serif;
+  padding: .5rem 1rem;
+  font-size: .9rem;
+  transform: translateY(-2rem);
+}
+
+@media (max-width:$breakpoint-sm) {
+  .topsub{
+    display: flex;
+    flex-direction: column;
+   align-items: flex-start;
+   gap:2rem;
+  }
+
+  .only{
+    transform: translateY(0rem);
+    order: -1;
+    width: 100%;
+    font-size: 1rem;
+    padding: 1rem;
+    background-color: $gray100;
+    border: none;
+  }
+
+  .date{
+    order:1;
+  }
+  
 }
 
 .lower{
@@ -83,6 +126,8 @@
 
 .sharegroup{
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .share{

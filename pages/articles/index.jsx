@@ -120,7 +120,8 @@ function Articles({ data, posts }) {
                 <li key={_id}>
                   <ArticleCard
                     index={index}
-                    title={title ? title : titleOther}
+                    title={title}
+                    titleOther={titleOther}
                     _id={_id}
                     slug={slug?.current}
                     filter={filter}
@@ -129,6 +130,7 @@ function Articles({ data, posts }) {
                     body={title ? body : bodyOther}
                     estimatedReadingTime={title ? estimatedReadingTime : estimatedReadingTimeOther}
                     mainImage={mainImage?.asset}
+                    isAvailable={title ? true : false}
                   />
                 </li>
               );
