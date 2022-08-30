@@ -29,7 +29,7 @@ export default function PageTitle({
         blurDataURL={imgUrl ? imgLqip : ''}
         placeholder={'empty'}
         priority
-        sizes='100vw'
+        sizes='33vw'
         quality={75}
       />}
 

@@ -5,8 +5,17 @@ import clientApi from '../../../libs/clientApi';
 
 import classes from './article-card-img.module.scss';
 
+const myCustomImageBuilder = (imageUrlBuilder, options) => {
+  return imageUrlBuilder.width(
+    // options.width || Math.min(options.originalImageDimensions.width, 250)
+    500
+  );
+};
+
 function ActicleCardImg({ asset }) {
-  const imageProps = useNextSanityImage(clientApi, asset);
+  const imageProps = useNextSanityImage(clientApi, asset, {
+    imageBuilder: myCustomImageBuilder,
+  });
   if (!imageProps) return null;
 
   return (
@@ -18,6 +27,8 @@ function ActicleCardImg({ asset }) {
         objectFit={'cover'}
         layout={'fill'}
         objectPosition={'center'}
+        sizes='(min-width: 769px) 33vw,
+        90vw'
       />
     </div>
   );

@@ -26,6 +26,7 @@ function ArticleCard({
   estimatedReadingTime,
   mainImage,
   index,
+  isAvailable
 }) {
 
   const locale = useLocale();
@@ -83,7 +84,7 @@ function ArticleCard({
                       CONTENT[locale][`${filter}Single`]
                     }`}</p>
                   )}
-                   {/* {!isAvail && <div className={classes.only}>{CONTENT[locale].only}</div>} */}
+                   {!isAvailable && <div className={classes.only}>{CONTENT[locale].only}</div>}
                 </div>
                 {title && <h2 className={classes.title}>{title}</h2>}
                 {body && (

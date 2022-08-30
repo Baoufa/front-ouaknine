@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 import classes from './articles.module.scss';
 import ArticleCard from '../../components/layout/articles/article-card';
@@ -42,19 +42,19 @@ function Articles({ data, posts }) {
     setFilter(e.target.value);
   };
 
-  const filterHandler = (filter = 'all') => {
+  const filterHandler = useCallback((filter = 'all') => {
     if (filter !== 'all') {
       const filtered = posts.filter(item => {
         return item.filter == filter;
       });
       setFilteredPosts(filtered);
     } else setFilteredPosts(posts);
-  };
+  }, [posts]);
 
   useEffect(() => {
     filterHandler(filter);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filter]);
+
+  }, [filter, filterHandler]);
 
   return (
     <div>
@@ -102,14 +102,13 @@ function Articles({ data, posts }) {
             {filteredPosts.map((post, index) => {
               const {
                 _id,
+                language,
                 author,
                 filter,
                 publishedAt,
                 title,
-                slug,
-                body,
                 titleOther,
-                slugOther,
+                body,
                 bodyOther,
                 estimatedReadingTime,
                 estimatedReadingTimeOther,
@@ -120,17 +119,15 @@ function Articles({ data, posts }) {
                 <li key={_id}>
                   <ArticleCard
                     index={index}
-                    title={title}
-                    titleOther={titleOther}
+                    title={(language === locale || language === 'all') ? title : titleOther}
                     _id={_id}
-                    slug={slug?.current}
                     filter={filter}
                     author={author}
                     publishedAt={publishedAt}
-                    body={title ? body : bodyOther}
-                    estimatedReadingTime={title ? estimatedReadingTime : estimatedReadingTimeOther}
+                    body={(language === locale || language === 'all') ? body : bodyOther}
+                    estimatedReadingTime={(language === locale || language === 'all') ? estimatedReadingTime : estimatedReadingTimeOther}
                     mainImage={mainImage?.asset}
-                    isAvailable={title ? true : false}
+                    isAvailable={(language === locale || language === 'all') ? true : false}
                   />
                 </li>
               );
@@ -163,24 +160,19 @@ export async function getStaticProps(ctx) {
          {  
       mainImage,  
       _id,
+      language,
       filter,
       author,
-      ...,
       publishedAt,
       "title": content${locale}.title${locale},
-      "slug": content${locale}.slug${locale},
       "body": content${locale}.body${locale},
       "titleOther": content${localSwitcher(locale)}.title${localSwitcher(locale)},
-      "slugOther": content${localSwitcher(locale)}.slug${localSwitcher(locale)},
       "bodyOther": content${localSwitcher(locale)}.body${localSwitcher(locale)},
-      "numberOfCharacters": length(pt::text(content${locale}.body${locale})),
-      "estimatedWordCount": round(length(pt::text(content${locale}.body${locale})) / 5),
       "estimatedReadingTime": round(length(pt::text(content${locale}.body${locale})) / 5 / 180 ),
-      "numberOfCharactersOther": length(pt::text(content${localSwitcher(locale)}.body${localSwitcher(locale)})),
-      "estimatedWordCountOther": round(length(pt::text(content${localSwitcher(locale)}.body${localSwitcher(locale)})) / 5),
       "estimatedReadingTimeOther": round(length(pt::text(content${localSwitcher(locale)}.body${localSwitcher(locale)})) / 5 / 180 )
     }`
     );
+
     return {
       props: { data: content?.length && content[0], posts: posts },
       revalidate: 10,

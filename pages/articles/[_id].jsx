@@ -25,7 +25,7 @@ const localSwitcher = (locale) => {
 }
 
 function Article({ data }) {
-  const { _id, author, source, title, titleOther, body, bodyOther, estimatedReadingTime, estimatedReadingTimeOther, mainImage } =
+  const { _id, language, author, source, title, titleOther, body, bodyOther, estimatedReadingTime, estimatedReadingTimeOther, mainImage } =
     data;
 
   const [winWidth, setWinWidth] = useState();
@@ -55,6 +55,7 @@ function Article({ data }) {
 
   return (
     <section className={classes.container}>
+      <div className={classes.top}>
       <button className={classes.backbtn} onClick={backHandler}>
         <ArrowLeftIcon
           className={classes.back}
@@ -62,10 +63,13 @@ function Article({ data }) {
           aria-label={'back - retour'}
         />
       </button>
+      {(language !== locale && language !== 'all') ? <div className={classes.only}>{CONTENT[locale].only}</div> : null}
+      </div>
+     
       <article className={classes.article}>
         <div className={classes.titlegroupouter}>
           <div className={classes.titlegroup}>
-            {(title || titleOther) && (<h1 className={classes.title}>{title ? title : titleOther}</h1>)}
+            {(title || titleOther) && (<h1 className={classes.title}>{(language === locale || language === 'all')? title : titleOther}</h1>)}
           </div>
 
           <div className={classes.sub}>
@@ -94,11 +98,11 @@ function Article({ data }) {
                 <ClockIcon className={classes.clock} />
                 {locale === 'fr' && (
                   <p>
-                    {`${CONTENT[locale].read} - ${title ? estimatedReadingTime : estimatedReadingTimeOther } min`}
+                    {`${CONTENT[locale].read} - ${(language === locale || language === 'all') ? estimatedReadingTime : estimatedReadingTimeOther } min`}
                   </p>
                 )}
                 {locale === 'en' && (
-                  <p>{`${ title ? estimatedReadingTime : estimatedReadingTimeOther } mn - ${CONTENT[locale].read}`}</p>
+                  <p>{`${ (language === locale || language === 'all') ? estimatedReadingTime : estimatedReadingTimeOther } mn - ${CONTENT[locale].read}`}</p>
                 )}
               </div>
 
@@ -127,7 +131,7 @@ function Article({ data }) {
               <SanityImage asset={mainImage} />
             </div>
           )}
-          <div>{(title || titleOther) && (<RichText value={title ? body : bodyOther} />)}</div>
+          <div>{(title || titleOther) && (<RichText value={(language === locale || language === 'all') ? body : bodyOther} />)}</div>
         </div>
       </article>
     </section>
@@ -172,24 +176,21 @@ export async function getStaticProps({ locale, params }) {
     const content = await clientApi.fetch(
       `*[_id == "${_id}"]{
       _id,
+      language,
       source,
       author,
       publishedAt,
       "title": content${locale}.title${locale},
-      "slug": content${locale}.slug${locale},
       "body": content${locale}.body${locale},
       "titleOther": content${localSwitcher(locale)}.title${localSwitcher(locale)},
-      "slugOther": content${localSwitcher(locale)}.slug${localSwitcher(locale)},
       "bodyOther": content${localSwitcher(locale)}.body${localSwitcher(locale)},
-      "numberOfCharacters": length(pt::text(content${locale}.body${locale})),
-      "estimatedWordCount": round(length(pt::text(content${locale}.body${locale})) / 5),
       "estimatedReadingTime": round(length(pt::text(content${locale}.body${locale})) / 5 / 180 ),
-      "numberOfCharactersOther": length(pt::text(content${localSwitcher(locale)}.body${localSwitcher(locale)})),
-      "estimatedWordCountOther": round(length(pt::text(content${localSwitcher(locale)}.body${localSwitcher(locale)})) / 5),
       "estimatedReadingTimeOther": round(length(pt::text(content${localSwitcher(locale)}.body${localSwitcher(locale)})) / 5 / 180 ),
       "mainImage":mainImage.asset->
     }`
     );
+
+    console.log(content);
 
     if (content.length === 0) {
       return {

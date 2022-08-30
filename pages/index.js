@@ -137,9 +137,8 @@ export default function Home({ data }) {
               objectFit={'cover'}
               blurDataURL={lqip}
               placeholder={'blur'}
-              sizes='(min-width: 75em) 33vw,
-              (min-width: 48em) 50vw,
-              100vw'
+              sizes='(min-width: 769px) 25vw,
+              50vw'
               quality={50}
             />
           )}

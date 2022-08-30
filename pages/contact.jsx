@@ -111,7 +111,7 @@ function Contact({ data }) {
                 alt='Map'
                 width={680.72}
                 height={540.14}
-                objectFit={'cover'}
+                //objectFit={'cover'}
               />
             </a>
           </div>

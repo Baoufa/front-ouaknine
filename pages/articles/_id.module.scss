@@ -11,6 +11,12 @@
   }
 }
 
+.top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .backbtn{
   display: flex;
   align-items: center;
@@ -30,6 +36,31 @@
   stroke-width: 1px;
   cursor: pointer;
 }
+
+.only{
+  display: inline-block;
+ // background-color: $gray600;
+  @include borderlight;
+  color: $gray600;
+  //@include serif;
+  padding: .6rem 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+@media (max-width: $breakpoint-sm){
+.only{
+ // width: 85%;
+  font-size: 1rem;
+  background-color: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+
+}
+
+}
+
 
 .article{
   display: flex;
@@ -60,7 +91,7 @@
 
 .title{
   margin: 0;
-  width: 80%;
+  width: 100%;
 }
 
 @media (max-width: $breakpoint-sm){
