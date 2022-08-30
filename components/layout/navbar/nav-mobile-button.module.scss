@@ -47,7 +47,7 @@
 
 .rotatetop {
   width: 60%;
-  transform: translateY(9.5px) rotate(135deg) translate3d(0, 0, 0);
+  transform: translateY(9.5px) rotate(-135deg) translate3d(0, 0, 0);
   // -webkit-transform: translateY(9.5px) rotate(225deg);
   // -moz-transform: translateY(9.5px) rotate(225deg);
   // -ms-transform: translateY(9.5px) rotate(225deg);
@@ -58,7 +58,7 @@
 
 .rotatebottom {
   width: 60%;
-  transform: translateY(-9.5px) rotate(-135deg) translate3d(0, 0, 0);
+  transform: translateY(-9.5px) rotate(135deg) translate3d(0, 0, 0);
   // -webkit-transform: translateY(-9.5px) rotate(-225deg);
   // -moz-transform: translateY(-9.5px) rotate(-225deg);
   // -ms-transform: translateY(-9.5px) rotate(-225deg);

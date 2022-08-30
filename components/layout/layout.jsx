@@ -12,9 +12,8 @@ import { CookieContextSchema } from '../../context/cookie-context';
 import { NavContextSchema } from '../../context/nav-context';
 
 function Layout(props) {
-  const { doNotShow, isAccepted} = useContext(CookieContextSchema);
+  const { doNotShow, isAccepted } = useContext(CookieContextSchema);
   const { isOn } = useContext(NavContextSchema);
-
 
   return (
     <>
@@ -23,9 +22,7 @@ function Layout(props) {
       {!doNotShow && !isOn && <Cookie />}
       {!isOn && <Phone />}
       <MainHeader />
-      <main className={classes.main}>
-      
-        {props.children}</main>
+      {!isOn && <main className={classes.main}>{props.children}</main>}
       <MainFooter />
     </>
   );
