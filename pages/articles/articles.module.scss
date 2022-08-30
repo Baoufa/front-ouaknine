@@ -10,6 +10,16 @@
   width: 100%;
 }
 
+.sorry{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include borderlight;
+  margin-top:3rem;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
 .list {
   padding-left: 0rem;
   margin: 3rem 0;

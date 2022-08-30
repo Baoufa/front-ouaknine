@@ -8,7 +8,8 @@
     "factSingle" : "Fiche pratique",
     "pressSingle" : "Article de presse",
     "source" : "lien vers le site source",
-    "only" : "Uniquement en anglais"
+    "only" : "Uniquement en anglais",
+    "sorry" : "Désolé, il n'y a pas d'articles dans cette catégorie pour le moment"
   },
 
   "en": {
@@ -20,6 +21,7 @@
     "factSingle" : "Fact Sheet",
     "pressSingle" : "Press",
     "source" : "link to the source website",
-    "only" : "This article is only available in French"
+    "only" : "This article is only available in French",
+    "sorry" :"Sorry, there are no posts in this category for the moment"
   }
 }

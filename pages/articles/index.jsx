@@ -11,14 +11,14 @@ import useLocale from '../../hooks/useLocale';
 import PageTitle from '../../components/layout/page-title';
 import HeadPage from '../../components/head/head-page';
 
-const localSwitcher = (locale) => {
-  if(locale === 'fr'){
+const localSwitcher = locale => {
+  if (locale === 'fr') {
     return 'en';
   }
-  if (locale === 'en'){
+  if (locale === 'en') {
     return 'fr';
   }
-}
+};
 
 function Articles({ data, posts }) {
   const {
@@ -42,18 +42,20 @@ function Articles({ data, posts }) {
     setFilter(e.target.value);
   };
 
-  const filterHandler = useCallback((filter = 'all') => {
-    if (filter !== 'all') {
-      const filtered = posts.filter(item => {
-        return item.filter == filter;
-      });
-      setFilteredPosts(filtered);
-    } else setFilteredPosts(posts);
-  }, [posts]);
+  const filterHandler = useCallback(
+    (filter = 'all') => {
+      if (filter !== 'all') {
+        const filtered = posts.filter(item => {
+          return item.filter == filter;
+        });
+        setFilteredPosts(filtered);
+      } else setFilteredPosts(posts);
+    },
+    [posts]
+  );
 
   useEffect(() => {
     filterHandler(filter);
-
   }, [filter, filterHandler]);
 
   return (
@@ -97,6 +99,13 @@ function Articles({ data, posts }) {
           </form>
         </div>
 
+        {filteredPosts.length === 0 && (
+          <div className={classes.sorry}>
+            <p>{CONTENT[locale].sorry}
+            </p>
+          </div>
+        )}
+
         {filteredPosts.length > 0 && (
           <ul className={classes.list}>
             {filteredPosts.map((post, index) => {
@@ -119,15 +128,29 @@ function Articles({ data, posts }) {
                 <li key={_id}>
                   <ArticleCard
                     index={index}
-                    title={(language === locale || language === 'all') ? title : titleOther}
+                    title={
+                      language === locale || language === 'all'
+                        ? title
+                        : titleOther
+                    }
                     _id={_id}
                     filter={filter}
                     author={author}
                     publishedAt={publishedAt}
-                    body={(language === locale || language === 'all') ? body : bodyOther}
-                    estimatedReadingTime={(language === locale || language === 'all') ? estimatedReadingTime : estimatedReadingTimeOther}
+                    body={
+                      language === locale || language === 'all'
+                        ? body
+                        : bodyOther
+                    }
+                    estimatedReadingTime={
+                      language === locale || language === 'all'
+                        ? estimatedReadingTime
+                        : estimatedReadingTimeOther
+                    }
                     mainImage={mainImage?.asset}
-                    isAvailable={(language === locale || language === 'all') ? true : false}
+                    isAvailable={
+                      language === locale || language === 'all' ? true : false
+                    }
                   />
                 </li>
               );
@@ -166,10 +189,14 @@ export async function getStaticProps(ctx) {
       publishedAt,
       "title": content${locale}.title${locale},
       "body": content${locale}.body${locale},
-      "titleOther": content${localSwitcher(locale)}.title${localSwitcher(locale)},
+      "titleOther": content${localSwitcher(locale)}.title${localSwitcher(
+        locale
+      )},
       "bodyOther": content${localSwitcher(locale)}.body${localSwitcher(locale)},
       "estimatedReadingTime": round(length(pt::text(content${locale}.body${locale})) / 5 / 180 ),
-      "estimatedReadingTimeOther": round(length(pt::text(content${localSwitcher(locale)}.body${localSwitcher(locale)})) / 5 / 180 )
+      "estimatedReadingTimeOther": round(length(pt::text(content${localSwitcher(
+        locale
+      )}.body${localSwitcher(locale)})) / 5 / 180 )
     }`
     );
 
