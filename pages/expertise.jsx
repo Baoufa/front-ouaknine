@@ -88,7 +88,6 @@ export async function getStaticProps(ctx) {
     );
     return { props: { data: content?.length && content[0] }, revalidate: 10 };
   } catch (err) {
-    console.log(err.message);
     return {
       notFound: true,
     };

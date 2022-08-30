@@ -43,7 +43,6 @@ function Article({ data }) {
 
   const widthHandler = () => {
     setWinWidth(globalThis.innerWidth);
-    console.log(globalThis.innerWidth);
   };
 
   useEventListener('resize', widthHandler);
@@ -201,7 +200,6 @@ export async function getStaticPaths({ locales }) {
       fallback: false,
     };
   } catch (err) {
-    console.log(err.message);
     return {
       paths: paths,
       fallback: false,
@@ -233,8 +231,6 @@ export async function getStaticProps({ locale, params }) {
       "mainImage":mainImage.asset->
     }`
     );
-
-    console.log(content);
 
     if (content.length === 0) {
       return {

@@ -69,13 +69,11 @@ function Form({ titleform, subform }) {
           // });
           setEmailStatus(true);
           toggleModal();
-          console.log('here', response.data);
         })
         .catch(function (error) {
           setEmailStatus(false);
           toggleModal();
           setIsLoading(false);
-          console.log('errorhere', error.response.data);
         });
   }
 

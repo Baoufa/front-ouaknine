@@ -54,7 +54,6 @@ function ExpertiseCard({
   };
 
   useEffect(() => {
-    console.log('_query', query);
 
     if (query._id === _id) {
       setSeeMore(true);

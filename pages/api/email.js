@@ -12,7 +12,6 @@ export default function handler(req, res) {
     }
     if (validator.isEmpty(lastName)) {
       res.status(500).json({ errorId: 'lastName' });
-      console.log(lastName);
       return;
     }
     if (!validator.isEmail(email)) {
@@ -34,12 +33,11 @@ export default function handler(req, res) {
         return;
       })
       .catch(err => {
-        console.log('ERROR', err);
         res.status(500).json({ errorId: err.message });
         return;
       });
   } else {
-    console.log(req);
+    return;
   }
 }
 
