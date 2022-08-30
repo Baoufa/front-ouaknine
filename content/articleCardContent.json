@@ -7,7 +7,7 @@
     "press" : "Articles de presse",
     "factSingle" : "Fiche pratique",
     "pressSingle" : "Article de presse",
-    "source" : "consulter sur le site source",
+    "source" : "lien vers le site source",
     "only" : "Uniquement en anglais"
   },
 
@@ -19,7 +19,7 @@
     "press" : "Press",
     "factSingle" : "Fact Sheet",
     "pressSingle" : "Press",
-    "source" : "read on the source website",
+    "source" : "link to the source website",
     "only" : "This article is only available in French"
   }
 }

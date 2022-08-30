@@ -14,26 +14,36 @@ import SanityImage from '../../components/ui/sanityImage';
 import { useRouter } from 'next/router';
 import useEventListener from '../../hooks/useEventListener';
 
-
-const localSwitcher = (locale) => {
-  if(locale === 'fr'){
+const localSwitcher = locale => {
+  if (locale === 'fr') {
     return 'en';
   }
-  if (locale === 'en'){
+  if (locale === 'en') {
     return 'fr';
   }
-}
+};
 
 function Article({ data }) {
-  const { _id, language, author, source, title, titleOther, body, bodyOther, estimatedReadingTime, estimatedReadingTimeOther, mainImage } =
-    data;
+  const {
+    _id,
+    language,
+    publishedAt,
+    author,
+    source,
+    title,
+    titleOther,
+    body,
+    bodyOther,
+    estimatedReadingTime,
+    estimatedReadingTimeOther,
+    mainImage,
+  } = data;
 
   const [winWidth, setWinWidth] = useState();
 
   const widthHandler = () => {
-
     setWinWidth(globalThis.innerWidth);
-    console.log(globalThis.innerWidth)
+    console.log(globalThis.innerWidth);
   };
 
   useEventListener('resize', widthHandler);
@@ -53,27 +63,41 @@ function Article({ data }) {
 
   useClickOutside(shareOn, setShareOn, shareRef);
 
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+
+  let formattedDate;
+  if (publishedAt) {
+    formattedDate = new Date(publishedAt).toLocaleDateString(locale, options);
+  }
+
   return (
     <section className={classes.container}>
       <div className={classes.top}>
-      <button className={classes.backbtn} onClick={backHandler}>
-        <ArrowLeftIcon
-          className={classes.back}
-          alt={'back - retour'}
-          aria-label={'back - retour'}
-        />
-      </button>
-      {(language !== locale && language !== 'all') ? <div className={classes.only}>{CONTENT[locale].only}</div> : null}
+        <button className={classes.backbtn} onClick={backHandler}>
+          <ArrowLeftIcon
+            className={classes.back}
+            alt={'back - retour'}
+            aria-label={'back - retour'}
+          />
+        </button>
+        {language !== locale && language !== 'all' ? (
+          <div className={classes.only}>{CONTENT[locale].only}</div>
+        ) : null}
       </div>
-     
+
       <article className={classes.article}>
         <div className={classes.titlegroupouter}>
           <div className={classes.titlegroup}>
-            {(title || titleOther) && (<h1 className={classes.title}>{(language === locale || language === 'all')? title : titleOther}</h1>)}
+            {(title || titleOther) && (
+              <h1 className={classes.title}>
+                {language === locale || language === 'all' ? title : titleOther}
+              </h1>
+            )}
           </div>
 
           <div className={classes.sub}>
             <div>
+              {publishedAt && <p className={classes.author}>{formattedDate}</p>}
               {author && (
                 <p className={classes.author}>
                   {CONTENT[locale].author + author}
@@ -98,11 +122,19 @@ function Article({ data }) {
                 <ClockIcon className={classes.clock} />
                 {locale === 'fr' && (
                   <p>
-                    {`${CONTENT[locale].read} - ${(language === locale || language === 'all') ? estimatedReadingTime : estimatedReadingTimeOther } min`}
+                    {`${CONTENT[locale].read} - ${
+                      language === locale || language === 'all'
+                        ? estimatedReadingTime
+                        : estimatedReadingTimeOther
+                    } min`}
                   </p>
                 )}
                 {locale === 'en' && (
-                  <p>{`${ (language === locale || language === 'all') ? estimatedReadingTime : estimatedReadingTimeOther } mn - ${CONTENT[locale].read}`}</p>
+                  <p>{`${
+                    language === locale || language === 'all'
+                      ? estimatedReadingTime
+                      : estimatedReadingTimeOther
+                  } mn - ${CONTENT[locale].read}`}</p>
                 )}
               </div>
 
@@ -131,7 +163,15 @@ function Article({ data }) {
               <SanityImage asset={mainImage} />
             </div>
           )}
-          <div>{(title || titleOther) && (<RichText value={(language === locale || language === 'all') ? body : bodyOther} />)}</div>
+          <div>
+            {(title || titleOther) && (
+              <RichText
+                value={
+                  language === locale || language === 'all' ? body : bodyOther
+                }
+              />
+            )}
+          </div>
         </div>
       </article>
     </section>
@@ -182,10 +222,14 @@ export async function getStaticProps({ locale, params }) {
       publishedAt,
       "title": content${locale}.title${locale},
       "body": content${locale}.body${locale},
-      "titleOther": content${localSwitcher(locale)}.title${localSwitcher(locale)},
+      "titleOther": content${localSwitcher(locale)}.title${localSwitcher(
+        locale
+      )},
       "bodyOther": content${localSwitcher(locale)}.body${localSwitcher(locale)},
       "estimatedReadingTime": round(length(pt::text(content${locale}.body${locale})) / 5 / 180 ),
-      "estimatedReadingTimeOther": round(length(pt::text(content${localSwitcher(locale)}.body${localSwitcher(locale)})) / 5 / 180 ),
+      "estimatedReadingTimeOther": round(length(pt::text(content${localSwitcher(
+        locale
+      )}.body${localSwitcher(locale)})) / 5 / 180 ),
       "mainImage":mainImage.asset->
     }`
     );
