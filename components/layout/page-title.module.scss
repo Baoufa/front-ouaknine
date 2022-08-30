@@ -69,26 +69,14 @@
   animation: appear 2s;
   animation-fill-mode: forwards;
   width: 100%;
-
-  // &:after{
-  //   content: '';
-  //   display: block;
-  //   height: 40px;
-  //   width: 200%;
-  //   min-width: 400px;
-  //   bottom: 20%;
-  //   left: 110%;
-  //   background-color: rgba($white, 1);
-  //   position: absolute;
-  //   z-index: -1;
-  //   border-radius: 0px;
-  // }
+  letter-spacing: 4px;
 }
 
 @media (max-width: $breakpoint-sm) {
   .title{
     animation: none;
     opacity: 1;
+    letter-spacing: 2px;
   }
 }
 
