@@ -18,9 +18,14 @@ function NavContext(props) {
     },
   });
 
+  useEventListener('scroll', e => {
+    if (state.isOn) {
+      globalThis.scrollTo(0,0)
+    }
+  });
   useEventListener('touchstart', e => {
     if (state.isOn) {
-      e.preventDefault();
+      globalThis.scrollTo(0,0)
     }
   });
 
