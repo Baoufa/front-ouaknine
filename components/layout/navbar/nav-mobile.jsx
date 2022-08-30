@@ -4,6 +4,7 @@ import { NavContextSchema } from '../../../context/nav-context';
 import LanguagePickerMobile from './language-picker-mobile';
 
 import classes from './nav-mobile.module.scss';
+import useEventListener from '../../../hooks/useEventListener';
 
 function NavMobile({ navlinks }) {
   const { isOn, toggleNav } = useContext(NavContextSchema);

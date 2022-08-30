@@ -11,30 +11,36 @@ function NavContext(props) {
   const [state, setState] = useState({
     isOn: null,
     toggleNav: () => {
-      setState(prevState => ({...prevState, isOn : !prevState.isOn}));
+      setState(prevState => ({ ...prevState, isOn: !prevState.isOn }));
     },
     removeNav: () => {
-      setState(prevState => ({...prevState, isOn : false}));
+      setState(prevState => ({ ...prevState, isOn: false }));
     },
+  });
+
+  useEventListener('touchstart', e => {
+    if (state.isOn) {
+      e.preventDefault();
+    }
   });
 
   useEffect(() => {
     if (state.isOn) {
       document.body.classList.add('body-full');
-    } 
-    
-    if(state.isOn === false){
+    }
+
+    if (state.isOn === false) {
       document.body.classList.remove('body-full');
     }
   }, [state.isOn]);
 
-  const closeNav = (e) => {
-    if(globalThis.innerWidth > 992) {
+  const closeNav = e => {
+    if (globalThis.innerWidth > 992) {
       state.removeNav();
     }
   };
   useEventListener('resize', closeNav, globalThis);
- 
+
   return (
     <NavContextSchema.Provider value={state}>
       {props.children}
