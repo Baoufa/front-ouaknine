@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 4rem;
+  gap: 3.5rem;
 }
 
 .navitem{
@@ -64,7 +64,7 @@
 }
 
 .locales {
-  padding-left: 5rem;
+  padding-left: 3.5rem;
 }
 
 @media (max-width: $breakpoint-md) {
