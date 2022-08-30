@@ -23,7 +23,7 @@ function Layout(props) {
       {!isOn && <Phone />}
       <MainHeader />
       {!isOn && <main className={classes.main}>{props.children}</main>}
-      <MainFooter />
+      {!isOn && <MainFooter />}
     </>
   );
 }
