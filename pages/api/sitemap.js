@@ -8,6 +8,8 @@ export default async function handler(req, res) {
 
   const BASE_URL = process.env.NEXT_PUBLIC_HOST; //This is where you will define your base url. You can also use the default dev url http://localhost:3000
 
+  console.log('BASE_URL', BASE_URL)
+
   const staticPaths = [];
 
   const canonicalPaths = fs.readdirSync(path.join(process.cwd(), 'pages')).filter(staticPage => {
@@ -27,6 +29,8 @@ export default async function handler(req, res) {
     ].includes(staticPage);
   });
 
+  console.log('CANONICAL', canonicalPaths)
+
   canonicalPaths.forEach((staticPagePath) => {
     staticPaths.push(`${BASE_URL}/${staticPagePath.replace('.jsx', '')}`);
     for (const locale of locales) {
@@ -34,7 +38,7 @@ export default async function handler(req, res) {
     }
   });
 
-
+  console.log('CANONICAL AFTER', canonicalPaths)
 
   const posts = await clientApi.fetch(
     `*[_type == "post" 
@@ -44,6 +48,8 @@ export default async function handler(req, res) {
     _id,
   }`
   );
+
+  console.log('POST', posts)
 
   const dynamicPaths = [];
   
