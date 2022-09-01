@@ -12,8 +12,6 @@ function Legal({ data }) {
   const { isAccepted, toggleCookie } = useContext(CookieContextSchema);
   const locale = useLocale()
 
-  console.log(isAccepted);
-
   return (
     <section className={classes.container}>
       {data?.title && <h1>{data?.title}</h1>}
