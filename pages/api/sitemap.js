@@ -7,38 +7,34 @@ export default async function handler(req, res) {
   const locales = ['fr', 'en'];
 
   const BASE_URL = process.env.NEXT_PUBLIC_HOST; //This is where you will define your base url. You can also use the default dev url http://localhost:3000
+  const staticPaths = [];
 
-  console.log('BASE_URL', BASE_URL)
 
-  // const staticPaths = [];
+  const canonicalPaths = fs.readdirSync(path.resolve(process.cwd(), 'pages')).filter(staticPage => {
+    return ![
+      'sitemap.xml.jsx',
+      '404.jsx',
+      '404.module.scss',
+      '_app.js',
+      '_document.js',
+      'api',
+      'Home.module.scss',
+      'expertise.module.scss',
+      'articles.module.scss',
+      'contact.module.scss',
+      'legal.module.scss',
+      'index.js',
+    ].includes(staticPage);
+  });
 
-  // const canonicalPaths = fs.readdirSync(path.join(process.cwd(), 'pages')).filter(staticPage => {
-  //   return ![
-  //     'sitemap.xml.jsx',
-  //     '404.jsx',
-  //     '404.module.scss',
-  //     '_app.js',
-  //     '_document.js',
-  //     'api',
-  //     'Home.module.scss',
-  //     'expertise.module.scss',
-  //     'articles.module.scss',
-  //     'contact.module.scss',
-  //     'legal.module.scss',
-  //     'index.js',
-  //   ].includes(staticPage);
-  // });
 
-  // // console.log('CANONICAL', canonicalPaths)
+  canonicalPaths.forEach((staticPagePath) => {
+    staticPaths.push(`${BASE_URL}/${staticPagePath.replace('.jsx', '')}`);
+    for (const locale of locales) {
+      staticPaths.push(`${BASE_URL}/${locale}/${staticPagePath.replace('.jsx', '')}`);
+    }
+  });
 
-  // canonicalPaths.forEach((staticPagePath) => {
-  //   staticPaths.push(`${BASE_URL}/${staticPagePath.replace('.jsx', '')}`);
-  //   for (const locale of locales) {
-  //     staticPaths.push(`${BASE_URL}/${locale}/${staticPagePath.replace('.jsx', '')}`);
-  //   }
-  // });
-
-  // console.log('CANONICAL AFTER', canonicalPaths)
 
   const posts = await clientApi.fetch(
     `*[_type == "post" 
@@ -49,8 +45,6 @@ export default async function handler(req, res) {
   }`
   );
 
-  console.log('POST', posts)
-
   const dynamicPaths = [];
   
   posts.forEach(singleBlog => {
@@ -60,7 +54,7 @@ export default async function handler(req, res) {
     }
   });
 
-  const allPaths = [BASE_URL, ...dynamicPaths];
+  const allPaths = [BASE_URL, ...staticPaths, ...dynamicPaths];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
