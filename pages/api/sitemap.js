@@ -1,12 +1,11 @@
+import clientApi from '../../libs/clientApi';
 import * as fs from 'fs';
-import clientApi from '../libs/clientApi';
 import path from 'path';
 
-const Sitemap = () => {
-  return null;
-};
+export default async function handler(req, res) {
 
-export const getServerSideProps = async ({ res, locales }) => {
+  const locales = ['fr', 'en'];
+
   const BASE_URL = process.env.NEXT_PUBLIC_HOST; //This is where you will define your base url. You can also use the default dev url http://localhost:3000
 
   const staticPaths = [];
@@ -72,13 +71,15 @@ export const getServerSideProps = async ({ res, locales }) => {
     </urlset>
   `;
 
-  res.setHeader('Content-Type', 'text/xml');
-  res.write(sitemap);
-  res.end();
 
-  return {
-    props: {},
-  };
-};
 
-export default Sitemap;
+
+  res.statusCode = 200
+  res.setHeader('Content-Type', 'text/xml')
+    
+    // Instructing the Vercel edge to cache the file
+    res.setHeader('Cache-control', 'stale-while-revalidate, s-maxage=3600')
+
+
+  res.end(sitemap)
+}
