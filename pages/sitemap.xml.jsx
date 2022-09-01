@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import clientApi from '../libs/clientApi';
+import path from 'path';
 
 const Sitemap = () => {
   return null;
@@ -10,10 +11,11 @@ export const getServerSideProps = async ({ res, locales }) => {
 
   const staticPaths = [];
 
-  const canonicalPaths = fs.readdirSync('pages').filter(staticPage => {
+  const canonicalPaths = fs.readdirSync(path.join(process.cwd(), 'pages')).filter(staticPage => {
     return ![
       'sitemap.xml.jsx',
-      '404.js',
+      '404.jsx',
+      '404.module.scss',
       '_app.js',
       '_document.js',
       'api',
@@ -32,6 +34,8 @@ export const getServerSideProps = async ({ res, locales }) => {
       staticPaths.push(`${BASE_URL}/${locale}/${staticPagePath.replace('.jsx', '')}`);
     }
   });
+
+
 
   const posts = await clientApi.fetch(
     `*[_type == "post" 
