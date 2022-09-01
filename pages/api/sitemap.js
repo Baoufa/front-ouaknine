@@ -10,7 +10,7 @@ export default async function handler(req, res) {
 
   console.log('BASE_URL', BASE_URL)
 
-  const staticPaths = [];
+  // const staticPaths = [];
 
   // const canonicalPaths = fs.readdirSync(path.join(process.cwd(), 'pages')).filter(staticPage => {
   //   return ![
@@ -60,22 +60,21 @@ export default async function handler(req, res) {
   //   }
   // });
 
-  // const allPaths = [BASE_URL ,...staticPaths, ...dynamicPaths];
+  const allPaths = [BASE_URL];
 
-  // const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-  //   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  //     // This is where we would be putting in our URLs
-  //     ${allPaths
-  //       .map(url => {
-  //         return `
-  //           <url>
-  //             <loc>${url}</loc>
-  //           </url>
-  //         `;
-  //       })
-  //       .join('')}
-  //   </urlset>
-  // `;
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      ${allPaths
+        .map(url => {
+          return `
+            <url>
+              <loc>${url}</loc>
+            </url>
+          `;
+        })
+        .join('')}
+    </urlset>
+  `;
 
   res.statusCode = 200
   res.setHeader('Content-Type', 'text/xml')
@@ -84,5 +83,5 @@ export default async function handler(req, res) {
     res.setHeader('Cache-control', 'stale-while-revalidate, s-maxage=3600')
 
 
-  res.end('hello')
+  res.end(sitemap)
 }
