@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
+import deleteAllCookies from '../libs/deleteCookies';
 
 export const CookieContextSchema = createContext({
   isAccepted: null,
@@ -21,7 +22,7 @@ function CookieContext(props) {
       if (bol === 'true' || bol === 'false') {
         setState(prevState => ({
           ...prevState,
-          isAccepted: bol,
+          isAccepted: bol === 'true' ? true : false,
           doNotShow: true,
         }));
       }
@@ -58,6 +59,9 @@ function CookieContext(props) {
   useEffect(() => {
     if (!state.isRead) {
       state.readCookie();
+    }
+    if (state.isAccepted === false){
+      deleteAllCookies();
     }
   }, [state]);
 
