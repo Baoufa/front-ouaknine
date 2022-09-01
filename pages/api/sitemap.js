@@ -10,33 +10,33 @@ export default async function handler(req, res) {
 
   console.log('BASE_URL', BASE_URL)
 
-  // const staticPaths = [];
+  const staticPaths = [];
 
-  // const canonicalPaths = fs.readdirSync(path.join(process.cwd(), 'pages')).filter(staticPage => {
-  //   return ![
-  //     'sitemap.xml.jsx',
-  //     '404.jsx',
-  //     '404.module.scss',
-  //     '_app.js',
-  //     '_document.js',
-  //     'api',
-  //     'Home.module.scss',
-  //     'expertise.module.scss',
-  //     'articles.module.scss',
-  //     'contact.module.scss',
-  //     'legal.module.scss',
-  //     'index.js',
-  //   ].includes(staticPage);
-  // });
+  const canonicalPaths = fs.readdirSync(path.join(process.cwd(), 'pages')).filter(staticPage => {
+    return ![
+      'sitemap.xml.jsx',
+      '404.jsx',
+      '404.module.scss',
+      '_app.js',
+      '_document.js',
+      'api',
+      'Home.module.scss',
+      'expertise.module.scss',
+      'articles.module.scss',
+      'contact.module.scss',
+      'legal.module.scss',
+      'index.js',
+    ].includes(staticPage);
+  });
 
   // console.log('CANONICAL', canonicalPaths)
 
-  // canonicalPaths.forEach((staticPagePath) => {
-  //   staticPaths.push(`${BASE_URL}/${staticPagePath.replace('.jsx', '')}`);
-  //   for (const locale of locales) {
-  //     staticPaths.push(`${BASE_URL}/${locale}/${staticPagePath.replace('.jsx', '')}`);
-  //   }
-  // });
+  canonicalPaths.forEach((staticPagePath) => {
+    staticPaths.push(`${BASE_URL}/${staticPagePath.replace('.jsx', '')}`);
+    for (const locale of locales) {
+      staticPaths.push(`${BASE_URL}/${locale}/${staticPagePath.replace('.jsx', '')}`);
+    }
+  });
 
   // console.log('CANONICAL AFTER', canonicalPaths)
 
@@ -60,7 +60,7 @@ export default async function handler(req, res) {
   //   }
   // });
 
-  const allPaths = [BASE_URL];
+  const allPaths = [BASE_URL, ...staticPaths];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
