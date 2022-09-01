@@ -1,5 +1,5 @@
 import clientApi from '../../libs/clientApi';
-import * as fs from 'fs';
+import * as fs from 'fs/promises';
 import path from 'path';
 
 export default async function handler(req, res) {
@@ -10,7 +10,9 @@ export default async function handler(req, res) {
   const staticPaths = [];
 
 
-  const canonicalPaths = fs.readdirSync(path.resolve(process.cwd(), 'pages')).filter(staticPage => {
+  const canonical = await fs.readdir(path.resolve(process.cwd(), 'pages'))
+  
+  const canonicalPaths = canonical.filter(staticPage => {
     return ![
       'sitemap.xml.jsx',
       '404.jsx',
