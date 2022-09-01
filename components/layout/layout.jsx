@@ -18,7 +18,7 @@ function Layout(props) {
   return (
     <>
       <Loader />
-      {/* {isAccepted && <GaScript />} */}
+      {isAccepted && <GaScript />}
       {!doNotShow && !isOn && <Cookie />}
       {!isOn && <Phone />}
       <MainHeader />

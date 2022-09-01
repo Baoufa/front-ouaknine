@@ -35,6 +35,9 @@ export default function RichText({ value }) {
           bullet: ({ children }) => (
             <li className={classes.bullet}>{children}</li>
           ),
+          bullet2: ({ children }) => (
+            <li className={classes.bullet2}>{children}</li>
+          ),
           number:({ children }) => (
             <li>{children}</li>
           ),
