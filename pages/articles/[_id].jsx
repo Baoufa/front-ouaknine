@@ -13,6 +13,7 @@ import Share from '../../components/layout/articles/share';
 import SanityImage from '../../components/ui/sanityImage';
 import { useRouter } from 'next/router';
 import useEventListener from '../../hooks/useEventListener';
+import HeadPage from '../../components/head/head-page';
 
 const localSwitcher = locale => {
   if (locale === 'fr') {
@@ -71,6 +72,20 @@ function Article({ data }) {
 
   return (
     <section className={classes.container}>
+      <HeadPage
+        title={language === locale || language === 'all' ? title : titleOther}
+        description={
+          language === locale || language === 'all'
+            ? `${body
+                ?.map(item => item?.children[0]?.text)
+                .join(' ')
+                .slice(0, 160)}...`
+            : `${bodyOther
+              ?.map(item => item?.children[0]?.text)
+              .join(' ')
+              .slice(0, 160)}...`
+        }
+      />
       <div className={classes.top}>
         <button className={classes.backbtn} onClick={backHandler}>
           <ArrowLeftIcon

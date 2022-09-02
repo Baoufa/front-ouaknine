@@ -4,7 +4,6 @@ import { NavContextSchema } from '../../../context/nav-context';
 import LanguagePickerMobile from './language-picker-mobile';
 
 import classes from './nav-mobile.module.scss';
-import useEventListener from '../../../hooks/useEventListener';
 
 function NavMobile({ navlinks }) {
   const { isOn, toggleNav } = useContext(NavContextSchema);
@@ -20,6 +19,7 @@ function NavMobile({ navlinks }) {
             ++i;
             return (
               <li key={index} className={`${classes.navitem}`}>
+        
                 <Link href={link.url}>
                   <a
                     className={`${classes.link} ${classes[animationCSS]}`}
