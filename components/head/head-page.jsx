@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import useLocale from '../../hooks/useLocale';
-import metaimagefr from '../../public/images/metaimagefr.png';
 
 function HeadPage(props) {
   const locale = useLocale();
@@ -43,13 +42,13 @@ function HeadPage(props) {
       />
       <meta
         property='og:image'
-        content={metaimagefr}
+        content={'https://www.ouaknine-avocat.com/images/_50A7988_1.jpeg'}
       />
       <meta property='og:image:alt' content={title} />
 
       <meta name='twitter:title' content={title} />
       <meta name='twitter:description' content={description} />
-      <meta name='twitter:image' content={metaimagefr} />
+      <meta name='twitter:image' content={'https://www.ouaknine-avocat.com/images/_50A7988_1.jpeg'} />
       <meta name='twitter:site' content='@USERNAME' />
       <meta name='twitter:creator' content='@USERNAME' />
 
