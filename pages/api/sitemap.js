@@ -54,10 +54,19 @@ export default async function handler(req, res) {
     }
   });
 
-  const allPaths = [BASE_URL, ...dynamicPaths];
+  const allPaths = [...dynamicPaths];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+<loc>https://www.ouaknine-avocat.com</loc>
+</url>
+<url>
+<loc>https://www.ouaknine-avocat.com/en</loc>
+</url>
+<url>
+<loc>https://www.ouaknine-avocat.com/fr</loc>
+</url>
 <url>
 <loc>https://www.ouaknine-avocat.com/articles</loc>
 </url>
