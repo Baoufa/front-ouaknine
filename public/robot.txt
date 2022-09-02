@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://www.ouaknine-avocat.com/api/sitemap
