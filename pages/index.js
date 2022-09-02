@@ -74,8 +74,8 @@ export default function Home({ data }) {
           <div className={`${classes.titlegroup} ${!white && classes.black}`}>
             {title1 && title2 && (
               <h1>
-                <p className={classes.title}>{title1?.trim()}</p>
-                <p className={classes.subtitle}>{title2?.trim()}</p>
+                <span className={classes.title}>{title1?.trim()}</span>
+                <span className={classes.subtitle}>{title2?.trim()}</span>
               </h1>
             )}
             <div className={classes.spegroup}>
