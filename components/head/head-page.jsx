@@ -8,7 +8,6 @@ function HeadPage(props) {
   const { title, description } = props;
   const { pathname, locales } = useRouter();
 
-
   return (
     <Head>
       <meta charSet='utf-8' />
@@ -48,12 +47,37 @@ function HeadPage(props) {
 
       <meta name='twitter:title' content={title} />
       <meta name='twitter:description' content={description} />
-      <meta name='twitter:image' content={'https://www.ouaknine-avocat.com/images/_50A7988_1.jpeg'} />
+      <meta
+        name='twitter:image'
+        content={'https://www.ouaknine-avocat.com/images/_50A7988_1.jpeg'}
+      />
       <meta name='twitter:site' content='@USERNAME' />
       <meta name='twitter:creator' content='@USERNAME' />
 
-      <link rel='canonical' href={`${process.env.NEXT_PUBLIC_HOST}${pathname}`} />
+      <link
+        rel='canonical'
+        href={`${process.env.NEXT_PUBLIC_HOST}${pathname}`}
+      />
       <link rel='icon' href='/favicon.ico' />
+
+      <link
+        rel='apple-touch-icon'
+        sizes='180x180'
+        href='/apple-touch-icon.png'
+      />
+      <link
+        rel='icon'
+        type='image/png'
+        sizes='32x32'
+        href='/favicon-32x32.png'
+      />
+      <link
+        rel='icon'
+        type='image/png'
+        sizes='16x16'
+        href='/favicon-16x16.png'
+      />
+      <link rel='manifest' href='/site.webmanifest' />
     </Head>
   );
 }
