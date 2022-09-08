@@ -52,7 +52,7 @@ function HeadPage(props) {
       <meta name='twitter:site' content='@USERNAME' />
       <meta name='twitter:creator' content='@USERNAME' />
 
-      <link rel='canonical' href={process.env.NEXT_PUBLIC_HOST} />
+      <link rel='canonical' href={`${process.env.NEXT_PUBLIC_HOST}${pathname}`} />
       <link rel='icon' href='/favicon.ico' />
     </Head>
   );
