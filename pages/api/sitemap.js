@@ -3,7 +3,7 @@ import * as fs from 'fs/promises';
 import path from 'path';
 
 export default async function handler(req, res) {
-  const locales = ['fr', 'en'];
+  const locales = ['en'];
 
   const BASE_URL = process.env.NEXT_PUBLIC_HOST; //This is where you will define your base url. You can also use the default dev url http://localhost:3000
   // const staticPaths = [];
@@ -65,13 +65,7 @@ export default async function handler(req, res) {
 <loc>https://www.ouaknine-avocat.com/en</loc>
 </url>
 <url>
-<loc>https://www.ouaknine-avocat.com/fr</loc>
-</url>
-<url>
 <loc>https://www.ouaknine-avocat.com/articles</loc>
-</url>
-<url>
-<loc>https://www.ouaknine-avocat.com/fr/articles</loc>
 </url>
 <url>
 <loc>https://www.ouaknine-avocat.com/en/articles</loc>
@@ -80,25 +74,16 @@ export default async function handler(req, res) {
 <loc>https://www.ouaknine-avocat.com/contact</loc>
 </url>
 <url>
-<loc>https://www.ouaknine-avocat.com/fr/contact</loc>
-</url>
-<url>
 <loc>https://www.ouaknine-avocat.com/en/contact</loc>
 </url>
 <url>
 <loc>https://www.ouaknine-avocat.com/expertise</loc>
 </url>
 <url>
-<loc>https://www.ouaknine-avocat.com/fr/expertise</loc>
-</url>
-<url>
 <loc>https://www.ouaknine-avocat.com/en/expertise</loc>
 </url>
 <url>
 <loc>https://www.ouaknine-avocat.com/legal</loc>
-</url>
-<url>
-<loc>https://www.ouaknine-avocat.com/fr/legal</loc>
 </url>
 <url>
 <loc>https://www.ouaknine-avocat.com/en/legal</loc>
