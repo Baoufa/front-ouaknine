@@ -6,7 +6,12 @@ function HeadPage(props) {
   const locale = useLocale();
 
   const { title, description } = props;
-  const { pathname, locales } = useRouter();
+  const { pathname, locales, query } = useRouter();
+
+  const pathLocale = locale === 'en' ? '/en': '';
+  const pathPage = query?._id ? `/${query._id}` : pathname;
+
+  const path = `${process.env.NEXT_PUBLIC_HOST}${pathLocale}${pathPage}`
 
   return (
     <Head>
@@ -23,13 +28,13 @@ function HeadPage(props) {
           hrefLang={locale.toLowerCase()}
           href={`${
             process.env.NEXT_PUBLIC_HOST
-          }/${locale.toLowerCase()}${pathname}`}
+          }/${locale.toLowerCase()}${pathPage}`}
         />
       ))}
       <link
         rel='alternate'
         hrefLang='x-default'
-        href={`${process.env.NEXT_PUBLIC_HOST}${pathname}`}
+        href={`${process.env.NEXT_PUBLIC_HOST}${pathPage}`}
       />
 
       <meta property='og:title' content={title} />
@@ -37,7 +42,7 @@ function HeadPage(props) {
       <meta property='og:type' content='website' />
       <meta
         property='og:url'
-        content={`${process.env.NEXT_PUBLIC_HOST}${pathname}`}
+        content={path}
       />
       <meta
         property='og:image'
@@ -56,7 +61,7 @@ function HeadPage(props) {
 
       <link
         rel='canonical'
-        href={`${process.env.NEXT_PUBLIC_HOST}${pathname}`}
+        href={path}
       />
       <link rel='icon' href='/favicon.ico' />
 
