@@ -6,12 +6,12 @@ function HeadPage(props) {
   const locale = useLocale();
 
   const { title, description } = props;
-  const { pathname, locales, query } = useRouter();
+  const { asPath, locales, query } = useRouter();
 
   const pathLocale = locale === 'en' ? '/en': '';
-  const pathPage = query?._id ? `/${query._id}` : pathname;
 
-  const path = `${process.env.NEXT_PUBLIC_HOST}${pathLocale}${pathPage}`
+  const path = `${process.env.NEXT_PUBLIC_HOST}${pathLocale}${asPath}`
+
 
   return (
     <Head>
@@ -28,13 +28,13 @@ function HeadPage(props) {
           hrefLang={locale.toLowerCase()}
           href={`${
             process.env.NEXT_PUBLIC_HOST
-          }/${locale.toLowerCase()}${pathPage}`}
+          }/${locale.toLowerCase()}${asPath}`}
         />
       ))}
       <link
         rel='alternate'
         hrefLang='x-default'
-        href={`${process.env.NEXT_PUBLIC_HOST}${pathPage}`}
+        href={`${process.env.NEXT_PUBLIC_HOST}${asPath}`}
       />
 
       <meta property='og:title' content={title} />
