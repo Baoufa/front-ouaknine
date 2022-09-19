@@ -19,8 +19,10 @@
 .off{
   opacity: 0;
   visibility: hidden;
+  //display: none;
   animation: displaynone;
   animation-delay: 1s;
+  animation-direction: forwards;
 }
 
 

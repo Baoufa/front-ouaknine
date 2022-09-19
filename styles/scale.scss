@@ -59,10 +59,10 @@
 
 
 .st2 {
-  opacity: 1;
+  opacity: 0;
   fill: none;
   stroke: $gray300;
-  stroke-width: 1.2px;
+  stroke-width: 1px;
   stroke-linecap: round;
   stroke-linejoin: round;
   width: 100%;
@@ -93,10 +93,11 @@
 
 @keyframes animate-svg-stroke-2 {
   0% {
+    opacity: 1;
     stroke-dashoffset: 5259.669921875px;
     stroke-dasharray: 5259.669921875px;
   }
-  1%{
+  25%{
     opacity: 1;
   }
 
@@ -108,8 +109,13 @@
 }
 
 .svg-scale-2 {
-  -webkit-animation: animate-svg-stroke-2 3s ease-out 0s both;
-  animation: animate-svg-stroke-2 3s ease-out 0s both;
+  -webkit-animation: animate-svg-stroke-2 8s ease-out 3s both;
+  animation: animate-svg-stroke-2 8s ease-out 3s both;
+  animation-fill-mode:forwards;
+}
+.svg-scale-2bis {
+  -webkit-animation: animate-svg-stroke-2 8s ease-out 2s both;
+  animation: animate-svg-stroke-2 8s ease-out 2s both;
   animation-fill-mode:forwards;
 }
 

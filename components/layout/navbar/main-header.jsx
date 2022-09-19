@@ -49,7 +49,8 @@ function MainHeader() {
         className={`${classes.header} ${
           pathname.includes('/articles/[_id]') ||
           pathname.includes('/legal') ||
-          pathname.includes('/404')
+          pathname.includes('/404') ||
+          pathname.includes('/') 
             ? classes.border
             : ''
         }`}

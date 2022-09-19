@@ -29,7 +29,7 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
   min-height: calc(100vh - 72px);
   padding: 4rem 0;
@@ -44,8 +44,8 @@
   flex-direction: column;
   gap: 2.5rem;
   user-select: none;
-  color: $white;
-  padding: 0rem 2rem;
+  color: $gray800;
+  padding: 0rem 4rem;
   animation: opa 1.5s;
   z-index: 1;
 }
@@ -63,6 +63,12 @@
   }
 }
 
+.side{
+  position: absolute;
+  top: 12rem;
+  right: 4rem;
+}
+
 .titlegroup h1 {
   margin: 0;
   padding: 0;
@@ -74,7 +80,7 @@
   letter-spacing: 0.5vw;
   font-size: 4.5vw;
   line-height: 4.5vw;
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: 1rem;
   display: block;
 }
@@ -96,33 +102,64 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 1.8rem;
   z-index: 1;
 }
 
+.chevronright{
+  stroke-width: 1px;
+  width: 20px;
+  height: 20px;
+  margin-right: .5rem;
+}
+
 .spe {
-  padding: 0.5rem 5.4rem 0.5rem 1.8rem;
-  background-color: rgba($white, 0.1);
-  color: rgba($white, 0.8);
-  font-size: 1.1rem;
-  //font-size: 1.5vw;
-  backdrop-filter: blur(2px);
-  border: 1px solid rgba($white, 0.8);
-  @include serif;
-  font-weight: 500;
-  transition: all 0.2s;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  //background-color: red;
+  color: $gray800;
+  font-size: 1.5rem;
+  //letter-spacing: 0.3vw;
+  @include seriflight;
+  transition: all 0.3s;
   z-index: 1;
 
   &:hover {
-    transform: translate(1px, -1px);
-    background-color: rgba($white, 0.2);
-    box-shadow: 4px 4px 4px rgba($white, 0.1);
+    transform: translate(5px, 0px);
   }
 
   &:active {
-    background-color: rgba($white, 0.2);
-    transform: scale(0.98);
+    transform: translate(5px, 0px) scale(0.98);
   }
+
+
+  &::after{
+      position: absolute;
+      bottom:-.4rem;
+      left: .5rem;
+      content: '';
+      display: block;
+      background-color: $gray800;
+      height: 1px;
+      width: 0%;
+      // transform: translateY(5px);
+      // -webkit-transform: translateY(5px);
+      // -moz-transform: translateY(5px);
+      // -ms-transform: translateY(5px);
+      
+      
+      transition: all .4s;
+      // -webkit-transition: all .2s;
+      // -moz-transition: all .2s;
+      // -ms-transition: all .2s;
+    }
+  
+    &:hover:after {
+      width: calc(100% + 70px);
+    } 
+  
 
   &_black {
     border: 1px solid $gray700;
@@ -151,6 +188,15 @@ $gapDel: 0.6s;
     animation-delay: $newDel;
     animation-fill-mode: backwards;
   }
+}
+
+.herobottomgroup{
+display: flex;
+align-items: flex-end;
+width: 100%;
+margin-top: 2rem;
+//align-self: flex-end;
+
 }
 
 @media (max-width: $breakpoint-sm) {
@@ -229,12 +275,12 @@ $gapDel: 0.6s;
 }
 
 .arrow {
-  align-self: flex-end;
+  margin-left: 1.5rem;
   width: 3rem;
   height: 3rem;
   stroke-width: 1px;
   // color: $gray400;
-  color: rgba($white, 0.7);
+  color: $gray300;
   //background-color: rgba($white, .2);
   cursor: pointer;
   padding: 10px;
@@ -248,8 +294,10 @@ $gapDel: 0.6s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     background-color: rgba($white, 0.1);
+    border: 1px solid $gray700;
     // background-color: $white;
     // border-color: $gray300;
+    color: $gray700;
     border-radius: 100px;
   }
 
@@ -302,7 +350,7 @@ $gapDel: 0.6s;
   display: flex;
   gap: 1rem;
   flex-direction: row;
-  padding-top: 5rem;
+  padding-top: 0rem;
   @include desktop-container;
 }
 

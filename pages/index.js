@@ -3,7 +3,10 @@ import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import clientApi from '../libs/clientApi';
 import RichText from '../components/ui/rich-text.jsx';
-import { ChevronDoubleDownIcon } from '@heroicons/react/outline';
+import {
+  ChevronDoubleDownIcon,
+  ChevronRightIcon,
+} from '@heroicons/react/outline';
 import scrollTo from '../libs/scrollTo';
 import AnimatedScale from '../components/layout/animated-scale';
 
@@ -14,6 +17,7 @@ import classes from './Home.module.scss';
 
 import useOffset from '../hooks/useOffset';
 import AnimatedScaleMobile from '../components/layout/animated-scale-mobile';
+import LogoSquare from '../public/images/logosquare.svg'
 
 export default function Home({ data }) {
   const {
@@ -42,7 +46,7 @@ export default function Home({ data }) {
 
   const { ref, inView, entry } = useInView({
     /* Optional options */
-    threshold: 0.1,
+    threshold: 0,
     triggerOnce: true,
   });
   const scaleRef = useRef();
@@ -54,7 +58,7 @@ export default function Home({ data }) {
     <div className={classes.container}>
       <HeadPage title={titleseo} description={descriptionseo} />
       <div className={classes.upper}>
-        <Image
+        {/* <Image
           className={classes.img}
           src={imageTitleUrl ? `${imageTitleUrl}?w=1600` : ''}
           alt={imageTitleAlt ? imageTitleAlt : 'Image background'}
@@ -66,11 +70,12 @@ export default function Home({ data }) {
           sizes='100vw'
           priority
           quality={30}
-        />
+        /> */}
 
-        <div className={classes.overlay}></div>
+        {/* <div className={classes.overlay}></div> */}
 
         <div className={`${classes.upperinner}`}>
+       
           <div className={`${classes.titlegroup} ${!white && classes.black}`}>
             {title1 && title2 && (
               <h1>
@@ -84,7 +89,8 @@ export default function Home({ data }) {
                   <a
                     className={`${classes.spe} ${!white && classes.spe_black}`}
                   >
-                    {tag1?.trim()}
+                    <ChevronRightIcon className={classes.chevronright} />
+                    <span>{tag1?.trim()}</span>
                   </a>
                 </Link>
               )}
@@ -93,7 +99,8 @@ export default function Home({ data }) {
                   <a
                     className={`${classes.spe} ${!white && classes.spe_black}`}
                   >
-                    {tag2?.trim()}
+                    <ChevronRightIcon className={classes.chevronright} />
+                    <span>{tag2?.trim()}</span>
                   </a>
                 </Link>
               )}
@@ -102,32 +109,51 @@ export default function Home({ data }) {
                   <a
                     className={`${classes.spe} ${!white && classes.spe_black}`}
                   >
-                    {tag3?.trim()}
+                    <ChevronRightIcon className={classes.chevronright} />
+                    <span>{tag3?.trim()}</span>
                   </a>
                 </Link>
               )}
             </div>
           </div>
           {/* <Link href="/#homedesc" scroll={false}> */}
-
-          <ChevronDoubleDownIcon
-            className={`${classes.arrow} ${!white && classes.arrow_black}`}
-            onClick={() => scrollTo('homedesc')}
+          {/* <div className={classes.side}>
+          <Image
+            src={LogoSquare}
+            alt={'logo'}
+            width={70*6}
+            height={38.73*6}
+            layout={'fixed'}
           />
+          </div> */}
+        
+          <div className={classes.herobottomgroup} ref={ref}>
+          
+
+            <div className={classes.separator} id='section2'>
+              <div ref={scaleRef}>
+                <AnimatedScale inView={inView} percentView={1} />
+                <AnimatedScaleMobile
+                  animate={inView}
+                  percentView={percentView}
+                />
+              </div>
+            </div>
+            <ChevronDoubleDownIcon
+              className={`${classes.arrow} ${!white && classes.arrow_black}`}
+              onClick={() => scrollTo('homedesc', 0)}
+            />
+          </div>
+          
 
           {/* </Link> */}
         </div>
-      </div>
 
-      <div className={classes.separator} id='section2'>
-        <div ref={scaleRef}>
-          <AnimatedScale animate={inView} percentView={percentView} />
-          <AnimatedScaleMobile animate={inView} percentView={percentView} />
-        </div>
+    
       </div>
 
       <section className={classes.bottom} id='homedesc'>
-        <div className={`${classes.image}`} ref={ref}>
+        <div className={`${classes.image}`} >
           {imageUrl && (
             <Image
               src={`${imageUrl}?w=700`}
