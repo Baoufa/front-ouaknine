@@ -72,7 +72,7 @@ export default function Home({ data }) {
           quality={30}
         /> */}
 
-        {/* <div className={classes.overlay}></div> */}
+        <div className={classes.overlay}></div>
 
         <div className={`${classes.upperinner}`}>
        

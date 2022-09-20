@@ -19,7 +19,7 @@ export default function PageTitle({
         </div>
       </div>
 
-      {imgUrl && <Image
+      {/* {imgUrl && <Image
         className={classes.img}
         src={imgUrl ? imgUrl : ''}
         alt={imgAlt ? imgAlt : 'Background image'}
@@ -31,7 +31,7 @@ export default function PageTitle({
         priority
         sizes='75vw'
         quality={75}
-      />}
+      />} */}
 
       <div className={classes.overlay}></div>
     </div>
