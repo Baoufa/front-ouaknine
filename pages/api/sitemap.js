@@ -59,34 +59,34 @@ export default async function handler(req, res) {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-<loc>https://www.ouaknine-avocat.com</loc>
+<loc>https://www.ouaknine-avocats.com</loc>
 </url>
 <url>
-<loc>https://www.ouaknine-avocat.com/en</loc>
+<loc>https://www.ouaknine-avocats.com/en</loc>
 </url>
 <url>
-<loc>https://www.ouaknine-avocat.com/articles</loc>
+<loc>https://www.ouaknine-avocats.com/articles</loc>
 </url>
 <url>
-<loc>https://www.ouaknine-avocat.com/en/articles</loc>
+<loc>https://www.ouaknine-avocats.com/en/articles</loc>
 </url>
 <url>
-<loc>https://www.ouaknine-avocat.com/contact</loc>
+<loc>https://www.ouaknine-avocats.com/contact</loc>
 </url>
 <url>
-<loc>https://www.ouaknine-avocat.com/en/contact</loc>
+<loc>https://www.ouaknine-avocats.com/en/contact</loc>
 </url>
 <url>
-<loc>https://www.ouaknine-avocat.com/expertise</loc>
+<loc>https://www.ouaknine-avocats.com/expertise</loc>
 </url>
 <url>
-<loc>https://www.ouaknine-avocat.com/en/expertise</loc>
+<loc>https://www.ouaknine-avocats.com/en/expertise</loc>
 </url>
 <url>
-<loc>https://www.ouaknine-avocat.com/legal</loc>
+<loc>https://www.ouaknine-avocats.com/legal</loc>
 </url>
 <url>
-<loc>https://www.ouaknine-avocat.com/en/legal</loc>
+<loc>https://www.ouaknine-avocats.com/en/legal</loc>
 </url>
       ${allPaths
         .map(url => {

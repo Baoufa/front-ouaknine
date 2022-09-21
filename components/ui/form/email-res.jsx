@@ -35,11 +35,11 @@ function EmailRes(props) {
         </p>
         <Button
           className={classes.button}
-          href='mailto:cabinet@ouaknine-avocat.com'
+          href='mailto:cabinet@ouaknine-avocats.com'
           target='_self'
         >
           <MailIcon className={classes.svg} />
-          <span>cabinet@ouaknine-avocat.com</span>
+          <span>cabinet@ouaknine-avocats.com</span>
         </Button>
       </div>
     );

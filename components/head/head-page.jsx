@@ -46,7 +46,7 @@ function HeadPage(props) {
       />
       <meta
         property='og:image'
-        content={'https://www.ouaknine-avocat.com/images/_50A7988_1.jpeg'}
+        content={'https://www.ouaknine-avocats.com/images/_50A7988_1.jpeg'}
       />
       <meta property='og:image:alt' content={title} />
 
@@ -54,7 +54,7 @@ function HeadPage(props) {
       <meta name='twitter:description' content={description} />
       <meta
         name='twitter:image'
-        content={'https://www.ouaknine-avocat.com/images/_50A7988_1.jpeg'}
+        content={'https://www.ouaknine-avocats.com/images/_50A7988_1.jpeg'}
       />
       <meta name='twitter:site' content='@USERNAME' />
       <meta name='twitter:creator' content='@USERNAME' />
