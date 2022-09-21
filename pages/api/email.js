@@ -53,7 +53,7 @@ function emailHandler(firstName, lastName, email, phone, message) {
   };
   const receivers = [
     {
-      email: 'benjamin.anoufa@gmail.com',
+      email: 'cabinet@ouaknine-avocats.com',
     },
   ];
 
