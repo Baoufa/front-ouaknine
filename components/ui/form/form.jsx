@@ -60,13 +60,13 @@ function Form({ titleform, subform }) {
         })
         .then(function (response) {
           setIsLoading(false);
-          // setValue({
-          //   firstName: '',
-          //   lastName: '',
-          //   email: '',
-          //   phone: '',
-          //   message: '',
-          // });
+          setValue({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            message: '',
+          });
           setEmailStatus(true);
           toggleModal();
         })
@@ -133,7 +133,7 @@ function Form({ titleform, subform }) {
         onChange={onValueHandler}
       />
       <div>
-        <Button disabled={isLoading && true}>
+        <Button disabled={isLoading}>
           <span>{emailForm[locale].send}</span>
           {!isLoading && <ChevronRightIcon className={classes.svgsend} />}
           {isLoading && <RefreshIcon className={`${classes.svgsend} ${classes.sending}`} />}
