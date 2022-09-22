@@ -6,7 +6,8 @@ import useTimeout from '../../hooks/useTimout';
 import { LoaderContextSchema } from '../../context/loader-context';
 
 export default function Loader() {
-  const {isLoading, setIsLoading} = useContext(LoaderContextSchema)
+  const {isLoading, setIsLoading} = useContext(LoaderContextSchema);
+  const [loaderOff, setLoaderOff] = useState(false);
 
   useEffect(() => {
     document.body.classList.add('body-full');
