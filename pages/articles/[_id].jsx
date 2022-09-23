@@ -161,7 +161,7 @@ function Article({ data }) {
                 />
                 {shareOn && (
                   <Share
-                    url={`${process.env.NEXT_PUBLIC_HOST}/${locale}/article/${_id}`}
+                    url={`${process.env.NEXT_PUBLIC_HOST}/${locale}/articles/${_id}`}
                     dir={winWidth < 769 ? 'right' : 'left'}
                   />
                 )}
