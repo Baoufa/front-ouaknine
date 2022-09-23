@@ -16,29 +16,29 @@ import useOffset from '../hooks/useOffset';
 import AnimatedScaleMobile from '../components/layout/animated-scale-mobile';
 
 export default function Home({ data }) {
-  const {
-    titleseo,
-    descriptionseo,
-    title1,
-    title2,
-    tag1,
-    link1,
-    tag2,
-    link2,
-    tag3,
-    link3,
-    white,
-    imageTitleUrl,
-    imageTitleAlt,
-    imgRatioTitle,
-    lqipTitle,
-    sectionTitle,
-    body,
-    imageUrl,
-    imageAlt,
-    lqip,
-    imgRatio,
-  } = data;
+  // const {
+  //   titleseo,
+  //   descriptionseo,
+  //   title1,
+  //   title2,
+  //   tag1,
+  //   link1,
+  //   tag2,
+  //   link2,
+  //   tag3,
+  //   link3,
+  //   white,
+  //   imageTitleUrl,
+  //   imageTitleAlt,
+  //   imgRatioTitle,
+  //   lqipTitle,
+  //   sectionTitle,
+  //   body,
+  //   imageUrl,
+  //   imageAlt,
+  //   lqip,
+  //   imgRatio,
+  // } = data;
 
   // const { ref, inView, entry } = useInView({
   //   /* Optional options */
