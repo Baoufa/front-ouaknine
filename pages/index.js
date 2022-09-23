@@ -161,12 +161,15 @@ export default function Home({ data }) {
 }
 
 export async function getStaticProps(ctx) {
-  
+  if (!ctx) {
+    throw new Error(`missing context ${JSON.stringify(ctx)}`)
+  }
+
   try {
     const locale = ctx?.locale;
 
     const content = await clientApi.fetch(
-      `*[_type == "home" && language == "${locale ? locale : "en"}"]{
+      `*[_type == "home" && language == "${locale}"]{
         titleseo, 
         descriptionseo, 
         title1,
@@ -190,15 +193,11 @@ export async function getStaticProps(ctx) {
         "lqip": mainImage.asset->metadata.lqip}`
     );
    
-    console.log('HERE-------------------------------');
-
-    //return { props: { data: content?.length && content[0] }};
-   return { props: { data: content }, revalidate: 1 };
-
+  return { props: { data: content?.length && content[0] }, revalidate: 1};
+ 
   } catch (err) {
-    return { props: { data: err }, revalidate: 10 };
-    // return {
-    //   notFound: true,
-    // };
+    return {
+      notFound: true,
+    };
   }
 }
