@@ -189,7 +189,7 @@ export async function getStaticProps(ctx) {
         "lqip": mainImage.asset->metadata.lqip}`
     );
     console.log('CONTENT', content[0])
-    return { props: { data: content?.length && content[0] }, revalidate: 10 };
+    return { props: { data: ctx }, revalidate: 10 };
 
   } catch (err) {
     console.log('ERROR', err);
