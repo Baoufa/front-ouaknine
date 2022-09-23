@@ -53,7 +53,7 @@ function Contact({ data }) {
 
   return (
     <div>
-      <HeadPage title={titleseo} description={descriptionseo} />
+      <HeadPage title={titleseo ? titleseo : ''} description={descriptionseo ? descriptionseo : ''} />
 
       <PageTitle
         title={title ? title : ''}

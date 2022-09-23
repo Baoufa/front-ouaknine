@@ -22,7 +22,7 @@ function Layout(props) {
       {!doNotShow && !isOn && <Cookie />}
       {!isOn && <Phone />}
       <MainHeader />
-      {!isOn && <main className={classes.main}>{props.children}</main>}
+      <main className={classes.main}>{props.children}</main>
       {!isOn && <MainFooter />}
     </>
   );
