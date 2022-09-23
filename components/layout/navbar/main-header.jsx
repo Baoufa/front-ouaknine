@@ -55,7 +55,7 @@ function MainHeader() {
         }`}
       >
         <div className={classes.navcontainer}>
-          <Link href='/'>
+          <Link href='/' locale={locale}>
             <a
               className={classes.logocontainer}
               onClick={clickHandler}
