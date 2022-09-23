@@ -40,19 +40,19 @@ export default function Home({ data }) {
     imgRatio,
   } = data;
 
-  const { ref, inView, entry } = useInView({
-    /* Optional options */
-    threshold: 0.1,
-    triggerOnce: true,
-  });
-  const scaleRef = useRef();
-  const [percentView, setPercentView] = useState(1);
+  // const { ref, inView, entry } = useInView({
+  //   /* Optional options */
+  //   threshold: 0.1,
+  //   triggerOnce: true,
+  // });
+  // const scaleRef = useRef();
+  // const [percentView, setPercentView] = useState(1);
 
-  useOffset(percentView, setPercentView, scaleRef, 200, 1);
+  // useOffset(percentView, setPercentView, scaleRef, 200, 1);
 
   return (
     <div className={classes.container}>
-      <HeadPage title={titleseo ? titleseo : ''} description={descriptionseo ? descriptionseo : ''} />
+      {/* <HeadPage title={titleseo ? titleseo : ''} description={descriptionseo ? descriptionseo : ''} />
       <div className={classes.upper}>
         {imageTitleUrl && <Image
           className={classes.img}
@@ -108,14 +108,14 @@ export default function Home({ data }) {
               )}
             </div>
           </div>
-          {/* <Link href="/#homedesc" scroll={false}> */}
+      
 
           <ChevronDoubleDownIcon
             className={`${classes.arrow} ${!white && classes.arrow_black}`}
             onClick={() => scrollTo('homedesc')}
           />
 
-          {/* </Link> */}
+   
         </div>
       </div>
 
@@ -151,9 +151,9 @@ export default function Home({ data }) {
             {body && <RichText value={body} />}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* <Image src={'/images/scale.svg'} width={1400} height={129.09} alt={'test'} /> */}
+   
     </div>
   );
 }
