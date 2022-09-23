@@ -52,7 +52,7 @@ export default function Home({ data }) {
 
   return (
     <div className={classes.container}>
-      <HeadPage title={titleseo} description={descriptionseo} />
+      <HeadPage title={titleseo ? titleseo : ''} description={descriptionseo ? descriptionseo : ''} />
       <div className={classes.upper}>
         <Image
           className={classes.img}
