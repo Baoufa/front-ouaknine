@@ -186,7 +186,7 @@ export async function getStaticProps(ctx) {
         "imgRatio" : mainImage.asset->metadata.dimensions.aspectRatio,
         "lqip": mainImage.asset->metadata.lqip}`
     );
-    return { props: { data: content?.length && content[0] }, revalidate: 10 };
+    return { props: { data: content?.length && content[0] }};
   } catch (err) {
     return {
       notFound: true,
