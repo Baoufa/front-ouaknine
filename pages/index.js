@@ -16,29 +16,31 @@ import useOffset from '../hooks/useOffset';
 import AnimatedScaleMobile from '../components/layout/animated-scale-mobile';
 
 export default function Home({ data }) {
-  const {
-    titleseo,
-    descriptionseo,
-    title1,
-    title2,
-    tag1,
-    link1,
-    tag2,
-    link2,
-    tag3,
-    link3,
-    white,
-    imageTitleUrl,
-    imageTitleAlt,
-    imgRatioTitle,
-    lqipTitle,
-    sectionTitle,
-    body,
-    imageUrl,
-    imageAlt,
-    lqip,
-    imgRatio,
-  } = data;
+  // const {
+  //   titleseo,
+  //   descriptionseo,
+  //   title1,
+  //   title2,
+  //   tag1,
+  //   link1,
+  //   tag2,
+  //   link2,
+  //   tag3,
+  //   link3,
+  //   white,
+  //   imageTitleUrl,
+  //   imageTitleAlt,
+  //   imgRatioTitle,
+  //   lqipTitle,
+  //   sectionTitle,
+  //   body,
+  //   imageUrl,
+  //   imageAlt,
+  //   lqip,
+  //   imgRatio,
+  // } = data;
+
+  console.log(data);
 
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -52,7 +54,7 @@ export default function Home({ data }) {
 
   return (
     <div className={classes.container}>
-      <HeadPage title={titleseo ? titleseo : ''} description={descriptionseo ? descriptionseo : ''} />
+      {/* <HeadPage title={titleseo ? titleseo : ''} description={descriptionseo ? descriptionseo : ''} />
       <div className={classes.upper}>
         {imageTitleUrl && <Image
           className={classes.img}
@@ -151,7 +153,7 @@ export default function Home({ data }) {
             {body && <RichText value={body} />}
           </div>
         </div>
-      </section>
+      </section> */}
 
    
     </div>
@@ -190,8 +192,9 @@ export async function getStaticProps(ctx) {
     return { props: { data: content?.length && content[0] }, revalidate: 10 };
 
   } catch (err) {
-    return {
-      notFound: true,
-    };
+    return { props: { data: err }, revalidate: 10 };
+    // return {
+    //   notFound: true,
+    // };
   }
 }
