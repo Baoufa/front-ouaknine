@@ -45,7 +45,7 @@ function MainFooter() {
 
         <div className={classes.social}>
           <a
-            href=' https://fr.linkedin.com/in/alice-ouaknine-23a4186b'
+            href='https://fr.linkedin.com/in/alice-ouaknine-23a4186b'
             target='_blank'
             rel='noreferrer'
             alt='LinkedIn Alice Ouaknine'
