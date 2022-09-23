@@ -50,6 +50,8 @@ export default function Home({ data }) {
 
   // useOffset(percentView, setPercentView, scaleRef, 200, 1);
 
+  console.log(data);
+
   return (
     <div className={classes.container}>
       {/* <HeadPage title={titleseo ? titleseo : ''} description={descriptionseo ? descriptionseo : ''} />
@@ -192,8 +194,9 @@ export async function getStaticProps(ctx) {
   } catch (err) {
     console.log('ERROR', err);
     console.log('ERROR MESSAGE', err.message);
-    return {
-      notFound: true,
-    };
+    return { props: { data: content?.length && content[0] }, revalidate: 10 };
+    // return {
+    //   notFound: true,
+    // };
   }
 }
