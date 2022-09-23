@@ -54,7 +54,7 @@ export default function Home({ data }) {
     <div className={classes.container}>
       <HeadPage title={titleseo ? titleseo : ''} description={descriptionseo ? descriptionseo : ''} />
       <div className={classes.upper}>
-        <Image
+        {imageTitleUrl && <Image
           className={classes.img}
           src={imageTitleUrl ? `${imageTitleUrl}?w=1600` : ''}
           alt={imageTitleAlt ? imageTitleAlt : 'Image background'}
@@ -66,7 +66,7 @@ export default function Home({ data }) {
           sizes='100vw'
           priority
           quality={30}
-        />
+        />}
 
         <div className={classes.overlay}></div>
 
