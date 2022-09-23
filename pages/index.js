@@ -194,7 +194,7 @@ export async function getStaticProps(ctx) {
   } catch (err) {
     console.log('ERROR', err);
     console.log('ERROR MESSAGE', err.message);
-    return { props: { data: content?.length && content[0] }, revalidate: 10 };
+    return { props: { data: err }, revalidate: 10 };
     // return {
     //   notFound: true,
     // };
