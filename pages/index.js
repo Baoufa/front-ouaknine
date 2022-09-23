@@ -161,9 +161,10 @@ export default function Home({ data }) {
 }
 
 export async function getStaticProps(ctx) {
-  const locale = ctx.locale;
-  console.log("LOCALE", locale)
+  
   try {
+    const locale = ctx.locale;
+    console.log("LOCALE", locale)
     const content = await clientApi.fetch(
       `*[_type == "home" && language == "${locale}"]{
         titleseo, 
