@@ -42,15 +42,15 @@ export default function Home({ data }) {
 
   console.log(data);
 
-  const { ref, inView, entry } = useInView({
-    /* Optional options */
-    threshold: 0.1,
-    triggerOnce: true,
-  });
-  const scaleRef = useRef();
-  const [percentView, setPercentView] = useState(1);
+  // const { ref, inView, entry } = useInView({
+  //   /* Optional options */
+  //   threshold: 0.1,
+  //   triggerOnce: true,
+  // });
+  // const scaleRef = useRef();
+  // const [percentView, setPercentView] = useState(1);
 
-  useOffset(percentView, setPercentView, scaleRef, 200, 1);
+  // useOffset(percentView, setPercentView, scaleRef, 200, 1);
 
   return (
     <div className={classes.container}>
