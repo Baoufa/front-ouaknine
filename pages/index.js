@@ -16,45 +16,43 @@ import useOffset from '../hooks/useOffset';
 import AnimatedScaleMobile from '../components/layout/animated-scale-mobile';
 
 export default function Home({ data }) {
-  // const {
-  //   titleseo,
-  //   descriptionseo,
-  //   title1,
-  //   title2,
-  //   tag1,
-  //   link1,
-  //   tag2,
-  //   link2,
-  //   tag3,
-  //   link3,
-  //   white,
-  //   imageTitleUrl,
-  //   imageTitleAlt,
-  //   imgRatioTitle,
-  //   lqipTitle,
-  //   sectionTitle,
-  //   body,
-  //   imageUrl,
-  //   imageAlt,
-  //   lqip,
-  //   imgRatio,
-  // } = data;
+  const {
+    titleseo,
+    descriptionseo,
+    title1,
+    title2,
+    tag1,
+    link1,
+    tag2,
+    link2,
+    tag3,
+    link3,
+    white,
+    imageTitleUrl,
+    imageTitleAlt,
+    imgRatioTitle,
+    lqipTitle,
+    sectionTitle,
+    body,
+    imageUrl,
+    imageAlt,
+    lqip,
+    imgRatio,
+  } = data;
 
-  // const { ref, inView, entry } = useInView({
-  //   /* Optional options */
-  //   threshold: 0.1,
-  //   triggerOnce: true,
-  // });
-  // const scaleRef = useRef();
-  // const [percentView, setPercentView] = useState(1);
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0.1,
+    triggerOnce: true,
+  });
+  const scaleRef = useRef();
+  const [percentView, setPercentView] = useState(1);
 
-  // useOffset(percentView, setPercentView, scaleRef, 200, 1);
-
-  console.log(data);
+  useOffset(percentView, setPercentView, scaleRef, 200, 1);
 
   return (
     <div className={classes.container}>
-      {/* <HeadPage title={titleseo ? titleseo : ''} description={descriptionseo ? descriptionseo : ''} />
+      <HeadPage title={titleseo ? titleseo : ''} description={descriptionseo ? descriptionseo : ''} />
       <div className={classes.upper}>
         {imageTitleUrl && <Image
           className={classes.img}
@@ -153,7 +151,7 @@ export default function Home({ data }) {
             {body && <RichText value={body} />}
           </div>
         </div>
-      </section> */}
+      </section>
 
    
     </div>
@@ -164,7 +162,6 @@ export async function getStaticProps(ctx) {
   
   try {
     const locale = ctx.locale;
-    console.log("LOCALE", locale)
     const content = await clientApi.fetch(
       `*[_type == "home" && language == "${locale}"]{
         titleseo, 
@@ -189,15 +186,11 @@ export async function getStaticProps(ctx) {
         "imgRatio" : mainImage.asset->metadata.dimensions.aspectRatio,
         "lqip": mainImage.asset->metadata.lqip}`
     );
-    console.log('CONTENT', content[0])
-    return { props: { data: ctx }, revalidate: 10 };
+    return { props: { data: content?.length && content[0] }, revalidate: 10 };
 
   } catch (err) {
-    console.log('ERROR', err);
-    console.log('ERROR MESSAGE', err.message);
-    return { props: { data: err }, revalidate: 10 };
-    // return {
-    //   notFound: true,
-    // };
+    return {
+      notFound: true,
+    };
   }
 }
