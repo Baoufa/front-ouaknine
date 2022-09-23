@@ -160,7 +160,7 @@ export default function Home({ data }) {
 
 export async function getStaticProps(ctx) {
   const locale = ctx.locale;
-
+  console.log("LOCALE", locale)
   try {
     const content = await clientApi.fetch(
       `*[_type == "home" && language == "${locale}"]{
@@ -186,7 +186,7 @@ export async function getStaticProps(ctx) {
         "imgRatio" : mainImage.asset->metadata.dimensions.aspectRatio,
         "lqip": mainImage.asset->metadata.lqip}`
     );
-    console.log(content[0])
+    console.log('CONTENT', content[0])
     return { props: { data: content?.length && content[0] }, revalidate: 10 };
 
   } catch (err) {
