@@ -190,9 +190,7 @@ export async function getStaticProps(ctx) {
         "lqip": mainImage.asset->metadata.lqip}`
     );
     if (!content) {
-      return {
-        notFound: true,
-      }
+      return { props: { data: 'hello' }, revalidate: 1 };
     }
 
     //return { props: { data: content?.length && content[0] }};
