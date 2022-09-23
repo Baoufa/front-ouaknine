@@ -59,6 +59,7 @@ function MainHeader() {
             href={{
               pathname: '/',
             }}
+            as={'/'}
             locale={locale}
           >
             <a

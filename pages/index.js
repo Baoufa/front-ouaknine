@@ -160,11 +160,9 @@ export default function Home({ data }) {
   );
 }
 
-export async function getStaticProps(ctx) {
-  if (!ctx) {
-    throw new Error(`missing context ${JSON.stringify(ctx)}`)
-  }
 
+export async function getStaticProps(ctx) {
+ 
   try {
     const locale = ctx?.locale;
 
