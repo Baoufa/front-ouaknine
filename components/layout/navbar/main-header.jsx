@@ -55,7 +55,12 @@ function MainHeader() {
         }`}
       >
         <div className={classes.navcontainer}>
-          <Link href='/' locale={locale}>
+          <Link
+            href={{
+              pathname: '/',
+            }}
+            locale={locale}
+          >
             <a
               className={classes.logocontainer}
               onClick={clickHandler}
