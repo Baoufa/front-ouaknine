@@ -54,7 +54,7 @@ export default function Home({ data }) {
     <div className={classes.container}>
       <HeadPage title={titleseo ? titleseo : ''} description={descriptionseo ? descriptionseo : ''} />
       <div className={classes.upper}>
-        <Image
+        {imageTitleUrl && <Image
           className={classes.img}
           src={imageTitleUrl ? `${imageTitleUrl}?w=1600` : ''}
           alt={imageTitleAlt ? imageTitleAlt : 'Image background'}
@@ -66,7 +66,7 @@ export default function Home({ data }) {
           sizes='100vw'
           priority
           quality={30}
-        />
+        />}
 
         <div className={classes.overlay}></div>
 
@@ -108,14 +108,14 @@ export default function Home({ data }) {
               )}
             </div>
           </div>
-          {/* <Link href="/#homedesc" scroll={false}> */}
+      
 
           <ChevronDoubleDownIcon
             className={`${classes.arrow} ${!white && classes.arrow_black}`}
             onClick={() => scrollTo('homedesc')}
           />
 
-          {/* </Link> */}
+   
         </div>
       </div>
 
@@ -153,15 +153,15 @@ export default function Home({ data }) {
         </div>
       </section>
 
-      {/* <Image src={'/images/scale.svg'} width={1400} height={129.09} alt={'test'} /> */}
+   
     </div>
   );
 }
 
 export async function getStaticProps(ctx) {
-  const locale = ctx.locale;
-
+  
   try {
+    const locale = ctx.locale;
     const content = await clientApi.fetch(
       `*[_type == "home" && language == "${locale}"]{
         titleseo, 
@@ -187,6 +187,7 @@ export async function getStaticProps(ctx) {
         "lqip": mainImage.asset->metadata.lqip}`
     );
     return { props: { data: content?.length && content[0] }, revalidate: 10 };
+
   } catch (err) {
     return {
       notFound: true,
