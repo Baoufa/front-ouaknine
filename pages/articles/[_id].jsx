@@ -259,6 +259,7 @@ export async function getStaticProps({ locale, params }) {
 
     return { props: { data: content?.length && content[0] }, revalidate: 10 };
   } catch (err) {
+    console.log(err);
     return {
       notFound: true,
     };
