@@ -25,6 +25,7 @@ const localSwitcher = locale => {
 };
 
 function Article({ data }) {
+  
   const {
     _id,
     language,
@@ -39,6 +40,7 @@ function Article({ data }) {
     estimatedReadingTimeOther,
     mainImage,
   } = data;
+
 
   const [winWidth, setWinWidth] = useState();
 
@@ -65,6 +67,7 @@ function Article({ data }) {
 
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
+ 
   let formattedDate;
   if (publishedAt) {
     formattedDate = new Date(publishedAt).toLocaleDateString(locale, options);
@@ -212,7 +215,7 @@ export async function getStaticPaths({ locales }) {
 
     return {
       paths: paths,
-      fallback: true,
+      fallback: 'blocking',
     };
   } catch (err) {
     return {
